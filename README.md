@@ -11,6 +11,7 @@ COSC345 - Software Engineering Group Project 2021
   - Paper on [improvements made to StyleGAN](https://arxiv.org/pdf/1912.04958.pdf) 
   - Good [video](https://www.youtube.com/watch?v=Sw9r8CL98N0) on GAN by Computerphile
   - [Video](https://www.youtube.com/watch?v=RPGOPrkieTE) on how we can easily generate faces for ourselves
+  - [Controlling Facial Properties](https://www.youtube.com/watch?v=5XX4uy9Mk9I&t=379s) at 9:00 mentions that it should be possible to only generate children
   - Simpler GAN's: [Simple for Pytorch](https://github.com/lucidrains/stylegan2-pytorch), [Lightweight](https://github.com/lucidrains/lightweight-gan)
 
 ## Problems To Solve
