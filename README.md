@@ -1,9 +1,10 @@
-# 345-group-project
+# COSC345 Group Project
 COSC345 - Software Engineering Group Project 2021
+### [Project Wiki](https://github.com/jordankettles/345-group-project/wiki/)
 
 ## Reading/Research Material
 - Generative Adverserial Networks (GAN)
-  - [Wiki](https://en.wikipedia.org/wiki/Generative_adversarial_network)
+  - [GAN Wiki](https://en.wikipedia.org/wiki/Generative_adversarial_network)
   - The 3 video links found on thispersondoesnotexist explaining how it works: [Link1](https://www.youtube.com/watch?v=u8qPvzk0AfY), [Link2](https://www.youtube.com/watch?v=dCKbRCUyop8), [Link3](https://www.youtube.com/watch?v=SWoravHhsUU) <- I love "Two Minute Papers"
   - Github repo for Nvidia labs [StyleGAN2](https://github.com/NVlabs/stylegan2)
   - Github repo for the Nvidia labs [FFHQ Dataset](https://github.com/NVlabs/ffhq-dataset)
