@@ -18,6 +18,7 @@ COSC345 - Software Engineering Group Project 2021
 - Open AI GPT
   - [GPT-3 Sandbox](https://github.com/shreyashankar/gpt3-sandbox)
   - [GPT Examples](https://gpt3examples.com/#examples)
+  - [GPT-2 Andriod App](https://towardsdatascience.com/on-device-machine-learning-text-generation-on-android-6ad940c00911)
 ## Problems To Solve
 - Make the network generate faces in a specified age range
 - How do we store these images on the app without the app size being very large (<50Mb would be good) 
