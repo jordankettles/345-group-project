@@ -18,7 +18,12 @@ COSC345 - Software Engineering Group Project 2021
 - Open AI GPT
   - [GPT-3 Sandbox](https://github.com/shreyashankar/gpt3-sandbox)
   - [GPT Examples](https://gpt3examples.com/#examples)
+
+- Mobile Machine Learning
+  - [How to get Machine Learning on Mobile](https://blog.vsoftconsulting.com/blog/-how-to-get-machine-learning-abilities-on-mobile-apps)
   - [GPT-2 Andriod App](https://towardsdatascience.com/on-device-machine-learning-text-generation-on-android-6ad940c00911)
+  - [State of AI on Mobile](https://blog.vsoftconsulting.com/blog/state-of-ai-on-android-and-ios) - includes how to steps for Andriod/iOS
+
 ## Problems To Solve
 - Make the network generate faces in a specified age range
 - How do we store these images on the app without the app size being very large (<50Mb would be good) 
