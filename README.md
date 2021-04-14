@@ -15,6 +15,8 @@ COSC345 - Software Engineering Group Project 2021
   - [Controlling Facial Properties](https://www.youtube.com/watch?v=5XX4uy9Mk9I&t=379s) at 9:00 mentions that it should be possible to only generate children
   - Simpler GAN's: [Simple for Pytorch](https://github.com/lucidrains/stylegan2-pytorch), [Lightweight](https://github.com/lucidrains/lightweight-gan)
 
+- Open AI GPT
+  - [GPT-3 Sandbox](https://github.com/shreyashankar/gpt3-sandbox)
 ## Problems To Solve
 - Make the network generate faces in a specified age range
 - How do we store these images on the app without the app size being very large (<50Mb would be good) 
