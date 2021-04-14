@@ -23,6 +23,9 @@ COSC345 - Software Engineering Group Project 2021
   - [How to get Machine Learning on Mobile](https://blog.vsoftconsulting.com/blog/-how-to-get-machine-learning-abilities-on-mobile-apps)
   - [GPT-2 Andriod App](https://towardsdatascience.com/on-device-machine-learning-text-generation-on-android-6ad940c00911)
   - [State of AI on Mobile](https://blog.vsoftconsulting.com/blog/state-of-ai-on-android-and-ios) - includes how to steps for Andriod/iOS
+  - ![Screenshot](tensorflow.PNG)
+    - From [TensorFlow Lite Guide](https://www.tensorflow.org/lite/guide)
+
 
 ## Problems To Solve
 - Make the network generate faces in a specified age range
