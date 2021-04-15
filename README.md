@@ -28,6 +28,5 @@ COSC345 - Software Engineering Group Project 2021
 
 
 ## Problems To Solve
-- Make the network generate faces in a specified age range
-- How do we store these images on the app without the app size being very large (<50Mb would be good) 
-- Investigate whether it's possible to create the images on the app, perhaps using [TensorFlow Lite](https://www.tensorflow.org/lite)
+- Decide on tags for version numbers.
+- Decide on name for the app.
