@@ -1,12 +1,25 @@
 package poemgenerator.ai
 
+import java.io.File
+
 class MockGenerator : PoemGenerator {
+//    (private val mockPoemList: MutableList<String>)
+
+    private var mockPoemList: MutableList<String> = mutableListOf()
+    private var prompt: String? = null
+
+    init {
+        File("poemgenerator/ai/mockpoems.txt").forEachLine { this.mockPoemList.add(it)}
+    }
+
     override fun submitPrompt(prompt: String) {
-        TODO("Not yet implemented")
+        this.prompt = prompt
+
+        Thread.sleep(5_000)
     }
 
     override fun getPoem(): String {
-        TODO("Not yet implemented")
+        return this.mockPoemList.random()
     }
 
 }

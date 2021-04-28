@@ -1,12 +1,9 @@
 package poemgenerator.controller
 
-import poemgenerator.ai.MockGenerator
-import poemgenerator.ai.PoemGenerator
-
 class PoemManager {
 
     // Replace with actual poem generator later.
-    private var generator: PoemGenerator = MockGenerator()
+//    private var generator: PoemGenerator = MockGenerator()
 
     // poemOutput is null until MockGenerator returns poem.
     private var poemOutput: String? = null
@@ -19,7 +16,7 @@ class PoemManager {
     //submitPrompt
     fun submitPrompt(prompt: String) {
         // TODO: Stick this in a coroutine and wait for it to return a poem.
-        this.generator.submitPrompt(prompt)
+//        this.generator.submitPrompt(prompt)
     }
 
     //retrieve prompt
