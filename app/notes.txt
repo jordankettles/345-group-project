@@ -1,0 +1,5 @@
+Data binding Jetpack
+https://temidjoy.medium.com/android-jetpack-empower-your-ui-with-android-data-binding-94a657cb6be1
+
+Coroutines
+https://medium.com/androiddevelopers/coroutines-on-android-part-i-getting-the-background-3e0e54d20bb

@@ -1,50 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:orientation="vertical"
     tools:context=".PoemMainFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <data>
+        <variable
+            name="viewModel"
+            type="com.poemgen.mockspire.model.PoemMainViewModel" />
+
+        <variable
+            name="poemMainFragment"
+            type="com.poemgen.mockspire.PoemMainFragment" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="8dp">
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/promptField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="hint" />
 
-    <Button
-        android:id="@+id/submit_prompt"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:text="Button" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="350dp">
+        <Button
+            android:id="@+id/submit_prompt_button"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="Button"
+            android:onClick="@{() -> poemMainFragment.submitPrompt()}"/>
 
-        <TextView
-            android:id="@+id/textView"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginVertical="40dp"
-            android:lineSpacingExtra="8sp"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#676565"
-            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel tincidunt sapien. Pellentesque lorem ligula, convallis in dolor vitae, ultricies cursus ipsum. Curabitur blandit accumsan metus, at convallis dolor accumsan id. " />
-    </FrameLayout>
+            android:layout_height="350dp">
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginVertical="40dp"
+                android:lineSpacingExtra="8sp"
+                android:text="@{viewModel.poemText}"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#676565"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel tincidunt sapien. Pellentesque lorem ligula, convallis in dolor vitae, ultricies cursus ipsum. Curabitur blandit accumsan metus, at convallis dolor accumsan id. " />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</layout>
