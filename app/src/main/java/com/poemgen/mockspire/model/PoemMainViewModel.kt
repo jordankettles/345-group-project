@@ -8,7 +8,7 @@ import com.poemgen.mockspire.poemgenerator.ai.MockGenerator
 class PoemMainViewModel : ViewModel() {
 
     private val _title = MutableLiveData<String>()
-    val title: LiveData<String> =_title
+    val title: LiveData<String> = _title
 
     private val _poemText = MutableLiveData<String>()
     val poemText: LiveData<String> = _poemText
@@ -18,7 +18,11 @@ class PoemMainViewModel : ViewModel() {
 
     fun submitPrompt(prompt: String) {
         poemGenerator.submitPrompt(prompt)
-        this._poemText.value = poemGenerator.getPoem()
+        _poemText.postValue(poemGenerator.getPoem())
+
+//        this._poemText.value = poemGenerator.getPoem()
+
+
     }
 
 }

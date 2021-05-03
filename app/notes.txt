@@ -3,3 +3,4 @@ https://temidjoy.medium.com/android-jetpack-empower-your-ui-with-android-data-bi
 
 Coroutines
 https://medium.com/androiddevelopers/coroutines-on-android-part-i-getting-the-background-3e0e54d20bb
+https://kotlinlang.org/docs/coroutines-basics.html#scope-builder-and-concurrency

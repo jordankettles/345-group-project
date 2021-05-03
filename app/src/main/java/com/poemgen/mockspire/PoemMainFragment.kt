@@ -8,6 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.poemgen.mockspire.databinding.FragmentPoemMainBinding
 import com.poemgen.mockspire.model.PoemMainViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
 
 /**
  * A simple [Fragment] subclass.
@@ -48,8 +52,17 @@ class PoemMainFragment : Fragment() {
         }
     }
 
-    fun submitPrompt() {
-        sharedViewModel.submitPrompt(binding?.promptField?.text.toString())
+    fun submitPrompt(){
+
+        val routine = CoroutineScope(IO).launch{
+            sharedViewModel.submitPrompt(binding?.promptField?.text.toString())
+
+        }
+
+        CoroutineScope(Main).launch {
+            routine
+        }
+
     }
 
 
