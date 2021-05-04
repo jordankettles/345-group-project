@@ -8,10 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.poemgen.mockspire.databinding.FragmentPoemMainBinding
 import com.poemgen.mockspire.model.PoemMainViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.Dispatchers.Main
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 /**
  * A simple [Fragment] subclass.
@@ -52,17 +49,39 @@ class PoemMainFragment : Fragment() {
         }
     }
 
+
+    val job = Job()
+    val uiScope = CoroutineScope(Dispatchers.Main + job)
+
     fun submitPrompt(){
 
-        val routine = CoroutineScope(IO).launch{
+        binding?.submitPromptButton?.isEnabled = false
+
+        uiScope.launch(Dispatchers.IO) {
             sharedViewModel.submitPrompt(binding?.promptField?.text.toString())
 
+            withContext(Dispatchers.Main) {
+                binding?.submitPromptButton?.isEnabled = true
+            }
         }
 
-        CoroutineScope(Main).launch {
-            routine
-        }
 
+//        val routine = CoroutineScope(IO).launch{
+//            sharedViewModel.submitPrompt(binding?.promptField?.text.toString())
+//            binding?.submitPromptButton?.isEnabled = true
+//        }
+//
+//        CoroutineScope(Main).launch {
+//            routine
+//
+//        }
+
+    }
+
+
+    override fun onDestroy() {
+        job.cancel()
+        super.onDestroy()
     }
 
 
