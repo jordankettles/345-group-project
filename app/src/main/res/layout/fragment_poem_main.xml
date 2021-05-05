@@ -54,6 +54,7 @@
                 android:layout_marginHorizontal="40dp"
                 android:layout_marginVertical="40dp"
                 android:lineSpacingExtra="8sp"
+                android:text="@{viewModel.poemText}"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="#676565"

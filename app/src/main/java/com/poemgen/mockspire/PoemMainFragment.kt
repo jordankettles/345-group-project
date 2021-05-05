@@ -1,10 +1,6 @@
 package com.poemgen.mockspire
 
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.style.ClickableSpan
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,37 +58,24 @@ class PoemMainFragment : Fragment() {
         binding?.submitPromptButton?.isEnabled = false
 
         uiScope.launch(Dispatchers.IO) {
-            // Update the poem text
             sharedViewModel.submitPrompt(binding?.promptField?.text.toString())
 
-            //Generate spannable here
-            val spannable = generateSpannable()
-
             withContext(Dispatchers.Main) {
-                //Set text layout to spannable here.
-                binding?.poemTextView?.text = spannable.toString()
-
                 binding?.submitPromptButton?.isEnabled = true
             }
         }
 
 
-    }
+//        val routine = CoroutineScope(IO).launch{
+//            sharedViewModel.submitPrompt(binding?.promptField?.text.toString())
+//            binding?.submitPromptButton?.isEnabled = true
+//        }
+//
+//        CoroutineScope(Main).launch {
+//            routine
+//
+//        }
 
-    fun generateSpannable(): SpannableString {
-        val text = sharedViewModel.poemText.value.toString()
-
-        val outputSpannable = SpannableString(text)
-
-        val tempClickable = object : ClickableSpan() {
-            override fun onClick(widget: View) {
-                Log.d("Mock", "heyoo")
-            }
-
-        }
-        outputSpannable.setSpan(tempClickable, 0, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-        return outputSpannable
     }
 
 
