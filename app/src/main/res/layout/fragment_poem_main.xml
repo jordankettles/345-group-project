@@ -40,7 +40,7 @@
             android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
-            android:text="Button"
+            android:text="@string/button"
             android:onClick="@{() -> poemMainFragment.submitPrompt()}"/>
 
         <FrameLayout
@@ -48,7 +48,7 @@
             android:layout_height="350dp">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/poemTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="40dp"
@@ -58,8 +58,18 @@
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="#676565"
+                android:clickable="true"
+                android:focusable="true"
                 tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel tincidunt sapien. Pellentesque lorem ligula, convallis in dolor vitae, ultricies cursus ipsum. Curabitur blandit accumsan metus, at convallis dolor accumsan id. " />
+
         </FrameLayout>
+
+        <TextView
+            android:id="@+id/debugOutView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.title}"
+            tools:text="debug" />
 
     </LinearLayout>
 
