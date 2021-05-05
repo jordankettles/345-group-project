@@ -25,8 +25,8 @@ class PoemMainViewModel : ViewModel() {
         poemGenerator.submitPrompt(prompt)
 //        _poemText.postValue(poemGenerator.getPoem())
 
-//        _poemText.postValue(SpannableString(poemGenerator.getPoem()))
-        _poemText.postValue(generateSpannables(poemGenerator.getPoem()))
+        _poemText.postValue(SpannableString(poemGenerator.getPoem()))
+//        _poemText.postValue(generateSpannables(poemGenerator.getPoem()))
 //        Log.d("Mock", "Generating")
 //        generateSpannables(prompt, )
 
