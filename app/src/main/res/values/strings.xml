@@ -5,4 +5,5 @@
 
     <string name="dummyPrompt">Dummy Prompt</string>
     <string name="button">Button</string>
+    <string name="give_the_writer_a_prompt">Give the Writer a Prompt</string>
 </resources>
