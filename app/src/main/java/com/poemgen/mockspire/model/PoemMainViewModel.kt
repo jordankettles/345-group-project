@@ -18,7 +18,16 @@ class PoemMainViewModel : ViewModel() {
     private val _poemText = MutableLiveData<SpannableString>()
     val poemText: LiveData<SpannableString> = _poemText
 
+    private val _readyForPrompt = MutableLiveData<Boolean>()
+    val readyForPrompt: LiveData<Boolean> = _readyForPrompt
+
     private val poemGenerator = MockGenerator()
+
+
+    init {
+        setReady(true)
+    }
+
 
 
     fun submitPrompt(prompt: String) {
@@ -32,6 +41,9 @@ class PoemMainViewModel : ViewModel() {
 
     }
 
+    fun setReady(ready: Boolean) {
+        _readyForPrompt.value = ready
+    }
 
     fun generateSpannables(text: String): SpannableString {
         val nonLetterIndices = mutableListOf<Int>()

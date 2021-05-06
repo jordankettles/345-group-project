@@ -55,13 +55,15 @@ class PoemMainFragment : Fragment() {
 
     fun submitPrompt(){
 
-        binding?.submitPromptButton?.isEnabled = false
+//        binding?.submitPromptButton?.isEnabled = false
+        sharedViewModel.setReady(false)
 
         uiScope.launch(Dispatchers.IO) {
             sharedViewModel.submitPrompt(binding?.promptField?.text.toString())
 
             withContext(Dispatchers.Main) {
-                binding?.submitPromptButton?.isEnabled = true
+//                binding?.submitPromptButton?.isEnabled = true
+                sharedViewModel.setReady(true)
             }
         }
 
