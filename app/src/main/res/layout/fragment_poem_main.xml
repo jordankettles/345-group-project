@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PoemMainFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.poemgen.mockspire.model.PoemMainViewModel" />
+
+        <variable
+            name="poemMainFragment"
+            type="com.poemgen.mockspire.PoemMainFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/promptField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/give_the_writer_a_prompt"
+                android:inputType="textShortMessage" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/submit_prompt_button"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="@string/button"
+            android:enabled="@{viewModel.readyForPrompt}"
+            android:onClick="@{() -> poemMainFragment.submitPrompt()}"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp">
+
+            <TextView
+                android:id="@+id/poemTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginVertical="40dp"
+                android:lineSpacingExtra="8sp"
+                android:text="@{viewModel.poemText}"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#676565"
+                android:clickable="true"
+                android:focusable="true"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel tincidunt sapien. Pellentesque lorem ligula, convallis in dolor vitae, ultricies cursus ipsum. Curabitur blandit accumsan metus, at convallis dolor accumsan id. " />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/debugOutView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.title}"
+            tools:text="debug" />
+
+    </LinearLayout>
+
+</layout>
