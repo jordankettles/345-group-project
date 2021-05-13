@@ -32,12 +32,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_constraintTop_toBottomOf="@+id/titleTextView"
             android:layout_marginStart="80dp"
             android:layout_marginEnd="80dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="80dp" />
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
