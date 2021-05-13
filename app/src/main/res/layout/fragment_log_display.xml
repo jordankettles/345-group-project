@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LogDisplayFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.poemgen.mockspire.model.PoemMainViewModel" />
+        <variable
+            name="logDisplayFragment"
+            type="com.poemgen.mockspire.LogDisplayFragment" />
+    </data>
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Heyo, this is text. "
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_constraintTop_toBottomOf="@+id/titleTextView"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="80dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

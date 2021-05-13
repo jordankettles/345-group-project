@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/poemMainFragment">
+    app:startDestination="@id/logDisplayFragment">
 
     <fragment
         android:id="@+id/poemMainFragment"
         android:name="com.poemgen.mockspire.PoemMainFragment"
         android:label="fragment_poem_main"
         tools:layout="@layout/fragment_poem_main" />
+    <fragment
+        android:id="@+id/logDisplayFragment"
+        android:name="com.poemgen.mockspire.LogDisplayFragment"
+        android:label="fragment_log_display"
+        tools:layout="@layout/fragment_log_display" />
 </navigation>
