@@ -9,10 +9,18 @@
         android:id="@+id/poemMainFragment"
         android:name="com.poemgen.mockspire.PoemMainFragment"
         android:label="fragment_poem_main"
-        tools:layout="@layout/fragment_poem_main" />
+        tools:layout="@layout/fragment_poem_main" >
+        <action
+            android:id="@+id/action_poemMainFragment_to_logDisplayFragment"
+            app:destination="@id/logDisplayFragment" />
+    </fragment>
     <fragment
         android:id="@+id/logDisplayFragment"
         android:name="com.poemgen.mockspire.LogDisplayFragment"
         android:label="fragment_log_display"
-        tools:layout="@layout/fragment_log_display" />
+        tools:layout="@layout/fragment_log_display" >
+        <action
+            android:id="@+id/action_logDisplayFragment_to_poemMainFragment"
+            app:destination="@id/poemMainFragment" />
+    </fragment>
 </navigation>

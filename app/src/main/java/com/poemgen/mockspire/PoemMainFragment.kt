@@ -18,7 +18,6 @@ import kotlinx.coroutines.*
 class PoemMainFragment : Fragment() {
 
     private var binding: FragmentPoemMainBinding? = null
-
     private val sharedViewModel: PoemMainViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

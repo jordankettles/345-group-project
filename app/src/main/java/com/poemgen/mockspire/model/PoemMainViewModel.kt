@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.poemgen.mockspire.poemgenerator.ai.MockGenerator
+import com.poemgen.mockspire.poemgenerator.record.Poem
 
 class PoemMainViewModel : ViewModel() {
 
@@ -21,6 +22,9 @@ class PoemMainViewModel : ViewModel() {
     private val _readyForPrompt = MutableLiveData<Boolean>()
     val readyForPrompt: LiveData<Boolean> = _readyForPrompt
 
+    private val _poemList = MutableLiveData<MutableList<Poem>>()
+    val poemList: LiveData<MutableList<Poem>> = _poemList
+
     private val poemGenerator = MockGenerator()
 
 
@@ -32,13 +36,20 @@ class PoemMainViewModel : ViewModel() {
 
     fun submitPrompt(prompt: String) {
         poemGenerator.submitPrompt(prompt)
+        var content = poemGenerator.getPoem()
+
 //        _poemText.postValue(poemGenerator.getPoem())
 
 //        _poemText.postValue(SpannableString(poemGenerator.getPoem()))
-        _poemText.postValue(generateSpannables(poemGenerator.getPoem()))
+        _poemText.postValue(generateSpannables(content))
 //        Log.d("Mock", "Generating")
 //        generateSpannables(prompt, )
 
+
+        // Add new poem to log
+        var newPoem = Poem(prompt, content)
+
+        _poemList.value?.add(newPoem)
     }
 
     fun setReady(ready: Boolean) {
