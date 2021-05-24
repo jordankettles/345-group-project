@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/logDisplayFragment">
+    app:startDestination="@id/poemMainFragment">
 
     <fragment
         android:id="@+id/poemMainFragment"
@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_poemMainFragment_to_logDisplayFragment"
             app:destination="@id/logDisplayFragment" />
+        <action
+            android:id="@+id/action_poemMainFragment_to_helpFragment"
+            app:destination="@id/helpFragment" />
     </fragment>
     <fragment
         android:id="@+id/logDisplayFragment"
@@ -21,6 +24,20 @@
         tools:layout="@layout/fragment_log_display" >
         <action
             android:id="@+id/action_logDisplayFragment_to_poemMainFragment"
+            app:destination="@id/poemMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/poemLogListFragment"
+        android:name="com.poemgen.mockspire.PoemLogListFragment"
+        android:label="fragment_poem_log_list"
+        tools:layout="@layout/fragment_poem_log_list" />
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.poemgen.mockspire.HelpFragment"
+        android:label="fragment_help"
+        tools:layout="@layout/fragment_help" >
+        <action
+            android:id="@+id/action_helpFragment_to_poemMainFragment"
             app:destination="@id/poemMainFragment" />
     </fragment>
 </navigation>

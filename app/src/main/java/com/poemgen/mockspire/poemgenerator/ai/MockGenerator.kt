@@ -23,7 +23,7 @@ class MockGenerator : PoemGenerator {
     override fun submitPrompt(prompt: String) {
         this.prompt = prompt
 
-        Thread.sleep(5_000)
+        Thread.sleep(1_000)
     }
 
     override fun getPoem(): String {

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.poemgen.mockspire.databinding.FragmentPoemMainBinding
 import com.poemgen.mockspire.model.PoemMainViewModel
 import kotlinx.coroutines.*
@@ -45,6 +46,8 @@ class PoemMainFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
             poemMainFragment = this@PoemMainFragment
+
+//            showLogButton.setOnClickListener { showLog() }
         }
     }
 
@@ -53,8 +56,6 @@ class PoemMainFragment : Fragment() {
     val uiScope = CoroutineScope(Dispatchers.Main + job)
 
     fun submitPrompt(){
-
-//        binding?.submitPromptButton?.isEnabled = false
         sharedViewModel.setReady(false)
 
         uiScope.launch(Dispatchers.IO) {
@@ -67,6 +68,7 @@ class PoemMainFragment : Fragment() {
         }
 
 
+
 //        val routine = CoroutineScope(IO).launch{
 //            sharedViewModel.submitPrompt(binding?.promptField?.text.toString())
 //            binding?.submitPromptButton?.isEnabled = true
@@ -77,6 +79,14 @@ class PoemMainFragment : Fragment() {
 //
 //        }
 
+    }
+
+    fun showLog() {
+        findNavController().navigate(R.id.action_poemMainFragment_to_logDisplayFragment)
+    }
+
+    fun showHelp() {
+        findNavController().navigate(R.id.action_poemMainFragment_to_helpFragment)
     }
 
 
