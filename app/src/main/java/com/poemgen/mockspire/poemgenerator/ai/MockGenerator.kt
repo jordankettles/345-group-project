@@ -7,8 +7,6 @@ class MockGenerator : PoemGenerator {
     private var prompt: String? = null
 
     init {
-//        File("mockpoems.txt").forEachLine { this.mockPoemList.add(it)}
-
         mockPoemList = mutableListOf(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas sed tempus urna et pharetra. Blandit volutpat maecenas volutpat blandit aliquam etiam. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus.",
             "Eget felis eget nunc lobortis mattis. Ornare aenean euismod elementum nisi. Ut ornare lectus sit amet est placerat in egestas erat. Consectetur adipiscing elit duis tristique sollicitudin nibh. Aliquam faucibus purus in massa tempor nec feugiat. Sed faucibus turpis in eu.",

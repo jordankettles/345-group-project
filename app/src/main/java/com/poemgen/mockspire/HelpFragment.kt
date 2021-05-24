@@ -10,6 +10,7 @@ import com.poemgen.mockspire.databinding.FragmentHelpBinding
 
 class HelpFragment : Fragment() {
 
+    // View binding boilerplate
     private var binding: FragmentHelpBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,8 +36,8 @@ class HelpFragment : Fragment() {
         }
     }
 
-
-        fun showMain() {
+    // Return to main screen.
+    fun showMain() {
         findNavController().navigate(R.id.action_helpFragment_to_poemMainFragment)
     }
 }

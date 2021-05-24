@@ -12,6 +12,7 @@ import com.poemgen.mockspire.poemgenerator.ai.MockGenerator
 import com.poemgen.mockspire.poemgenerator.record.Garden
 import com.poemgen.mockspire.poemgenerator.record.Poem
 
+// Shared viewmodel for whole app
 class PoemMainViewModel : ViewModel() {
 
     private val _title = MutableLiveData<String>()
@@ -35,17 +36,11 @@ class PoemMainViewModel : ViewModel() {
         var content = poemGenerator.getPoem()
 
         var newPoem = Poem(prompt, content)
+
+        // Add to log
         Garden.seeds.add(newPoem)
 
-//        _poemText.postValue(poemGenerator.getPoem())
-
-//        _poemText.postValue(SpannableString(poemGenerator.getPoem()))
         _poemText.postValue(generateSpannables(content))
-//        Log.d("Mock", "Generating")
-//        generateSpannables(prompt, )
-
-
-        // Add new poem to log
     }
 
     fun setReady(ready: Boolean) {

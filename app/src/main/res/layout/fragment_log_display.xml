@@ -13,7 +13,6 @@
             type="com.poemgen.mockspire.LogDisplayFragment" />
     </data>
 
-    <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"

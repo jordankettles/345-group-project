@@ -2,6 +2,8 @@ package com.poemgen.mockspire.poemgenerator.record
 
 import android.util.Log
 
+// Shared static class across the whole app to store poems
+// Recycler view does not work with ViewModel because design is squat.
 object Garden {
 
     public var seeds: MutableList<Poem> = mutableListOf()

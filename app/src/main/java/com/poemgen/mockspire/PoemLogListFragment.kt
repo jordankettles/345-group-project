@@ -12,12 +12,11 @@ import com.poemgen.mockspire.model.PoemMainViewModel
 import com.poemgen.mockspire.poemgenerator.record.Garden
 
 /**
- * A simple [Fragment] subclass.
- * Use the [PoemLogListFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Scrollable log display to place in other fragments.
  */
 class PoemLogListFragment : Fragment() {
 
+    // Data/View binding boilerplate
     private var binding: FragmentPoemLogListBinding? = null
     private val sharedViewModel: PoemMainViewModel by activityViewModels()
 
@@ -47,18 +46,12 @@ class PoemLogListFragment : Fragment() {
             poemLogListFragment = this@PoemLogListFragment
         }
 
+        // Bind Garden log to recycler view
         val rvPoemList = binding?.rvPoemList
-
-//        sharedViewModel.addDummyPoems()
-//        val list = sharedViewModel.poemList.value
-
-//        Garden.addDummyPoems()
 
         val adapter = PoemLogAdapter(Garden.seeds)
         rvPoemList?.adapter = adapter
         rvPoemList?.layoutManager = LinearLayoutManager(this.context)
-
-        // record this value before making any changes to the existing list
 
     }
 
