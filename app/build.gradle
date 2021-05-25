@@ -64,5 +64,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
 
-    kapt 'groupId:artifactId:version'
+    // don't know what this line does but it breaks the build - Ethan
+    // kapt 'groupId:artifactId:version'
 }
