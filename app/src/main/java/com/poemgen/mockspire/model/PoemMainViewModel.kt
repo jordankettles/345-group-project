@@ -9,7 +9,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.poemgen.mockspire.poemgenerator.ai.MockGenerator
+import com.poemgen.mockspire.poemgenerator.record.Garden
+import com.poemgen.mockspire.poemgenerator.record.Poem
 
+// Shared viewmodel for whole app
 class PoemMainViewModel : ViewModel() {
 
     private val _title = MutableLiveData<String>()
@@ -28,17 +31,16 @@ class PoemMainViewModel : ViewModel() {
         setReady(true)
     }
 
-
-
     fun submitPrompt(prompt: String) {
         poemGenerator.submitPrompt(prompt)
-//        _poemText.postValue(poemGenerator.getPoem())
+        var content = poemGenerator.getPoem()
 
-//        _poemText.postValue(SpannableString(poemGenerator.getPoem()))
-        _poemText.postValue(generateSpannables(poemGenerator.getPoem()))
-//        Log.d("Mock", "Generating")
-//        generateSpannables(prompt, )
+        var newPoem = Poem(prompt, content)
 
+        // Add to log
+        Garden.seeds.add(newPoem)
+
+        _poemText.postValue(generateSpannables(content))
     }
 
     fun setReady(ready: Boolean) {
