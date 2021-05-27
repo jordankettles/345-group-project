@@ -1,0 +1,82 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.poemgen.mockspire.model////PointingToDeclaration/app/com.poemgen.mockspire.model/index.html
+$dokka.location:com.poemgen.mockspire.model/PoemMainViewModel///PointingToDeclaration/app/com.poemgen.mockspire.model/-poem-main-view-model/index.html
+$dokka.location:com.poemgen.mockspire.model/PoemMainViewModel/PoemMainViewModel/#/PointingToDeclaration/app/com.poemgen.mockspire.model/-poem-main-view-model/-poem-main-view-model.html
+$dokka.location:com.poemgen.mockspire.model/PoemMainViewModel/generateSpannables/#kotlin.String/PointingToDeclaration/app/com.poemgen.mockspire.model/-poem-main-view-model/generate-spannables.html
+$dokka.location:com.poemgen.mockspire.model/PoemMainViewModel/poemText/#/PointingToDeclaration/app/com.poemgen.mockspire.model/-poem-main-view-model/poem-text.html
+$dokka.location:com.poemgen.mockspire.model/PoemMainViewModel/readyForPrompt/#/PointingToDeclaration/app/com.poemgen.mockspire.model/-poem-main-view-model/ready-for-prompt.html
+$dokka.location:com.poemgen.mockspire.model/PoemMainViewModel/setReady/#kotlin.Boolean/PointingToDeclaration/app/com.poemgen.mockspire.model/-poem-main-view-model/set-ready.html
+$dokka.location:com.poemgen.mockspire.model/PoemMainViewModel/submitPrompt/#kotlin.String/PointingToDeclaration/app/com.poemgen.mockspire.model/-poem-main-view-model/submit-prompt.html
+$dokka.location:com.poemgen.mockspire.model/PoemMainViewModel/title/#/PointingToDeclaration/app/com.poemgen.mockspire.model/-poem-main-view-model/title.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.ai////PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.ai/index.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.ai/MockGenerator///PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.ai/-mock-generator/index.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.ai/MockGenerator/MockGenerator/#/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.ai/-mock-generator/-mock-generator.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.ai/MockGenerator/getPoem/#/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.ai/-mock-generator/get-poem.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.ai/MockGenerator/submitPrompt/#kotlin.String/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.ai/-mock-generator/submit-prompt.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.ai/PoemGenerator///PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.ai/-poem-generator/index.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.ai/PoemGenerator/getPoem/#/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.ai/-poem-generator/get-poem.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.ai/PoemGenerator/submitPrompt/#kotlin.String/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.ai/-poem-generator/submit-prompt.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record////PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/index.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Garden///PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-garden/index.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Garden/addDummyPoems/#/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-garden/add-dummy-poems.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Garden/seeds/#/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-garden/seeds.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Leaf///PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-leaf/index.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Leaf/Leaf/#com.poemgen.mockspire.poemgenerator.record.Leaf?#kotlin.String#kotlin.String/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-leaf/-leaf.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Leaf/addChild/#com.poemgen.mockspire.poemgenerator.record.Leaf/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-leaf/add-child.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Leaf/getText/#/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-leaf/get-text.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Leaf/getTitle/#/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-leaf/get-title.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Leaf/removeChild/#com.poemgen.mockspire.poemgenerator.record.Leaf/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-leaf/remove-child.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Leaf/setParent/#com.poemgen.mockspire.poemgenerator.record.Leaf/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-leaf/set-parent.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Poem///PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-poem/index.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Poem/Poem/#kotlin.String#kotlin.String/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-poem/-poem.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Poem/getText/#/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-poem/get-text.html
+$dokka.location:com.poemgen.mockspire.poemgenerator.record/Poem/getTitle/#/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator.record/-poem/get-title.html
+$dokka.location:com.poemgen.mockspire.poemgenerator////PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator/index.html
+$dokka.location:com.poemgen.mockspire.poemgenerator//main/#/PointingToDeclaration/app/com.poemgen.mockspire.poemgenerator/main.html
+$dokka.location:com.poemgen.mockspire////PointingToDeclaration/app/com.poemgen.mockspire/index.html
+$dokka.location:com.poemgen.mockspire/HelpFragment///PointingToDeclaration/app/com.poemgen.mockspire/-help-fragment/index.html
+$dokka.location:com.poemgen.mockspire/HelpFragment/HelpFragment/#/PointingToDeclaration/app/com.poemgen.mockspire/-help-fragment/-help-fragment.html
+$dokka.location:com.poemgen.mockspire/HelpFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.mockspire/-help-fragment/on-create.html
+$dokka.location:com.poemgen.mockspire/HelpFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.mockspire/-help-fragment/on-create-view.html
+$dokka.location:com.poemgen.mockspire/HelpFragment/onViewCreated/#android.view.View#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.mockspire/-help-fragment/on-view-created.html
+$dokka.location:com.poemgen.mockspire/HelpFragment/showMain/#/PointingToDeclaration/app/com.poemgen.mockspire/-help-fragment/show-main.html
+$dokka.location:com.poemgen.mockspire/LogDisplayFragment///PointingToDeclaration/app/com.poemgen.mockspire/-log-display-fragment/index.html
+$dokka.location:com.poemgen.mockspire/LogDisplayFragment/LogDisplayFragment/#/PointingToDeclaration/app/com.poemgen.mockspire/-log-display-fragment/-log-display-fragment.html
+$dokka.location:com.poemgen.mockspire/LogDisplayFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.mockspire/-log-display-fragment/on-create.html
+$dokka.location:com.poemgen.mockspire/LogDisplayFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.mockspire/-log-display-fragment/on-create-view.html
+$dokka.location:com.poemgen.mockspire/LogDisplayFragment/onViewCreated/#android.view.View#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.mockspire/-log-display-fragment/on-view-created.html
+$dokka.location:com.poemgen.mockspire/LogDisplayFragment/showMain/#/PointingToDeclaration/app/com.poemgen.mockspire/-log-display-fragment/show-main.html
+$dokka.location:com.poemgen.mockspire/MainActivity///PointingToDeclaration/app/com.poemgen.mockspire/-main-activity/index.html
+$dokka.location:com.poemgen.mockspire/MainActivity/MainActivity/#/PointingToDeclaration/app/com.poemgen.mockspire/-main-activity/-main-activity.html
+$dokka.location:com.poemgen.mockspire/PoemLogAdapter.ViewHolder///PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-adapter/-view-holder/index.html
+$dokka.location:com.poemgen.mockspire/PoemLogAdapter.ViewHolder/ViewHolder/#android.view.View/PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-adapter/-view-holder/-view-holder.html
+$dokka.location:com.poemgen.mockspire/PoemLogAdapter.ViewHolder/contentTextView/#/PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-adapter/-view-holder/content-text-view.html
+$dokka.location:com.poemgen.mockspire/PoemLogAdapter.ViewHolder/titleTextView/#/PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-adapter/-view-holder/title-text-view.html
+$dokka.location:com.poemgen.mockspire/PoemLogAdapter///PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-adapter/index.html
+$dokka.location:com.poemgen.mockspire/PoemLogAdapter/PoemLogAdapter/#kotlin.collections.MutableList[com.poemgen.mockspire.poemgenerator.record.Poem]/PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-adapter/-poem-log-adapter.html
+$dokka.location:com.poemgen.mockspire/PoemLogAdapter/getItemCount/#/PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-adapter/get-item-count.html
+$dokka.location:com.poemgen.mockspire/PoemLogAdapter/onBindViewHolder/#com.poemgen.mockspire.PoemLogAdapter.ViewHolder#kotlin.Int/PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-adapter/on-bind-view-holder.html
+$dokka.location:com.poemgen.mockspire/PoemLogAdapter/onCreateViewHolder/#android.view.ViewGroup#kotlin.Int/PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-adapter/on-create-view-holder.html
+$dokka.location:com.poemgen.mockspire/PoemLogListFragment///PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-list-fragment/index.html
+$dokka.location:com.poemgen.mockspire/PoemLogListFragment/PoemLogListFragment/#/PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-list-fragment/-poem-log-list-fragment.html
+$dokka.location:com.poemgen.mockspire/PoemLogListFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-list-fragment/on-create.html
+$dokka.location:com.poemgen.mockspire/PoemLogListFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-list-fragment/on-create-view.html
+$dokka.location:com.poemgen.mockspire/PoemLogListFragment/onViewCreated/#android.view.View#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-list-fragment/on-view-created.html
+$dokka.location:com.poemgen.mockspire/PoemMainFragment///PointingToDeclaration/app/com.poemgen.mockspire/-poem-main-fragment/index.html
+$dokka.location:com.poemgen.mockspire/PoemMainFragment/PoemMainFragment/#/PointingToDeclaration/app/com.poemgen.mockspire/-poem-main-fragment/-poem-main-fragment.html
+$dokka.location:com.poemgen.mockspire/PoemMainFragment/job/#/PointingToDeclaration/app/com.poemgen.mockspire/-poem-main-fragment/job.html
+$dokka.location:com.poemgen.mockspire/PoemMainFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.mockspire/-poem-main-fragment/on-create.html
+$dokka.location:com.poemgen.mockspire/PoemMainFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.mockspire/-poem-main-fragment/on-create-view.html
+$dokka.location:com.poemgen.mockspire/PoemMainFragment/onDestroy/#/PointingToDeclaration/app/com.poemgen.mockspire/-poem-main-fragment/on-destroy.html
+$dokka.location:com.poemgen.mockspire/PoemMainFragment/onViewCreated/#android.view.View#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.mockspire/-poem-main-fragment/on-view-created.html
+$dokka.location:com.poemgen.mockspire/PoemMainFragment/showHelp/#/PointingToDeclaration/app/com.poemgen.mockspire/-poem-main-fragment/show-help.html
+$dokka.location:com.poemgen.mockspire/PoemMainFragment/showLog/#/PointingToDeclaration/app/com.poemgen.mockspire/-poem-main-fragment/show-log.html
+$dokka.location:com.poemgen.mockspire/PoemMainFragment/submitPrompt/#/PointingToDeclaration/app/com.poemgen.mockspire/-poem-main-fragment/submit-prompt.html
+$dokka.location:com.poemgen.mockspire/PoemMainFragment/uiScope/#/PointingToDeclaration/app/com.poemgen.mockspire/-poem-main-fragment/ui-scope.html
+com.poemgen.mockspire
+com.poemgen.mockspire.model
+com.poemgen.mockspire.poemgenerator
+com.poemgen.mockspire.poemgenerator.ai
+com.poemgen.mockspire.poemgenerator.record
+
