@@ -1,0 +1,26 @@
+name: Documentation
+
+on:
+  push:
+    branches: [ efraser-working ]
+
+jobs:
+  dokka:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Regenerate documentation
+        run: |
+          rm -rf docs
+          ./gradlew dokkaHtml
+          mv app/build/dokka/html ./docs
+      - name: Commit changes
+        run: |
+          git config --global user.email "documentation@githubaction.xyz"
+          git config --global user.name "Documentation Action"
+          git add -f docs
+          git diff-index --quiet HEAD || git commit -m "Auto update docs"
+      - name: Push documentation
+        run: git push -u origin efraser-working
