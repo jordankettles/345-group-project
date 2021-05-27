@@ -18,6 +18,8 @@ jobs:
           mv app/build/dokka/html ./docs
       - name: Commit changes
         run: |
+          git config --global user.email "documentation@githubaction.xyz"
+          git config --global user.name "Documentation Action"
           git add -f docs
           git diff-index --quiet HEAD || git commit -m "Auto update docs"
       - name: Push documentation
