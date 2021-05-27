@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">mockspire</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="dummyPrompt">Dummy Prompt</string>
-    <string name="button">Generate</string>
+    <string name="button">Button</string>
     <string name="give_the_writer_a_prompt">Give the Writer a Prompt</string>
 </resources>
