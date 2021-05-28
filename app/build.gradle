@@ -1,22 +1,32 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
     id "org.jetbrains.kotlin.kapt"
     id "org.jetbrains.dokka"
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion '30.0.3'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
+
+    packagingOptions {
+        exclude "META-INF/LICENSE.md"
+        exclude "META-INF/NOTICE.md"
+    }
 
     defaultConfig {
         applicationId "com.poemgen.mockspire"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion 26
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    aaptOptions {
+        noCompress "tflite"
     }
 
     buildTypes {
@@ -63,6 +73,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
 
-    // don't know what this line does but it breaks the build - Ethan
-    // kapt 'groupId:artifactId:version'
+    implementation 'org.tensorflow:tensorflow-lite:2.0.0'
+
+    // JAX-B dependencies for JDK 9+
+    implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+    implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
 }
