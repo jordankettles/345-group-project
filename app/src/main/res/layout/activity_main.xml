@@ -71,18 +71,26 @@
         </FrameLayout>
 
         <Button
+            android:id="@+id/showLogButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="100dp"
+            android:text="Show Log" />
+
+        <Button
             android:id="@+id/help_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/helpbutton" />
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="end"
+            android:text="@string/helpbutton"/>
 
         <TextView
             android:id="@+id/debugOutView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="debug" />
-<!--            android:text="@{viewModel.title}"-->
 
 
     </LinearLayout>

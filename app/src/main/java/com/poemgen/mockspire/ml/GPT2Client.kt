@@ -9,6 +9,8 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.*
 import com.poemgen.mockspire.R
+import com.poemgen.mockspire.poemgenerator.record.Garden
+import com.poemgen.mockspire.poemgenerator.record.Poem
 import com.poemgen.mockspire.tokenization.GPT2Tokenizer
 import kotlinx.coroutines.*
 import org.tensorflow.lite.Interpreter
@@ -77,6 +79,9 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
             autocompleteJob?.cancelAndJoin()
             _completion.value = ""
             generate(_prompt.value!!)
+
+            // Save to volatile memory.
+            Garden.seeds.add(Poem(_prompt.value.toString(), completion.value.toString()))
         }
     }
 
@@ -91,7 +96,7 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
 
     }
 
-    private suspend fun generate(text: String, nbTokens: Int = 100) = withContext(Dispatchers.Default) {
+    private suspend fun generate(text: String, nbTokens: Int = 10) = withContext(Dispatchers.Default) {
         val tokens = tokenizer.encode(text)
         repeat (nbTokens) {
             val maxTokens    = tokens.takeLast(SEQUENCE_LENGTH).toIntArray()
