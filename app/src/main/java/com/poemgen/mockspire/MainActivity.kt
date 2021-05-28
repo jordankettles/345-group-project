@@ -2,26 +2,22 @@ package com.poemgen.mockspire
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
+import androidx.activity.viewModels
+import androidx.databinding.DataBindingUtil
+import com.poemgen.mockspire.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var navController: NavController
-
+    private val gpt2: com.poemgen.mockspire.ml.GPT2Client by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
+        val binding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        binding.vm = gpt2
 
-//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
-//            as NavHostFragment
-//
-//        navController = navHostFragment.navController
-
-//        val ft = supportFragmentManager.beginTransaction()
-
-
+        binding.lifecycleOwner = this
     }
 
 
