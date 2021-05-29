@@ -41,15 +41,7 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
     private lateinit var tokenizer: GPT2Tokenizer
     private lateinit var tflite: Interpreter
 
-    private val prompts = arrayOf(
-        "Before boarding your rocket to Mars, remember to pack these items",
-        "In a shocking finding, scientist discovered a herd of unicorns living in a remote, previously unexplored valley, in the Andes Mountains. Even more surprising to the researchers was the fact that the unicorns spoke perfect English.",
-        "Legolas and Gimli advanced on the orcs, raising their weapons with a harrowing war cry.",
-        "Today, scientists confirmed the worst possible outcome: the massive asteroid will collide with Earth",
-        "Hugging Face is a company that releases awesome projects in machine learning because"
-    )
-
-    private val _prompt = MutableLiveData(prompts.random())
+    private val _prompt = MutableLiveData<String>()
     val prompt: LiveData<String> = _prompt
 
     private val _completion = MutableLiveData("")
@@ -85,15 +77,9 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun refreshPrompt() {
-        _prompt.value = prompts.random()
-        launchAutocomplete()
-    }
-
     fun setPrompt(prompt: String) {
         _prompt.value = prompt
         launchAutocomplete()
-
     }
 
     private suspend fun generate(text: String, nbTokens: Int = 10) = withContext(Dispatchers.Default) {
