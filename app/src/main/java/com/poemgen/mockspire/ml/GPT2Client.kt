@@ -41,7 +41,7 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
     private lateinit var tokenizer: GPT2Tokenizer
     private lateinit var tflite: Interpreter
 
-    private val _prompt = MutableLiveData<String>()
+    private val _prompt = MutableLiveData<String>("")
     val prompt: LiveData<String> = _prompt
 
     private val _completion = MutableLiveData("")
