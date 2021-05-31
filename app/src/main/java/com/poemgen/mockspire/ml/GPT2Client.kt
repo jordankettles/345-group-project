@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.*
+import com.google.android.material.textfield.TextInputEditText
+import com.poemgen.mockspire.MainActivity
 import com.poemgen.mockspire.R
 import com.poemgen.mockspire.poemgenerator.record.Garden
 import com.poemgen.mockspire.poemgenerator.record.Poem
@@ -49,6 +51,8 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
 
     var strategy = GPT2Strategy(GPT2StrategyEnum.TOPK, 40)
 
+    public lateinit var mainActivity: MainActivity
+
     init {
         initJob = viewModelScope.launch {
             val encoder  = loadEncoder()
@@ -71,6 +75,8 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
 
     fun launchAutocomplete() {
         autocompleteJob = viewModelScope.launch {
+            mainActivity.disableButtons()
+
             initJob.join()
             autocompleteJob?.cancelAndJoin()
             _completion.value = ""
@@ -78,6 +84,7 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
 
             // Save to volatile memory.
             Garden.seeds.add(Poem(_prompt.value.toString(), completion.value.toString()))
+            mainActivity.enableButtons()
         }
     }
 
