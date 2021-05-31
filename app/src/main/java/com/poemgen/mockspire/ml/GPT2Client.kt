@@ -65,6 +65,10 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
         tflite.close()
     }
 
+    fun closeGenerator() {
+        tflite.close()
+    }
+
     fun launchAutocomplete() {
         autocompleteJob = viewModelScope.launch {
             initJob.join()
