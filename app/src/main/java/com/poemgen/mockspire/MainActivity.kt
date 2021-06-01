@@ -42,8 +42,7 @@ class MainActivity : AppCompatActivity() {
         buttonGenerate.setOnClickListener{
             gpt2.setPrompt(promptField.getText().toString())
 
-            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+            hideKeyboard()
         }
 
         val buttonLog = findViewById<Button>(R.id.showLogButton)
@@ -62,7 +61,8 @@ class MainActivity : AppCompatActivity() {
 
         val buttonRandom = findViewById<Button>(R.id.random_prompt_button)
         buttonRandom.setOnClickListener{
-            gpt2.inputPrompt(randomPrompts.random())
+            promptField.setText(randomPrompts.random())
+            hideKeyboard()
         }
     }
 
@@ -78,6 +78,16 @@ class MainActivity : AppCompatActivity() {
         val fileName = "prompts.txt"
         val bufferedReader = application.assets.open(fileName).bufferedReader()
         return bufferedReader.readLines()
+    }
+
+    fun hideKeyboard() {
+        try {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+        } catch(e: KotlinNullPointerException) {
+            //Do nothing.
+            return
+        }
     }
 
 }
