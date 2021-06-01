@@ -88,6 +88,10 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun inputPrompt(prompt: String) {
+        _prompt.value = prompt
+    }
+
     fun setPrompt(prompt: String) {
         _prompt.value = prompt
         launchAutocomplete()

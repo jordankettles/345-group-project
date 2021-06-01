@@ -18,6 +18,8 @@ import com.poemgen.mockspire.poemgenerator.record.Garden
 class MainActivity : AppCompatActivity() {
     private val gpt2: com.poemgen.mockspire.ml.GPT2Client by viewModels()
 
+    lateinit var randomPrompts: List<String>
+
     private val _ready = MutableLiveData(true)
     val ready: LiveData<Boolean> = _ready
 
@@ -26,6 +28,8 @@ class MainActivity : AppCompatActivity() {
 
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        randomPrompts = readPrompts()
 
         gpt2.mainActivity = this
         binding.vm = gpt2
@@ -37,7 +41,6 @@ class MainActivity : AppCompatActivity() {
         val buttonGenerate = findViewById<Button>(R.id.submit_prompt_button)
         buttonGenerate.setOnClickListener{
             gpt2.setPrompt(promptField.getText().toString())
-
 
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
@@ -56,6 +59,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, HelpActivity::class.java)
             startActivity(intent)
         }
+
+        val buttonRandom = findViewById<Button>(R.id.random_prompt_button)
+        buttonRandom.setOnClickListener{
+            gpt2.inputPrompt(randomPrompts.random())
+        }
     }
 
     fun disableButtons() {
@@ -65,4 +73,11 @@ class MainActivity : AppCompatActivity() {
     fun enableButtons() {
         _ready.value = true
     }
+
+    fun readPrompts(): List<String> {
+        val fileName = "prompts.txt"
+        val bufferedReader = application.assets.open(fileName).bufferedReader()
+        return bufferedReader.readLines()
+    }
+
 }

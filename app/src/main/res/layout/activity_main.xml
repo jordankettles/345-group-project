@@ -21,22 +21,42 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginTop="8dp">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/promptField"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/give_the_writer_a_prompt"
-                android:inputType="textShortMessage" />
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/promptField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/give_the_writer_a_prompt"
+                    android:inputType="textShortMessage" />
 
-        <Button
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/random_prompt_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:enabled="@{mainActivity.ready}"
+                app:icon="@drawable/ic_random"
+                app:iconGravity="textEnd"
+                app:iconPadding="0dp"
+                />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/submit_prompt_button"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -74,7 +94,7 @@
 
         </FrameLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/showLogButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,7 +102,7 @@
             android:text="Show Log"
             android:enabled="@{mainActivity.ready}"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/help_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
