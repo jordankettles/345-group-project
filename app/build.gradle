@@ -51,7 +51,7 @@ android {
         dataBinding = true
     }
 }
-println('Downloading The GPT-2 Model, around 200MB...')
+println('Downloading The GPT-2 Model, 236MB...')
 apply from: 'download.gradle'
 
 dependencies {

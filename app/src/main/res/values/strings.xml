@@ -7,4 +7,10 @@
     <string name="button">Generate</string>
     <string name="give_the_writer_a_prompt">Give the Writer a Prompt</string>
     <string name="helpbutton">Help</string>
+    <string name="help_text">Enter a prompt for the AI Poet to generate a poem about.
+        You could also use one of our written prompts instead.\n\n
+        Each generated poem is added to the poem log.\n\n
+        Please take the output of our Alpha with a grain of salt.
+        </string>
+    <string name="return_button">Return to Generator</string>
 </resources>
