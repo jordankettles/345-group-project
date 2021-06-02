@@ -7,6 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.poemgen.mockspire.poemgenerator.record.Poem
 
+/**
+ *  Adapter for each item in PoemLog fragment.
+ */
 class PoemLogAdapter(private val mPoems: MutableList<Poem>) : RecyclerView.Adapter<PoemLogAdapter.ViewHolder>() {
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
         val titleTextView = itemView.findViewById<TextView>(R.id.poem_title)

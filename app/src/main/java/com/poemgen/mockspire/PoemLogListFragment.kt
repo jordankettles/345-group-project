@@ -10,7 +10,7 @@ import com.poemgen.mockspire.databinding.FragmentPoemLogListBinding
 import com.poemgen.mockspire.poemgenerator.record.Garden
 
 /**
- * Scrollable log display to place in other fragments.
+ * Container for recyclerview. Insert into activity or other fragments to display contents of Garden.
  */
 class PoemLogListFragment : Fragment() {
 
