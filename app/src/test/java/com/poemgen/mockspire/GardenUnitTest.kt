@@ -6,6 +6,13 @@ import com.poemgen.mockspire.poemgenerator.record.Poem
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
+/**
+ * Tests for Garden.kt
+ *
+ * Tests implemented:
+ *  - addDummyPoems
+ *      Ensure poems are added to the garden correctly.
+ */
 class GardenUnitTest {
 
     /**
