@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         randomPrompts = readPrompts()
 
+        disableButtons()
         gpt2.mainActivity = this
         binding.vm = gpt2
         binding.mainActivity = this

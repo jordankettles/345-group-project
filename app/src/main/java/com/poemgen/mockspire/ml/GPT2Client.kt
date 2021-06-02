@@ -71,6 +71,8 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
 
             tokenizer = GPT2Tokenizer(encoder, decoder, bpeRanks)
             tflite    = loadModel()
+
+            mainActivity?.enableButtons()
         }
     }
 
@@ -119,7 +121,7 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
      * Generate runs the model and generates a poem.
      * @param text The prompt of the model.
      */
-    private suspend fun generate(text: String, nbTokens: Int = 20) = withContext(Dispatchers.Default) {
+    private suspend fun generate(text: String, nbTokens: Int = 10) = withContext(Dispatchers.Default) {
         val tokens = tokenizer.encode(text)
         repeat (nbTokens) {
             val maxTokens    = tokens.takeLast(SEQUENCE_LENGTH).toIntArray()
