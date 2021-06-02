@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
 import androidx.compose.ui.text.input.TextFieldValue
@@ -40,9 +41,14 @@ class MainActivity : AppCompatActivity() {
 
         val buttonGenerate = findViewById<Button>(R.id.submit_prompt_button)
         buttonGenerate.setOnClickListener{
-            gpt2.setPrompt(promptField.getText().toString())
+            if (!promptField.getText().toString().equals("")) {
+                gpt2.setPrompt(promptField.getText().toString())
 
-            hideKeyboard()
+                hideKeyboard()
+            } else {
+                Toast.makeText(this, "Please enter a prompt.", Toast.LENGTH_SHORT).show()
+            }
+
         }
 
         val buttonLog = findViewById<Button>(R.id.showLogButton)

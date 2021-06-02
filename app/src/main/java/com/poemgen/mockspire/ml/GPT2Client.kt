@@ -73,10 +73,13 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
         tflite.close()
     }
 
+    fun cancelGenerating() {
+        autocompleteJob?.cancel()
+    }
+
     fun launchAutocomplete() {
         autocompleteJob = viewModelScope.launch {
             mainActivity.disableButtons()
-
             initJob.join()
             autocompleteJob?.cancelAndJoin()
             _completion.value = ""
@@ -93,7 +96,7 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
         launchAutocomplete()
     }
 
-    private suspend fun generate(text: String, nbTokens: Int = 10) = withContext(Dispatchers.Default) {
+    private suspend fun generate(text: String, nbTokens: Int = 20) = withContext(Dispatchers.Default) {
         val tokens = tokenizer.encode(text)
         repeat (nbTokens) {
             val maxTokens    = tokens.takeLast(SEQUENCE_LENGTH).toIntArray()
