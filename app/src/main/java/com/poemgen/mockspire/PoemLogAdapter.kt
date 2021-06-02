@@ -9,8 +9,16 @@ import com.poemgen.mockspire.poemgenerator.record.Poem
 
 /**
  *  Adapter for each item in PoemLog fragment.
+ *  @property mPoems List of Poem objects to be displaying by recycler view.
  */
 class PoemLogAdapter(private val mPoems: MutableList<Poem>) : RecyclerView.Adapter<PoemLogAdapter.ViewHolder>() {
+
+    /**
+     * Contains information pertaining to each poem that is displayed.
+     * @param listItemView The view that the items will be inserted in.
+     * @property titleTextView The TextView displaying the title of the poem.
+     * @property contentTextView The TextView displaying the content of the poem.
+     */
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
         val titleTextView = itemView.findViewById<TextView>(R.id.poem_title)
         val contentTextView = itemView.findViewById<TextView>(R.id.poem_text)
