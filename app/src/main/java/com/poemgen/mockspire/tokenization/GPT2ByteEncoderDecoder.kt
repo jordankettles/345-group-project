@@ -1,5 +1,8 @@
 package com.poemgen.mockspire.tokenization
 
+/**
+ * GTP2ByteEncoderDecoder holds a map between tokens and Strings.
+ */
 internal val byteEncoder: Map<Int, String> by lazy {
     hashMapOf<Int, String>().apply {
         put(33, "!")

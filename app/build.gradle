@@ -51,6 +51,8 @@ android {
         dataBinding = true
     }
 }
+println('Downloading The GPT-2 Model, around 200MB...')
+apply from: 'download.gradle'
 
 dependencies {
 
