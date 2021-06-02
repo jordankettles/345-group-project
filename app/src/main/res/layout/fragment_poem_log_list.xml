@@ -4,9 +4,6 @@
     tools:context=".PoemLogListFragment">
 
     <data>
-        <variable
-            name="viewModel"
-            type="com.poemgen.mockspire.model.PoemMainViewModel" />
 
         <variable
             name="poemLogListFragment"

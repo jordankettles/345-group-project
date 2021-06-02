@@ -5,10 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.poemgen.mockspire.databinding.FragmentPoemLogListBinding
-import com.poemgen.mockspire.model.PoemMainViewModel
 import com.poemgen.mockspire.poemgenerator.record.Garden
 
 /**
@@ -18,7 +16,6 @@ class PoemLogListFragment : Fragment() {
 
     // Data/View binding boilerplate
     private var binding: FragmentPoemLogListBinding? = null
-    private val sharedViewModel: PoemMainViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +39,6 @@ class PoemLogListFragment : Fragment() {
 
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
-            viewModel = sharedViewModel
             poemLogListFragment = this@PoemLogListFragment
         }
 
