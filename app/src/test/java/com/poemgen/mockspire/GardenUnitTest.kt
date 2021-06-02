@@ -27,7 +27,7 @@ class GardenUnitTest {
         Garden.seeds.add(poem2)
         Garden.seeds.add(poem3)
 
-        assertEquals(Garden.seeds[0], poem1)
+        assertEquals(Garden.seeds[0], "")
         assertEquals(Garden.seeds[1], poem2)
         assertEquals(Garden.seeds[2], poem3)
     }
