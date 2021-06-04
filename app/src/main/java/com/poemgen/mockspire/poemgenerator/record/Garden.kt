@@ -1,11 +1,12 @@
 package com.poemgen.mockspire.poemgenerator.record
 
-class Garden {
+import android.util.Log
 
-    private var seeds: MutableList<Leaf> = mutableListOf()
+/**
+ * the Garden object stores the poems for the current session in a list.
+ */
+object Garden {
 
-    companion object Trees {
-        fun create(): Garden = Garden()
-    }
+    var seeds: MutableList<Poem> = mutableListOf()
 
 }
