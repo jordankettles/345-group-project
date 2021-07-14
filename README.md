@@ -13,3 +13,6 @@ To build the Alpha, Sync the Project with Gradle Files then Build the Project in
 Android Studio needs to sync to download the GPT-2 model, which cannot be uploaded to GitHub
 because of their 100MB file size limit. The model is 236MB.
 
+
+### Goodbye old team members, weclome new team members!
+Goodbye to Ethan and Tim, hello Max and Nat!
