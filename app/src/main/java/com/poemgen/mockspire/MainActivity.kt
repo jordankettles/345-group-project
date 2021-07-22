@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
@@ -15,6 +16,8 @@ import androidx.lifecycle.MutableLiveData
 import com.google.android.material.textfield.TextInputEditText
 import com.poemgen.mockspire.databinding.ActivityMainBinding
 import com.poemgen.mockspire.poemgenerator.record.Garden
+import java.util.*
+import kotlin.concurrent.schedule
 
 /**
  * Main activity class. Defines functions triggered by UI action.
@@ -54,10 +57,21 @@ class MainActivity : AppCompatActivity() {
 
         val promptField = findViewById<TextInputEditText>(R.id.promptField)
 
+        val visiblePoemTextView = findViewById<TextView>(R.id.visibleTextPoemView)
+
         val buttonGenerate = findViewById<Button>(R.id.submit_prompt_button)
         buttonGenerate.setOnClickListener{
             if (!promptField.getText().toString().equals("")) {
                 gpt2.setPrompt(promptField.getText().toString())
+
+                Timer().schedule(1000) {
+                    visiblePoemTextView.setText("Still running, man.")
+
+                    if(ready.value == true) {
+                        visiblePoemTextView.setText("Stopped, man")
+                        Timer().cancel()
+                    }
+                }
 
                 hideKeyboard()
             } else {
@@ -85,6 +99,8 @@ class MainActivity : AppCompatActivity() {
             promptField.setText(randomPrompts.random())
             hideKeyboard()
         }
+
+
     }
 
     fun disableButtons() {
