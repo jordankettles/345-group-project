@@ -1,0 +1,24 @@
+name: Code Coverage
+
+on:
+  push:
+    branches: [ mf_addJacoco ]
+  pull_request:
+    branches: [ mf_addJacoco ]
+
+  codecov:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Run tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew jacocoTestReport connectedCheck
+      - name: Upload coverage reports to Codecov
+        run: |
+          curl -Os https://uploader.codecov.io/latest/macos/codecov
+          chmod +x codecov
+          ./codecov
