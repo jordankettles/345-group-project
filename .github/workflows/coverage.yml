@@ -8,19 +8,20 @@ on:
 
 jobs:
   codecov:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+        run: chmod +x ./gradlew
       - name: Run tests
-        uses: reactivecircus/android-emulator-runner@v2
+        uses: actions/setup-java@v2
         with:
-          api-level: 29
-          sdcard-path-or-size: 1000M
+          java-version: '11'
+          distribution: 'adopt'
           script: ./gradlew jacocoTestReport connectedCheck
       - name: Upload coverage reports to Codecov
         run: |
-          curl -Os https://uploader.codecov.io/latest/macos/codecov
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
           chmod +x codecov
           ./codecov
