@@ -19,7 +19,7 @@ jobs:
         with:
           api-level: 29
           sdcard-path-or-size: 2048M
-        run: ./gradlew jacocoTestReport connectedCheck
+        scripts: ./gradlew jacocoTestReport connectedCheck
       - name: Upload coverage reports to Codecov
         run: |
           curl -Os https://uploader.codecov.io/latest/linux/codecov
