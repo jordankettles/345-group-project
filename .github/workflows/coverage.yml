@@ -18,9 +18,22 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          ram-size: 4000M
-          sdcard-path-or-size: 10048M
+          arch: x86
+          profile: Nexus 6
+          avd-name: test
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
           script: ./gradlew jacocoTestReport connectedCheck
+      - name: Upload Reports
+        uses: actions/upload-artifact@v1
+        with:
+          name: reports
+          path: app/build/reports
+      - name: Upload builds
+        uses: actions/upload-artifact@v1
+        with:
+          name: reports
+          path: app/build/outputs
       - name: Upload coverage reports to Codecov
         run: |
           curl -Os https://uploader.codecov.io/latest/linux/codecov
