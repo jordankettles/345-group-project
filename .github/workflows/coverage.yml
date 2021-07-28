@@ -14,11 +14,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
-      - name: Run tests
+      - name: Setup environment
         uses: actions/setup-java@v2
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: run analysis
         run: ./gradlew jacocoTestReport connectedCheck
       - name: Upload coverage reports to Codecov
         run: |
