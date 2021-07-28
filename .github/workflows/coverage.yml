@@ -18,7 +18,8 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          sdcard-path-or-size: 2048M
+          ram-size: 4000
+          sdcard-path-or-size: 10048M
           script: ./gradlew jacocoTestReport connectedCheck
       - name: Upload coverage reports to Codecov
         run: |
