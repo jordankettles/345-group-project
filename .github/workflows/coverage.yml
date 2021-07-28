@@ -15,11 +15,10 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
       - name: Setup environment
-        uses: actions/setup-java@v2
+        uses: reactivecircus/android-emulator-runner@v2
         with:
-          java-version: '11'
-          distribution: 'adopt'
-      - name: run analysis
+          api-level: 29
+          sdcard-path-or-size: 2048M
         run: ./gradlew jacocoTestReport connectedCheck
       - name: Upload coverage reports to Codecov
         run: |
