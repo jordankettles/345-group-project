@@ -2,9 +2,9 @@ name: Code Coverage
 
 on:
   push:
-    branches: [ mf_addJacoco ]
+    branches: [ main ]
   pull_request:
-    branches: [ mf_addJacoco ]
+    branches: [ main ]
 
 jobs:
   codecov:
