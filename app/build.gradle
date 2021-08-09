@@ -68,7 +68,7 @@ android {
         dataBinding = true
     }
 }
-println('Downloading The GPT-2 Model, 236MB...')
+println('Downloading custom GPT-2 Model, 236MB...')
 apply from: 'download.gradle'
 
 dependencies {
@@ -94,8 +94,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
-
-    implementation 'org.tensorflow:tensorflow-lite:2.0.0'
+    // Dependencies for Tensorflow lite.
+    implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly-SNAPSHOT'
+    implementation 'org.tensorflow:tensorflow-lite-select-tf-ops:0.0.0-nightly-SNAPSHOT'
 
     // JAX-B dependencies for JDK 9+
     implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
