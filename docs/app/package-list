@@ -4,7 +4,6 @@ $dokka.location:com.poemgen.mockspire.ml////PointingToDeclaration/app/com.poemg
 $dokka.location:com.poemgen.mockspire.ml//formatCompletion/android.widget.TextView#kotlin.String#kotlin.String/PointingToDeclaration/app/com.poemgen.mockspire.ml/format-completion.html
 $dokka.location:com.poemgen.mockspire.ml/GPT2Client///PointingToDeclaration/app/com.poemgen.mockspire.ml/-g-p-t2-client/index.html
 $dokka.location:com.poemgen.mockspire.ml/GPT2Client/GPT2Client/#android.app.Application/PointingToDeclaration/app/com.poemgen.mockspire.ml/-g-p-t2-client/-g-p-t2-client.html
-$dokka.location:com.poemgen.mockspire.ml/GPT2Client/cancelGenerating/#/PointingToDeclaration/app/com.poemgen.mockspire.ml/-g-p-t2-client/cancel-generating.html
 $dokka.location:com.poemgen.mockspire.ml/GPT2Client/closeGenerator/#/PointingToDeclaration/app/com.poemgen.mockspire.ml/-g-p-t2-client/close-generator.html
 $dokka.location:com.poemgen.mockspire.ml/GPT2Client/completion/#/PointingToDeclaration/app/com.poemgen.mockspire.ml/-g-p-t2-client/completion.html
 $dokka.location:com.poemgen.mockspire.ml/GPT2Client/launchAutocomplete/#/PointingToDeclaration/app/com.poemgen.mockspire.ml/-g-p-t2-client/launch-autocomplete.html
