@@ -15,23 +15,30 @@
             type="com.poemgen.deeppoet.MainActivity" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/prompt_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/textInputLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_weight="1">
+                android:layout_marginHorizontal="5dp"
+                app:layout_constraintEnd_toStartOf="@+id/random_prompt_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/promptField"
@@ -44,35 +51,36 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/random_prompt_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="0"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
                 android:enabled="@{mainActivity.ready}"
                 app:icon="@drawable/ic_random"
                 app:iconGravity="textEnd"
                 app:iconPadding="0dp"
-                />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayout"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submit_prompt_button"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:enabled="@{mainActivity.ready}"
+                android:text="@string/button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/submit_prompt_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:text="@string/button"
-            android:enabled="@{mainActivity.ready}"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!--    ^^^^  first we need to set the prompt.-->
 
 
         <FrameLayout
+            android:id="@+id/frameLayout2"
             android:layout_width="match_parent"
-            android:layout_height="350dp">
+            android:layout_height="350dp"
+            tools:visibility="gone">
 
             <TextView
                 android:id="@+id/poemTextView"
@@ -80,15 +88,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="40dp"
                 android:layout_marginVertical="40dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:lineSpacingExtra="8sp"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="#676565"
-                android:clickable="true"
-                android:focusable="true"
+                app:completion="@{vm.completion}"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:completion="@{vm.completion}"
                 app:prompt="@{vm.prompt}"
                 tools:text="@tools:sample/lorem/random" />
 
@@ -99,39 +107,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="100dp"
+            android:enabled="@{mainActivity.ready}"
             android:text="Show Log"
-            android:enabled="@{mainActivity.ready}"/>
+            tools:layout_editor_absoluteX="100dp"
+            tools:visibility="gone" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/help_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="50dp"
-            android:layout_gravity="end"
+            android:enabled="@{mainActivity.ready}"
             android:text="@string/helpbutton"
-            android:enabled="@{mainActivity.ready}"/>
+            tools:visibility="gone" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/share_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="50dp"
-            android:layout_gravity="end"
+            android:enabled="@{mainActivity.ready}"
             android:text="Share"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/frameLayout"
-            android:enabled="@{mainActivity.ready}"/>
-
-        <TextView
-            android:id="@+id/debugOutView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="debug" />
+            tools:visibility="gone" />
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
