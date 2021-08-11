@@ -47,6 +47,7 @@ $dokka.location:com.poemgen.mockspire/MainActivity/hideKeyboard/#/PointingToDecl
 $dokka.location:com.poemgen.mockspire/MainActivity/randomPrompts/#/PointingToDeclaration/app/com.poemgen.mockspire/-main-activity/random-prompts.html
 $dokka.location:com.poemgen.mockspire/MainActivity/readPrompts/#/PointingToDeclaration/app/com.poemgen.mockspire/-main-activity/read-prompts.html
 $dokka.location:com.poemgen.mockspire/MainActivity/ready/#/PointingToDeclaration/app/com.poemgen.mockspire/-main-activity/ready.html
+$dokka.location:com.poemgen.mockspire/MainActivity/shareTextOnly/#kotlin.String/PointingToDeclaration/app/com.poemgen.mockspire/-main-activity/share-text-only.html
 $dokka.location:com.poemgen.mockspire/PoemLogAdapter.ViewHolder///PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-adapter/-view-holder/index.html
 $dokka.location:com.poemgen.mockspire/PoemLogAdapter.ViewHolder/ViewHolder/#android.view.View/PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-adapter/-view-holder/-view-holder.html
 $dokka.location:com.poemgen.mockspire/PoemLogAdapter.ViewHolder/contentTextView/#/PointingToDeclaration/app/com.poemgen.mockspire/-poem-log-adapter/-view-holder/content-text-view.html
