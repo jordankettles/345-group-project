@@ -1,4 +1,4 @@
-package com.poemgen.mockspire.ml
+package com.poemgen.deeppoet.ml
 
 import android.app.Application
 import android.text.Spannable
@@ -8,12 +8,11 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.*
-import com.google.android.material.textfield.TextInputEditText
-import com.poemgen.mockspire.MainActivity
-import com.poemgen.mockspire.R
-import com.poemgen.mockspire.poemgenerator.record.Garden
-import com.poemgen.mockspire.poemgenerator.record.Poem
-import com.poemgen.mockspire.tokenization.GPT2Tokenizer
+import com.poemgen.deeppoet.MainActivity
+import com.poemgen.deeppoet.R
+import com.poemgen.deeppoet.poemgenerator.record.Garden
+import com.poemgen.deeppoet.poemgenerator.record.Poem
+import com.poemgen.deeppoet.tokenization.GPT2Tokenizer
 import kotlinx.coroutines.*
 import org.tensorflow.lite.Interpreter
 import java.io.BufferedReader

@@ -1,4 +1,4 @@
-package com.poemgen.mockspire.tokenization
+package com.poemgen.deeppoet.tokenization
 
 /**
  * GTP2ByteEncoderDecoder holds a map between tokens and Strings.

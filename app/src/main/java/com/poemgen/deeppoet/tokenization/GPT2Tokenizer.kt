@@ -1,4 +1,4 @@
-package com.poemgen.mockspire.tokenization
+package com.poemgen.deeppoet.tokenization
 
 /**
  * The GPT2Tokenizer class encodes strings into tokens and decodes tokens to strings.

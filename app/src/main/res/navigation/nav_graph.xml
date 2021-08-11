@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/poemMainFragment"
-        android:name="com.poemgen.mockspire.PoemMainFragment"
+        android:name="com.poemgen.deeppoet.PoemMainFragment"
         android:label="fragment_poem_main"
         tools:layout="@layout/fragment_poem_main" />
 </navigation>

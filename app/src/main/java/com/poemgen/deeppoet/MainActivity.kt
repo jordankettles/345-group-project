@@ -1,4 +1,4 @@
-package com.poemgen.mockspire
+package com.poemgen.deeppoet
 
 import android.content.Context
 import android.content.Intent
@@ -9,14 +9,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
-import androidx.compose.ui.text.input.TextFieldValue
-import androidx.core.content.ContextCompat.startActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.android.material.textfield.TextInputEditText
-import com.poemgen.mockspire.databinding.ActivityMainBinding
-import com.poemgen.mockspire.poemgenerator.record.Garden
+import com.poemgen.deeppoet.databinding.ActivityMainBinding
 
 /**
  * Main activity class. Defines functions triggered by UI action.
@@ -25,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * @property gpt2 poem generator. Also feeds data straight to UI through viewModels.
      */
-    private val gpt2: com.poemgen.mockspire.ml.GPT2Client by viewModels()
+    private val gpt2: com.poemgen.deeppoet.ml.GPT2Client by viewModels()
 
     /**
      * @property randomPrompts Suggested prompts that are filled in when using the random button.

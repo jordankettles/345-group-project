@@ -1,11 +1,11 @@
-package com.poemgen.mockspire
+package com.poemgen.deeppoet
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.poemgen.mockspire.poemgenerator.record.Poem
+import com.poemgen.deeppoet.poemgenerator.record.Poem
 
 /**
  *  Adapter for each item in PoemLog fragment.
