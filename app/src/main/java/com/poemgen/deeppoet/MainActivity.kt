@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val buttonHelp = findViewById<Button>(R.id.help_button)
+        val buttonHelp = findViewById<Button>(R.id.helpButton)
         buttonHelp.setOnClickListener{
             gpt2.closeGenerator()
             val intent = Intent(this, HelpActivity::class.java)
