@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Set environment variable
-      - run: export ADB_INSTALL_TIMEOUT=8
+        run: export ADB_INSTALL_TIMEOUT=8
       - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
