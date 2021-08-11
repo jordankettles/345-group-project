@@ -132,8 +132,8 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Allows the share button to share poems.
+     * @param titlee The input string to be shared.
      */
-
     fun shareTextOnly(titlee: String) {
         val intentt = Intent(Intent.ACTION_SEND)
         intentt.type = "text/plain"
