@@ -79,8 +79,8 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_margin="20dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -96,37 +96,43 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/textdisplay_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <FrameLayout
-            android:id="@+id/frameLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            tools:visibility="gone">
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/head_layout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/prompt_layout"
+            app:layout_constraintWidth_percent="0.8">
 
             <TextView
                 android:id="@+id/poemTextView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="40dp"
-                android:layout_marginVertical="40dp"
-                android:clickable="true"
-                android:focusable="true"
+                android:layout_height="0dp"
                 android:lineSpacingExtra="8sp"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="#676565"
                 app:completion="@{vm.completion}"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:prompt="@{vm.prompt}"
                 tools:text="@tools:sample/lorem/random" />
 
-        </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/share_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="@{mainActivity.ready}"
+            android:text="Share"
+            app:layout_constraintTop_toBottomOf="@id/textdisplay_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/showLogButton"
@@ -144,14 +150,6 @@
             android:layout_height="wrap_content"
             android:enabled="@{mainActivity.ready}"
             android:text="@string/helpbutton"
-            tools:visibility="gone" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/share_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:enabled="@{mainActivity.ready}"
-            android:text="Share"
             tools:visibility="gone" />
 
 
