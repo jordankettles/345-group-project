@@ -20,7 +20,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          sdcard-path-or-size: 5000M
+          sdcard-path-or-size: 12000M
           script: ./gradlew jacocoTestReport connectedCheck
       - name: Upload Reports
         uses: actions/upload-artifact@v1
