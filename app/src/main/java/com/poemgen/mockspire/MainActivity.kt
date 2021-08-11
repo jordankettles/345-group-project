@@ -5,10 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.core.content.ContextCompat.startActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -80,12 +82,22 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val buttonShare = findViewById<Button>(R.id.share_button)
+        buttonShare.setOnClickListener {
+            gpt2.closeGenerator()
+            val result = findViewById(R.id.poemTextView) as TextView
+            val text: String = result.getText().toString()
+            shareTextOnly(text)
+        }
+
         val buttonRandom = findViewById<Button>(R.id.random_prompt_button)
         buttonRandom.setOnClickListener{
             promptField.setText(randomPrompts.random())
             hideKeyboard()
         }
     }
+
+
 
     fun disableButtons() {
         _ready.value = false
@@ -118,4 +130,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun shareTextOnly(titlee: String) {
+        val intentt = Intent(Intent.ACTION_SEND)
+        intentt.type = "text/plain"
+        intentt.putExtra(Intent.EXTRA_SUBJECT, "Subject Here")
+        intentt.putExtra(Intent.EXTRA_TEXT, titlee)
+        startActivity(Intent.createChooser(intentt, "Share Via"))
+    }
+
 }
+
+
+
