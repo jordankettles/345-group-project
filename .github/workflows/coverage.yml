@@ -19,8 +19,8 @@ jobs:
       - name: Build with Gradle
         uses: reactivecircus/android-emulator-runner@v2
         with:
-        api-level: 29
-        script: ./gradlew jacocoTestReport connectedCheck
+          api-level: 29
+          script: ./gradlew jacocoTestReport connectedCheck
       - name: Upload Reports
         uses: actions/upload-artifact@v1
         with:
