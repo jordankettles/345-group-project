@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Set environment variable
-        run: export ADB_INSTALL_TIMEOUT=8
+        run: export ADB_INSTALL_TIMEOUT=20
       - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
@@ -20,7 +20,8 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          sdcard-path-or-size: 30G
+          sdcard-path-or-size: 20G
+          ram-size: 4000M
           script: ./gradlew jacocoTestReport connectedCheck
       - name: Upload Reports
         uses: actions/upload-artifact@v1
