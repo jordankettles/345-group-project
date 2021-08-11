@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Delete .NET
+        run: sudo -rf /usr/share/dotnet
       - name: Set environment variable
         run: export ADB_INSTALL_TIMEOUT=20
       - uses: actions/checkout@v2
