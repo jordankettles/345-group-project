@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "deeppoet"
+rootProject.name = "Deep Poet"
