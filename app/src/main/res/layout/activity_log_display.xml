@@ -32,7 +32,7 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/PoemLog"
-                android:name="com.poemgen.mockspire.PoemLogListFragment"
+                android:name="com.poemgen.deeppoet.PoemLogListFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="32dp"
