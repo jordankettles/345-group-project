@@ -1,4 +1,4 @@
-package com.poemgen.mockspire.poemgenerator.record
+package com.poemgen.deeppoet.poemgenerator.record
 
 // Basic poem class. Holds a title and a content text.
 /**

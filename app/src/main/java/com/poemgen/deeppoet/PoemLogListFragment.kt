@@ -1,4 +1,4 @@
-package com.poemgen.mockspire
+package com.poemgen.deeppoet
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.poemgen.mockspire.databinding.FragmentPoemLogListBinding
-import com.poemgen.mockspire.poemgenerator.record.Garden
+import com.poemgen.deeppoet.databinding.FragmentPoemLogListBinding
+import com.poemgen.deeppoet.poemgenerator.record.Garden
 
 /**
  * Container for recyclerview. Insert into activity or other fragments to display contents of Garden.

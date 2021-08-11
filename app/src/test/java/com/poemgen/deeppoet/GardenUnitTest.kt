@@ -1,8 +1,7 @@
-package com.poemgen.mockspire
+package com.poemgen.deeppoet
 
-import android.util.Log
-import com.poemgen.mockspire.poemgenerator.record.Garden
-import com.poemgen.mockspire.poemgenerator.record.Poem
+import com.poemgen.deeppoet.poemgenerator.record.Garden
+import com.poemgen.deeppoet.poemgenerator.record.Poem
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 

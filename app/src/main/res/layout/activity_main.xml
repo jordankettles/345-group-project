@@ -8,11 +8,11 @@
     <data>
         <variable
             name="vm"
-            type="com.poemgen.mockspire.ml.GPT2Client" />
+            type="com.poemgen.deeppoet.ml.GPT2Client" />
 
         <variable
             name="mainActivity"
-            type="com.poemgen.mockspire.MainActivity" />
+            type="com.poemgen.deeppoet.MainActivity" />
     </data>
 
     <LinearLayout

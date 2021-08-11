@@ -1,4 +1,4 @@
-package com.poemgen.mockspire
+package com.poemgen.deeppoet
 
 import org.junit.Test
 
