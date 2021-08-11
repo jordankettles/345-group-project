@@ -17,7 +17,10 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
       - name: Build with Gradle
-        run: ./gradlew jacocoTestReport connectedCheck
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+        api-level: 29
+        script: ./gradlew jacocoTestReport connectedCheck
       - name: Upload Reports
         uses: actions/upload-artifact@v1
         with:
