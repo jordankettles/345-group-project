@@ -39,6 +39,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         vectorDrawables.useSupportLibrary = true
+        android:installLocation="auto"
     }
 
     aaptOptions {
