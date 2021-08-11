@@ -134,23 +134,40 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/showLogButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="100dp"
-            android:enabled="@{mainActivity.ready}"
-            android:text="Show Log"
-            tools:layout_editor_absoluteX="100dp"
-            tools:visibility="gone" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/help_button"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/utilities_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:enabled="@{mainActivity.ready}"
-            android:text="@string/helpbutton"
-            tools:visibility="gone" />
+            android:layout_margin="20dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/showLogButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:enabled="@{mainActivity.ready}"
+                android:text="Show Log" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/headPickerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@id/showLogButton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Pick Head" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/helpButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@id/headPickerButton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:enabled="@{mainActivity.ready}"
+                android:text="@string/helpbutton" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
