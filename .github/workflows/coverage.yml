@@ -15,7 +15,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
       - name: Build with Gradle
-        run: ./gradlew jacocoTestReport
+        run: ./gradlew jacocoTestReport connectedCheck
       - name: Upload Reports
         uses: actions/upload-artifact@v1
         with:
