@@ -134,7 +134,7 @@ class MainActivity : AppCompatActivity() {
      * Allows the share button to share poems.
      */
 
-    private fun shareTextOnly(titlee: String) {
+    fun shareTextOnly(titlee: String) {
         val intentt = Intent(Intent.ACTION_SEND)
         intentt.type = "text/plain"
         intentt.putExtra(Intent.EXTRA_SUBJECT, "Subject Here")
