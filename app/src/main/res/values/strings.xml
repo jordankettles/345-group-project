@@ -5,7 +5,7 @@
 
     <string name="dummyPrompt">Dummy Prompt</string>
     <string name="button">Generate</string>
-    <string name="give_the_writer_a_prompt">Give the Writer a Prompt</string>
+    <string name="give_the_writer_a_prompt">Give the Writer some inspiration</string>
     <string name="helpbutton">Help</string>
     <string name="help_text">Enter a prompt for the AI Poet to generate a poem about, or
         use one of the prompts provided using the shuffle button.\n\n
