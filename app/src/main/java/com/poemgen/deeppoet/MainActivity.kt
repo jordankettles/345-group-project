@@ -167,14 +167,14 @@ class MainActivity : AppCompatActivity() {
         val hamburgerLayout = findViewById(R.id.utilities_layout) as ConstraintLayout
         var menuOpen = false
 
-        val hamburgerConstraintSet1 = ConstraintSet()
-        hamburgerConstraintSet1.clone(hamburgerLayout)
+        val hamburgerConstraintSetClosed = ConstraintSet()
+        hamburgerConstraintSetClosed.clone(hamburgerLayout)
 
-        val hamburgerConstraintSet2 = ConstraintSet()
-        hamburgerConstraintSet2.clone(this, R.layout.activity_main_s_hamburger_open)
+        val hamburgerConstraintSetOpen = ConstraintSet()
+        hamburgerConstraintSetOpen.clone(this, R.layout.activity_main_s_hamburger_open)
 
         buttonHamburgerMenu.setOnClickListener {
-            val constraint = if (menuOpen) hamburgerConstraintSet1 else hamburgerConstraintSet2
+            val constraint = if (menuOpen) hamburgerConstraintSetClosed else hamburgerConstraintSetOpen
 
             val transition = AutoTransition()
             transition.duration = 500
@@ -182,7 +182,7 @@ class MainActivity : AppCompatActivity() {
 
             transition.addListener(object : Transition.TransitionListener {
                 override fun onTransitionStart(transition: Transition) {
-                    if (!menuOpen) {
+                    if (menuOpen) {
                         buttonLog.visibility = View.VISIBLE
                         buttonHeadPicker.visibility = View.VISIBLE
                         buttonHelp.visibility = View.VISIBLE
@@ -194,7 +194,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onTransitionEnd(transition: Transition) {
-                    if (menuOpen) {
+                    if (!menuOpen) {
                         buttonLog.visibility = View.GONE
                         buttonHeadPicker.visibility = View.GONE
                         buttonHelp.visibility = View.GONE

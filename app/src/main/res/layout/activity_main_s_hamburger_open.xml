@@ -1,226 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/utilities_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintRight_toRightOf="parent">
 
-    <data>
-        <variable
-            name="vm"
-            type="com.poemgen.deeppoet.ml.GPT2Client" />
+    <Button
+        android:id="@+id/hamburgerButton"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:text="H"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
-        <variable
-            name="mainActivity"
-            type="com.poemgen.deeppoet.MainActivity" />
-    </data>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/showLogButton"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="L"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/hamburgerButton"
+        app:layout_constraintRight_toRightOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/main_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/showLogLabel"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="45dp"
+        android:text="Show Log"
+        android:textAlignment="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/showLogButton"
+        app:layout_constraintRight_toRightOf="@id/showLogButton"
+        app:layout_constraintTop_toTopOf="@id/showLogButton" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/prompt_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.05"
-            tools:layout_constraintVertical_bias="0.05">
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/headPickerButton"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="P"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/showLogButton"
+        app:layout_constraintRight_toRightOf="parent" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                app:layout_constraintEnd_toStartOf="@+id/random_prompt_button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+    <TextView
+        android:id="@+id/headPickerLabel"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="45dp"
+        android:text="Pick Head"
+        android:textAlignment="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/headPickerButton"
+        app:layout_constraintRight_toRightOf="@id/headPickerButton"
+        app:layout_constraintTop_toTopOf="@id/headPickerButton" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/promptField"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/give_the_writer_a_prompt"
-                    android:inputType="textShortMessage" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/helpButton"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="@string/helpbutton"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/headPickerButton"
+        app:layout_constraintRight_toRightOf="parent" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/helpLabel"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="45dp"
+        android:text="Help"
+        android:textAlignment="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/helpButton"
+        app:layout_constraintRight_toRightOf="@id/helpButton"
+        app:layout_constraintTop_toTopOf="@id/helpButton" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/random_prompt_button"
-                android:layout_width="50dp"
-                android:layout_height="0dp"
-                android:enabled="@{mainActivity.ready}"
-                app:icon="@drawable/ic_random"
-                app:iconGravity="textEnd"
-                app:iconPadding="0dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textInputLayout"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/submit_prompt_button"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:enabled="@{mainActivity.ready}"
-                android:text="@string/button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/head_layout"
-            android:layout_width="190dp"
-            android:layout_height="190dp"
-            android:layout_margin="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent">
-
-            <ImageView
-                android:id="@+id/imageHead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                tools:srcCompat="@drawable/placeholder_dino_01" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!--    ^^^^  first we need to set the prompt.-->
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/textdisplay_layout"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/head_layout"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/prompt_layout"
-            app:layout_constraintWidth_percent="0.8">
-
-            <TextView
-                android:id="@+id/poemTextView"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:lineSpacingExtra="8sp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#676565"
-                app:completion="@{vm.completion}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:prompt="@{vm.prompt}"
-                tools:text="@tools:sample/lorem/random" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/share_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:enabled="@{mainActivity.ready}"
-            android:text="Share"
-            app:layout_constraintTop_toBottomOf="@id/textdisplay_layout"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/utilities_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <Button
-                android:id="@+id/hamburgerButton"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:text="H"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/showLogButton"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/hamburgerButton"
-                android:enabled="@{mainActivity.ready}"
-                android:text="L"
-                android:visibility="visible"
-                android:layout_marginBottom="50dp"/>
-
-            <TextView
-                android:id="@+id/showLogLabel"
-                android:layout_width="65dp"
-                android:layout_height="wrap_content"
-                android:text="Show Log"
-                android:textAlignment="center"
-                app:layout_constraintRight_toRightOf="@id/showLogButton"
-                app:layout_constraintBottom_toBottomOf="@id/showLogButton"
-                app:layout_constraintTop_toTopOf="@id/showLogButton"
-                android:layout_marginRight="45dp"
-                android:visibility="visible"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/headPickerButton"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/showLogButton"
-                android:text="P"
-                android:visibility="visible"
-                android:layout_marginBottom="50dp"/>
-
-            <TextView
-                android:id="@+id/headPickerLabel"
-                android:layout_width="65dp"
-                android:layout_height="wrap_content"
-                android:text="Pick Head"
-                android:textAlignment="center"
-                app:layout_constraintRight_toRightOf="@id/headPickerButton"
-                app:layout_constraintTop_toTopOf="@id/headPickerButton"
-                app:layout_constraintBottom_toBottomOf="@id/headPickerButton"
-                android:layout_marginRight="45dp"
-                android:visibility="visible"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/helpButton"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/headPickerButton"
-                android:enabled="@{mainActivity.ready}"
-                android:text="@string/helpbutton"
-                android:visibility="visible"
-                android:layout_marginBottom="50dp"/>
-
-            <TextView
-                android:id="@+id/helpLabel"
-                android:layout_width="65dp"
-                android:layout_height="wrap_content"
-                android:text="Help"
-                android:textAlignment="center"
-                app:layout_constraintRight_toRightOf="@id/helpButton"
-                app:layout_constraintTop_toTopOf="@id/helpButton"
-                app:layout_constraintBottom_toBottomOf="@id/helpButton"
-                android:layout_marginRight="45dp"
-                android:visibility="visible" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>
