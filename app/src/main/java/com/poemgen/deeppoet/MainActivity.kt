@@ -2,9 +2,11 @@ package com.poemgen.deeppoet
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.android.material.textfield.TextInputEditText
 import com.poemgen.deeppoet.databinding.ActivityMainBinding
+import com.poemgen.deeppoet.util.Head
 
 /**
  * Main activity class. Defines functions triggered by UI action.
@@ -37,21 +40,48 @@ class MainActivity : AppCompatActivity() {
     private val _ready = MutableLiveData(true)
     val ready: LiveData<Boolean> = _ready
 
+    private lateinit var buttonLog: Button
+    private lateinit var buttonHelp: Button
+    private lateinit var buttonHeadPicker: Button
+
+    private lateinit var labelLog: TextView
+    private lateinit var labelHelp: TextView
+    private lateinit var labelHeadPicker: TextView
+
+    // Headtype, Idle/Talk, variations
+    private var selectedHeadIndex = 0;
+    private var animationList = mutableListOf<Head>()
+
+    lateinit var imageHead: ImageView
+
+    fun initAnimation() {
+        animationList.add(Head(mutableListOf(R.drawable.anim_placeholder_dino_01),
+                                mutableListOf(R.drawable.anim_placeholder_dino_02)))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        // Head setup head
+        initAnimation()
+        imageHead = findViewById(R.id.imageHead) as ImageView
+        switchHeadAnimation(toTalking = false)
+
+        // Hamburger related buttons
+
+
         randomPrompts = readPrompts()
+
+        val promptField = findViewById<TextInputEditText>(R.id.promptField)
 
         disableButtons()
         gpt2.mainActivity = this
         binding.vm = gpt2
         binding.mainActivity = this
         binding.lifecycleOwner = this
-
-        val promptField = findViewById<TextInputEditText>(R.id.promptField)
 
         val buttonGenerate = findViewById<Button>(R.id.submit_prompt_button)
         buttonGenerate.setOnClickListener{
@@ -65,19 +95,21 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        val buttonLog = findViewById<Button>(R.id.showLogButton)
+        buttonLog = findViewById<Button>(R.id.showLogButton)
         buttonLog.setOnClickListener{
             gpt2.closeGenerator()
             val intent = Intent(this, LogDisplayActivity::class.java)
             startActivity(intent)
         }
 
-        val buttonHelp = findViewById<Button>(R.id.helpButton)
+        buttonHelp = findViewById<Button>(R.id.helpButton)
         buttonHelp.setOnClickListener{
             gpt2.closeGenerator()
             val intent = Intent(this, HelpActivity::class.java)
             startActivity(intent)
         }
+
+        buttonHeadPicker = findViewById<Button>(R.id.headPickerButton)
 
         val buttonShare = findViewById<Button>(R.id.share_button)
         buttonShare.setOnClickListener {
@@ -92,16 +124,29 @@ class MainActivity : AppCompatActivity() {
             promptField.setText(randomPrompts.random())
             hideKeyboard()
         }
+
     }
 
 
 
     fun disableButtons() {
         _ready.value = false
+        switchHeadAnimation(true)
     }
 
     fun enableButtons() {
         _ready.value = true
+        switchHeadAnimation(false)
+    }
+
+    fun switchHeadAnimation(toTalking: Boolean) {
+        if (toTalking) {
+            imageHead.setBackgroundResource(animationList[selectedHeadIndex].getRandomTalking())
+        } else {
+            imageHead.setBackgroundResource(animationList[selectedHeadIndex].getRandomIdle())
+        }
+
+        (imageHead.background as AnimationDrawable).start()
     }
 
     /**
