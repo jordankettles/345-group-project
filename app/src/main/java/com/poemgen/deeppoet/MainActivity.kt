@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.transition.TransitionManager
+import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.ImageView
@@ -11,9 +14,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import android.transition.AutoTransition
+import android.transition.Transition
 import com.google.android.material.textfield.TextInputEditText
 import com.poemgen.deeppoet.databinding.ActivityMainBinding
 import com.poemgen.deeppoet.util.Head
@@ -40,6 +47,7 @@ class MainActivity : AppCompatActivity() {
     private val _ready = MutableLiveData(true)
     val ready: LiveData<Boolean> = _ready
 
+    private lateinit var buttonHamburgerMenu: Button
     private lateinit var buttonLog: Button
     private lateinit var buttonHelp: Button
     private lateinit var buttonHeadPicker: Button
@@ -70,9 +78,7 @@ class MainActivity : AppCompatActivity() {
         imageHead = findViewById(R.id.imageHead) as ImageView
         switchHeadAnimation(toTalking = false)
 
-        // Hamburger related buttons
-
-
+        // GPT2 client related things
         randomPrompts = readPrompts()
 
         val promptField = findViewById<TextInputEditText>(R.id.promptField)
@@ -82,6 +88,11 @@ class MainActivity : AppCompatActivity() {
         binding.vm = gpt2
         binding.mainActivity = this
         binding.lifecycleOwner = this
+
+        // Hamburger related buttons
+        labelLog = findViewById(R.id.showLogLabel) as TextView
+        labelHelp = findViewById(R.id.helpLabel) as TextView
+        labelHeadPicker = findViewById(R.id.headPickerLabel) as TextView
 
         val buttonGenerate = findViewById<Button>(R.id.submit_prompt_button)
         buttonGenerate.setOnClickListener{
@@ -110,6 +121,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonHeadPicker = findViewById<Button>(R.id.headPickerButton)
+
+        buttonHamburgerMenu = findViewById(R.id.hamburgerButton)
+        initHamburgerMenu()
 
         val buttonShare = findViewById<Button>(R.id.share_button)
         buttonShare.setOnClickListener {
@@ -147,6 +161,61 @@ class MainActivity : AppCompatActivity() {
         }
 
         (imageHead.background as AnimationDrawable).start()
+    }
+
+    fun initHamburgerMenu() {
+        val hamburgerLayout = findViewById(R.id.utilities_layout) as ConstraintLayout
+        var menuOpen = false
+
+        val hamburgerConstraintSet1 = ConstraintSet()
+        hamburgerConstraintSet1.clone(hamburgerLayout)
+
+        val hamburgerConstraintSet2 = ConstraintSet()
+        hamburgerConstraintSet2.clone(this, R.layout.activity_main_s_hamburger_open)
+
+        buttonHamburgerMenu.setOnClickListener {
+            val constraint = if (menuOpen) hamburgerConstraintSet1 else hamburgerConstraintSet2
+
+            val transition = AutoTransition()
+            transition.duration = 500
+            transition.interpolator = AccelerateDecelerateInterpolator()
+
+            transition.addListener(object : Transition.TransitionListener {
+                override fun onTransitionStart(transition: Transition) {
+                    if (!menuOpen) {
+                        buttonLog.visibility = View.VISIBLE
+                        buttonHeadPicker.visibility = View.VISIBLE
+                        buttonHelp.visibility = View.VISIBLE
+
+                        labelLog.visibility = View.VISIBLE
+                        labelHeadPicker.visibility = View.VISIBLE
+                        labelHelp.visibility = View.VISIBLE
+                    }
+                }
+
+                override fun onTransitionEnd(transition: Transition) {
+                    if (menuOpen) {
+                        buttonLog.visibility = View.GONE
+                        buttonHeadPicker.visibility = View.GONE
+                        buttonHelp.visibility = View.GONE
+
+                        labelLog.visibility = View.GONE
+                        labelHeadPicker.visibility = View.GONE
+                        labelHelp.visibility = View.GONE
+                    }
+                }
+
+                override fun onTransitionCancel(transition: Transition) {}
+
+                override fun onTransitionPause(transition: Transition) {}
+
+                override fun onTransitionResume(transition: Transition) {}
+            })
+
+            TransitionManager.beginDelayedTransition(hamburgerLayout, transition)
+            constraint.applyTo(hamburgerLayout)
+            menuOpen =!menuOpen
+        }
     }
 
     /**
