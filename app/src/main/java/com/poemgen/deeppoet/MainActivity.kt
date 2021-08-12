@@ -50,6 +50,9 @@ class MainActivity : AppCompatActivity() {
     private val _ready = MutableLiveData(true)
     val ready: LiveData<Boolean> = _ready
 
+    // Share button
+    private lateinit var buttonShare: Button
+
     // Hamburger menu
     private lateinit var buttonLog: Button
     private lateinit var buttonHeadPicker: Button
@@ -134,7 +137,7 @@ class MainActivity : AppCompatActivity() {
         buttonHamburgerMenu = findViewById(R.id.hamburgerButton)
         initHamburgerMenu()
 
-        val buttonShare = findViewById<Button>(R.id.share_button)
+        buttonShare = findViewById<Button>(R.id.share_button)
         buttonShare.setOnClickListener {
             gpt2.closeGenerator()
             val result = findViewById(R.id.poemTextView) as TextView
@@ -161,6 +164,8 @@ class MainActivity : AppCompatActivity() {
     fun enableButtons() {
         _ready.value = true
         switchHeadAnimation(false)
+//        Log.d("buttonShare: ", buttonShare.y.toString())
+        if(buttonShare.visibility == View.GONE && !firstTime) { fadeInShareButton() }
     }
 
     fun switchHeadAnimation(toTalking: Boolean) {
@@ -264,6 +269,16 @@ class MainActivity : AppCompatActivity() {
                 .setInterpolator(AccelerateInterpolator())
                 .start()
         }
+    }
+
+    fun fadeInShareButton() {
+        buttonShare.visibility = View.VISIBLE
+
+        buttonShare.animate()
+            .setDuration(800L)
+            .translationY(30f)
+            .alpha(1F)
+            .start()
     }
 
     /**

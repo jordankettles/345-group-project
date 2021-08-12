@@ -133,7 +133,13 @@
             android:text="Share"
             app:layout_constraintTop_toBottomOf="@id/textdisplay_layout"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:alpha="0"
+            android:translationY="-30dp"
+            android:visibility="gone"
+            tools:translationY="0dp"
+            tools:alpha="1"
+            tools:visibility="visible"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/utilities_layout"
