@@ -77,9 +77,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/head_layout"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_margin="20dp"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:layout_margin="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent">
 
