@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var imageHead: ImageView
 
-    fun initAnimation() {
+    private fun initAnimation() {
         animationList.add(Head(mutableListOf(R.drawable.anim_placeholder_dino_01),
                                 mutableListOf(R.drawable.anim_placeholder_dino_02)))
     }
@@ -168,7 +168,7 @@ class MainActivity : AppCompatActivity() {
         if(buttonShare.visibility == View.GONE && !firstTime) { fadeInShareButton() }
     }
 
-    fun switchHeadAnimation(toTalking: Boolean) {
+    private fun switchHeadAnimation(toTalking: Boolean) {
         if (toTalking) {
             imageHead.setBackgroundResource(animationList[selectedHeadIndex].getRandomTalking())
         } else {
@@ -178,7 +178,7 @@ class MainActivity : AppCompatActivity() {
         (imageHead.background as AnimationDrawable).start()
     }
 
-    fun stowPromptLayout() {
+    private fun stowPromptLayout() {
         val constraintLayout = findViewById(R.id.main_layout) as ConstraintLayout
 
         val constraintSet = ConstraintSet()
@@ -194,7 +194,7 @@ class MainActivity : AppCompatActivity() {
         constraintSet.applyTo(constraintLayout)
     }
 
-    fun initHamburgerMenu() {
+    private fun initHamburgerMenu() {
         var menuOpen = false
 
         var xDist = -130F
@@ -271,7 +271,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun fadeInShareButton() {
+    private fun fadeInShareButton() {
         buttonShare.visibility = View.VISIBLE
 
         buttonShare.animate()
