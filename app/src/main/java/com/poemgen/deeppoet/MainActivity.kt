@@ -108,6 +108,11 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please enter a prompt.", Toast.LENGTH_SHORT).show()
             }
 
+            if(firstTime) {
+                stowPromptLayout();
+                firstTime = false
+            }
+
         }
 
         buttonLog = findViewById<Button>(R.id.showLogButton)
@@ -145,11 +150,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
+    var firstTime = true
 
     fun disableButtons() {
         _ready.value = false
         switchHeadAnimation(true)
+
     }
 
     fun enableButtons() {
@@ -165,6 +171,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         (imageHead.background as AnimationDrawable).start()
+    }
+
+    fun stowPromptLayout() {
+        val constraintLayout = findViewById(R.id.main_layout) as ConstraintLayout
+
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(constraintLayout)
+
+        constraintSet.setVerticalBias(R.id.prompt_layout, 0.05f)
+
+        val transition = AutoTransition()
+        transition.duration = 1000
+        transition.interpolator = AccelerateDecelerateInterpolator()
+
+        TransitionManager.beginDelayedTransition(constraintLayout, transition)
+        constraintSet.applyTo(constraintLayout)
     }
 
     fun initHamburgerMenu() {

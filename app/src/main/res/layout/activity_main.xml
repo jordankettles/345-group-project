@@ -29,7 +29,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.05"
+            app:layout_constraintVertical_bias="0.5"
             tools:layout_constraintVertical_bias="0.05">
 
             <com.google.android.material.textfield.TextInputLayout
