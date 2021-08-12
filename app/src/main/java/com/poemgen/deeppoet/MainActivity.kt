@@ -129,13 +129,13 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Allows the share button to share poems.
-     * @param titlee The input string to be shared.
+     * @param title The input string to be shared.
      */
-    fun shareTextOnly(titlee: String) {
+    fun shareTextOnly(title: String) {
         val intentt = Intent(Intent.ACTION_SEND)
         intentt.type = "text/plain"
         intentt.putExtra(Intent.EXTRA_SUBJECT, "Subject Here")
-        intentt.putExtra(Intent.EXTRA_TEXT, titlee)
+        intentt.putExtra(Intent.EXTRA_TEXT, title)
         startActivity(Intent.createChooser(intentt, "Share Via"))
     }
 
