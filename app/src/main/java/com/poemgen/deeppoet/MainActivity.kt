@@ -21,6 +21,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import android.transition.AutoTransition
 import android.transition.Transition
+import android.util.Log
+import android.view.ViewPropertyAnimator
+import android.view.animation.AccelerateInterpolator
 import com.google.android.material.textfield.TextInputEditText
 import com.poemgen.deeppoet.databinding.ActivityMainBinding
 import com.poemgen.deeppoet.util.Head
@@ -47,14 +50,15 @@ class MainActivity : AppCompatActivity() {
     private val _ready = MutableLiveData(true)
     val ready: LiveData<Boolean> = _ready
 
-    private lateinit var buttonHamburgerMenu: Button
+    // Hamburger menu
     private lateinit var buttonLog: Button
-    private lateinit var buttonHelp: Button
     private lateinit var buttonHeadPicker: Button
+    private lateinit var buttonHelp: Button
+    private lateinit var buttonHamburgerMenu: Button
 
     private lateinit var labelLog: TextView
-    private lateinit var labelHelp: TextView
     private lateinit var labelHeadPicker: TextView
+    private lateinit var labelHelp: TextView
 
     // Headtype, Idle/Talk, variations
     private var selectedHeadIndex = 0;
@@ -164,57 +168,79 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initHamburgerMenu() {
-        val hamburgerLayout = findViewById(R.id.utilities_layout) as ConstraintLayout
         var menuOpen = false
 
-        val hamburgerConstraintSetClosed = ConstraintSet()
-        hamburgerConstraintSetClosed.clone(hamburgerLayout)
-
-        val hamburgerConstraintSetOpen = ConstraintSet()
-        hamburgerConstraintSetOpen.clone(this, R.layout.activity_main_s_hamburger_open)
+        var xDist = -130F
+        var yDist = -350F
+        var duration = 300.0
 
         buttonHamburgerMenu.setOnClickListener {
-            val constraint = if (menuOpen) hamburgerConstraintSetClosed else hamburgerConstraintSetOpen
+            var menuOpenConst = if(menuOpen) 0 else 1
 
-            val transition = AutoTransition()
-            transition.duration = 500
-            transition.interpolator = AccelerateDecelerateInterpolator()
+            buttonLog.visibility = View.VISIBLE
+            buttonHeadPicker.visibility = View.VISIBLE
+            buttonHelp.visibility = View.VISIBLE
 
-            transition.addListener(object : Transition.TransitionListener {
-                override fun onTransitionStart(transition: Transition) {
-                    if (menuOpen) {
-                        buttonLog.visibility = View.VISIBLE
-                        buttonHeadPicker.visibility = View.VISIBLE
-                        buttonHelp.visibility = View.VISIBLE
+            labelLog.visibility = View.VISIBLE
+            labelHeadPicker.visibility = View.VISIBLE
+            labelHelp.visibility = View.VISIBLE
 
-                        labelLog.visibility = View.VISIBLE
-                        labelHeadPicker.visibility = View.VISIBLE
-                        labelHelp.visibility = View.VISIBLE
-                    }
-                }
+            buttonHamburgerMenu.animate()
+                .setDuration(duration.toLong())
+                .rotation(360F * menuOpenConst)
+                .withEndAction { menuOpen = !menuOpen; Log.d("menuOpen: ", menuOpen.toString())
+                                    if(!menuOpen) {
+                                        buttonLog.visibility = View.GONE
+                                        buttonHeadPicker.visibility = View.GONE
+                                        buttonHelp.visibility = View.GONE
 
-                override fun onTransitionEnd(transition: Transition) {
-                    if (!menuOpen) {
-                        buttonLog.visibility = View.GONE
-                        buttonHeadPicker.visibility = View.GONE
-                        buttonHelp.visibility = View.GONE
+                                        labelLog.visibility = View.GONE
+                                        labelHeadPicker.visibility = View.GONE
+                                        labelHelp.visibility = View.GONE
+                                    }}
+                .start()
 
-                        labelLog.visibility = View.GONE
-                        labelHeadPicker.visibility = View.GONE
-                        labelHelp.visibility = View.GONE
-                    }
-                }
+            buttonLog.animate()
+                .setDuration(duration.toLong())
+                .translationY(yDist * menuOpenConst)
+                .setInterpolator(AccelerateInterpolator())
+                .start()
 
-                override fun onTransitionCancel(transition: Transition) {}
+            buttonHeadPicker.animate()
+                .setDuration(duration.toLong()*2/3)
+                .translationY(yDist * menuOpenConst*2/3)
+                .setInterpolator(AccelerateInterpolator())
+                .start()
 
-                override fun onTransitionPause(transition: Transition) {}
+            buttonHelp.animate()
+                .setDuration(duration.toLong()/3)
+                .translationY(yDist * menuOpenConst/3)
+                .setInterpolator(AccelerateInterpolator())
+                .start()
 
-                override fun onTransitionResume(transition: Transition) {}
-            })
+            labelLog.animate()
+                .setDuration(duration.toLong())
+                .translationY(yDist * menuOpenConst)
+                .translationX(xDist * menuOpenConst)
+                .alpha(1F * menuOpenConst)
+                .setInterpolator(AccelerateInterpolator())
+                .start()
 
-            TransitionManager.beginDelayedTransition(hamburgerLayout, transition)
-            constraint.applyTo(hamburgerLayout)
-            menuOpen =!menuOpen
+            labelHeadPicker.animate()
+                .setDuration(duration.toLong()*2/3)
+                .translationY(yDist * menuOpenConst*2/3)
+                .translationX(xDist * menuOpenConst)
+                .alpha(1F * menuOpenConst)
+                .setInterpolator(AccelerateInterpolator())
+                .start()
+
+            labelHelp.animate()
+                .setDuration(duration.toLong()/3)
+                .translationY(yDist * menuOpenConst/3)
+                .translationX(xDist * menuOpenConst)
+                .alpha(1F * menuOpenConst)
+                .setInterpolator(AccelerateInterpolator())
+                .start()
         }
     }
 
