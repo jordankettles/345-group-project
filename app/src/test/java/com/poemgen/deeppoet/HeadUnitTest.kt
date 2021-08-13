@@ -11,6 +11,9 @@ import org.junit.Test
  */
 class HeadUnitTest {
 
+    /**
+     * Creates a head instance. Makes sure int returned by methods are from the list and not anything else.
+     */
     @Test
     fun retrieveHead() {
         var head = Head(mutableListOf(1, 5, 4), mutableListOf(2, 8, 9))
@@ -26,14 +29,14 @@ class HeadUnitTest {
                     (val2 == 9)
 
         var val3 = head.getRandomIdle()
-        var test3 = (val3 == 3) or
-                    (val3 == 6) or
-                    (val3 == 7)
+        var test3 = (val3 != 1) and
+                    (val3 != 5) and
+                    (val3 != 4)
 
         var val4 = head.getRandomTalking()
-        var test4 = (val4 == 3) or
-                    (val4 == 6) or
-                    (val4 == 7)
+        var test4 = (val4 != 2) and
+                    (val4 != 8) and
+                    (val4 != 9)
 
 
         assertEquals(test1, true)
