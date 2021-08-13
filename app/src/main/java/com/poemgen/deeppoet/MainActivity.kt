@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please enter a prompt.", Toast.LENGTH_SHORT).show()
             }
 
-            if(firstTime) {
+            if(firstTime && !promptField.getText().toString().equals("")) {
                 stowPromptLayout();
                 firstTime = false
             }
