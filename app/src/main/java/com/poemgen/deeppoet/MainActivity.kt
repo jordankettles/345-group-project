@@ -276,7 +276,7 @@ class MainActivity : AppCompatActivity() {
 
         buttonShare.animate()
             .setDuration(800L)
-            .translationY(30f)
+            .translationY(0f)
             .alpha(1F)
             .start()
     }
