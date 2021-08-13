@@ -115,7 +115,6 @@ class MainActivity : AppCompatActivity() {
                 stowPromptLayout();
                 firstTime = false
             }
-
         }
 
         buttonLog = findViewById<Button>(R.id.showLogButton)
@@ -204,26 +203,14 @@ class MainActivity : AppCompatActivity() {
         buttonHamburgerMenu.setOnClickListener {
             var menuOpenConst = if(menuOpen) 0 else 1
 
-            buttonLog.visibility = View.VISIBLE
-            buttonHeadPicker.visibility = View.VISIBLE
-            buttonHelp.visibility = View.VISIBLE
-
-            labelLog.visibility = View.VISIBLE
-            labelHeadPicker.visibility = View.VISIBLE
-            labelHelp.visibility = View.VISIBLE
+            showAllUtilityButtonsLabels()
 
             buttonHamburgerMenu.animate()
                 .setDuration(duration.toLong())
                 .rotation(360F * menuOpenConst)
                 .withEndAction { menuOpen = !menuOpen; Log.d("menuOpen: ", menuOpen.toString())
                                     if(!menuOpen) {
-                                        buttonLog.visibility = View.GONE
-                                        buttonHeadPicker.visibility = View.GONE
-                                        buttonHelp.visibility = View.GONE
-
-                                        labelLog.visibility = View.GONE
-                                        labelHeadPicker.visibility = View.GONE
-                                        labelHelp.visibility = View.GONE
+                                        hideAllUtilityButtonsLabels()
                                     }}
                 .start()
 
@@ -279,6 +266,26 @@ class MainActivity : AppCompatActivity() {
             .translationY(0f)
             .alpha(1F)
             .start()
+    }
+
+    private fun showAllUtilityButtonsLabels() {
+        buttonLog.visibility = View.VISIBLE
+        buttonHeadPicker.visibility = View.VISIBLE
+        buttonHelp.visibility = View.VISIBLE
+
+        labelLog.visibility = View.VISIBLE
+        labelHeadPicker.visibility = View.VISIBLE
+        labelHelp.visibility = View.VISIBLE
+    }
+
+    private fun hideAllUtilityButtonsLabels() {
+        buttonLog.visibility = View.GONE
+        buttonHeadPicker.visibility = View.GONE
+        buttonHelp.visibility = View.GONE
+
+        labelLog.visibility = View.GONE
+        labelHeadPicker.visibility = View.GONE
+        labelHelp.visibility = View.GONE
     }
 
     /**
