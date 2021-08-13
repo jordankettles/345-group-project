@@ -15,21 +15,25 @@ class HeadUnitTest {
     fun retrieveHead() {
         var head = Head(mutableListOf(1, 5, 4), mutableListOf(2, 8, 9))
 
-        var test1 = (head.getRandomIdle() == 1) or
-                    (head.getRandomIdle() == 5) or
-                    (head.getRandomIdle() == 4)
+        var val1 = head.getRandomIdle()
+        var test1 = (val1 == 1) or
+                    (val1 == 5) or
+                    (val1 == 4)
 
-        var test2 = (head.getRandomTalking() == 2) or
-                    (head.getRandomTalking() == 8) or
-                    (head.getRandomTalking() == 9)
+        var val2 = head.getRandomTalking()
+        var test2 = (val2 == 2) or
+                    (val2 == 8) or
+                    (val2 == 9)
 
-        var test3 = (head.getRandomIdle() == 3) or
-                    (head.getRandomIdle() == 6) or
-                    (head.getRandomIdle() == 7)
+        var val3 = head.getRandomIdle()
+        var test3 = (val3 == 3) or
+                    (val3 == 6) or
+                    (val3 == 7)
 
-        var test4 = (head.getRandomTalking() == 3) or
-                    (head.getRandomTalking() == 6) or
-                    (head.getRandomTalking() == 7)
+        var val4 = head.getRandomTalking()
+        var test4 = (val4 == 3) or
+                    (val4 == 6) or
+                    (val4 == 7)
 
 
         assertEquals(test1, true)
