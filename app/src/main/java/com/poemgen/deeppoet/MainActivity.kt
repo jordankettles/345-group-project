@@ -20,9 +20,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import android.transition.AutoTransition
-import android.transition.Transition
 import android.util.Log
-import android.view.ViewPropertyAnimator
 import android.view.animation.AccelerateInterpolator
 import com.google.android.material.textfield.TextInputEditText
 import com.poemgen.deeppoet.databinding.ActivityMainBinding
@@ -70,8 +68,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var imageHead: ImageView
 
     private fun initAnimation() {
-        animationList.add(Head(mutableListOf(R.drawable.anim_placeholder_dino_01),
-                                mutableListOf(R.drawable.anim_placeholder_dino_02)))
+        animationList.add(Head(mutableListOf(R.drawable.anim_owl_idle),
+                                mutableListOf(R.drawable.anim_owl_talk)))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
