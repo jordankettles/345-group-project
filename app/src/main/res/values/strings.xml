@@ -10,7 +10,8 @@
     <string name="help_text">Enter a prompt for the AI Poet to generate a poem about, or
         use one of the prompts provided using the shuffle button.\n\n
         The log stores each generated poem during your session.\n\n
-        The longer the prompt the better, as it gives the AI better context of you want to convey.
+        The longer the prompt the better, as it gives the AI more context about what you want to
+        convey.
         </string>
     <string name="return_button">Return to Generator</string>
 </resources>
