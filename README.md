@@ -1,6 +1,7 @@
 # COSC345 AI Generated Poetry Group Project
 [![Documentation](https://github.com/jordankettles/345-group-project/actions/workflows/documentation.yml/badge.svg)](https://github.com/jordankettles/345-group-project/actions/workflows/documentation.yml)
 [![Documentation](https://github.com/jordankettles/345-group-project/actions/workflows/android.yml/badge.svg)](https://github.com/jordankettles/345-group-project/actions/workflows/android.yml)
+[![codecov](https://codecov.io/gh/jordankettles/345-group-project/branch/main/graph/badge.svg?token=O6ADELJECI)](https://codecov.io/gh/jordankettles/345-group-project)
 ## [Project Wiki](https://github.com/jordankettles/345-group-project/wiki/)
 We are building an app called Deep Poet that uses a custom-trained AI to generate poetry based on short prompts. After the AI has generated a poem, users can select a new prompt or view a list of recent poems. Deep Poet will let our users find inspiration when stuck in a creative block, impress their friends and lovers with their new-found literary skill, or simply waste their fleeting time on this planet reading GPT-2’s attempts to pass a poetic version of the Turing test.
 
