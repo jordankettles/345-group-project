@@ -20,10 +20,10 @@ import android.widget.TextView
 import androidx.test.espresso.ViewAction
 
 import androidx.test.espresso.UiController
+import com.google.android.material.textfield.TextInputEditText
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
-import org.hamcrest.Matchers.`is`
-import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.*
 
 
 /**
@@ -54,6 +54,31 @@ class MainInstrumentedTest {
 
             override fun perform(uiController: UiController?, view: View) {
                 val tv = view as TextView //Save, because of check in getConstraints()
+                stringHolder[0] = tv.text.toString()
+            }
+        })
+        return stringHolder[0]
+    }
+
+    /**
+     * getTextfromEditText Gets text from a TextInputEditText.
+     * Modified from user haffax's function on Stack overflow for this function.
+     * @param matcher Matcher for the TextInputEditText.
+     * @return String the string in the TextInputEditText.
+     */
+    fun getTextfromEditText(matcher: Matcher<View?>?): String? {
+        val stringHolder = arrayOf<String?>(null)
+        onView(matcher).perform(object : ViewAction {
+            override fun getConstraints(): Matcher<View> {
+                return isAssignableFrom(TextInputEditText::class.java)
+            }
+
+            override fun getDescription(): String {
+                return "getting text from a TextView"
+            }
+
+            override fun perform(uiController: UiController?, view: View) {
+                val tv = view as TextInputEditText //Save, because of check in getConstraints()
                 stringHolder[0] = tv.text.toString()
             }
         })
@@ -122,4 +147,21 @@ class MainInstrumentedTest {
         intended(hasComponent(HelpActivity::class.java.getName()))
         Intents.release()
     }
+
+    /**
+     *  Test that the random prompt button works.
+     *
+     */
+    @Test
+    fun testRandomPromptButton(){
+        launchActivity<MainActivity>()
+        android.os.SystemClock.sleep(2400)
+        onView(withId(R.id.random_prompt_button)).perform(click())
+        val r_text = getTextfromEditText(withId(R.id.promptField))
+        if(r_text != null){
+            assert(r_text.isNotEmpty())
+        }
+
+    }
 }
+
