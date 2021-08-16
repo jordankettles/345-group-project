@@ -81,6 +81,7 @@ class MainActivity : AppCompatActivity() {
         // Head setup head
         initAnimation()
         imageHead = findViewById(R.id.imageHead) as ImageView
+        imageHead.scaleType = ImageView.ScaleType.FIT_START
         switchHeadAnimation(toTalking = false)
 
         // GPT2 client related things
@@ -167,12 +168,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun switchHeadAnimation(toTalking: Boolean) {
         if (toTalking) {
-            imageHead.setBackgroundResource(animationList[selectedHeadIndex].getRandomTalking())
+            imageHead.setImageResource(animationList[selectedHeadIndex].getRandomTalking())
         } else {
-            imageHead.setBackgroundResource(animationList[selectedHeadIndex].getRandomIdle())
+            imageHead.setImageResource(animationList[selectedHeadIndex].getRandomIdle())
         }
 
-        (imageHead.background as AnimationDrawable).start()
+        (imageHead.drawable as AnimationDrawable).start()
     }
 
     private fun stowPromptLayout() {

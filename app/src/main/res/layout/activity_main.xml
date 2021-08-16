@@ -78,8 +78,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/head_layout"
             android:layout_width="190dp"
-            android:layout_height="190dp"
-            android:layout_margin="10dp"
+            android:layout_height="240dp"
+            android:layout_margin="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent">
 
@@ -89,7 +89,8 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                tools:srcCompat="@drawable/placeholder_dino_01" />
+                android:scaleType="fitStart"
+                tools:srcCompat="@drawable/anim_owl_idle" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!--    ^^^^  first we need to set the prompt.-->
