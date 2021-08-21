@@ -2,7 +2,7 @@ name: Code Coverage
 
 on:
   push:
-    branches: [ code_coverage ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
