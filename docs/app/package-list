@@ -34,11 +34,6 @@ $dokka.location:com.poemgen.deeppoet.tokenization/GPT2Tokenizer///PointingToDecl
 $dokka.location:com.poemgen.deeppoet.tokenization/GPT2Tokenizer/GPT2Tokenizer/#kotlin.collections.Map[kotlin.String,kotlin.Int]#kotlin.collections.Map[kotlin.Int,kotlin.String]#kotlin.collections.Map[kotlin.Pair[kotlin.String,kotlin.String],kotlin.Int]/PointingToDeclaration/app/com.poemgen.deeppoet.tokenization/-g-p-t2-tokenizer/-g-p-t2-tokenizer.html
 $dokka.location:com.poemgen.deeppoet.tokenization/GPT2Tokenizer/decode/#kotlin.collections.List[kotlin.Int]/PointingToDeclaration/app/com.poemgen.deeppoet.tokenization/-g-p-t2-tokenizer/decode.html
 $dokka.location:com.poemgen.deeppoet.tokenization/GPT2Tokenizer/encode/#kotlin.String/PointingToDeclaration/app/com.poemgen.deeppoet.tokenization/-g-p-t2-tokenizer/encode.html
-$dokka.location:com.poemgen.deeppoet.util////PointingToDeclaration/app/com.poemgen.deeppoet.util/index.html
-$dokka.location:com.poemgen.deeppoet.util/Head///PointingToDeclaration/app/com.poemgen.deeppoet.util/-head/index.html
-$dokka.location:com.poemgen.deeppoet.util/Head/Head/#kotlin.collections.MutableList[kotlin.Int]#kotlin.collections.MutableList[kotlin.Int]/PointingToDeclaration/app/com.poemgen.deeppoet.util/-head/-head.html
-$dokka.location:com.poemgen.deeppoet.util/Head/getRandomIdle/#/PointingToDeclaration/app/com.poemgen.deeppoet.util/-head/get-random-idle.html
-$dokka.location:com.poemgen.deeppoet.util/Head/getRandomTalking/#/PointingToDeclaration/app/com.poemgen.deeppoet.util/-head/get-random-talking.html
 $dokka.location:com.poemgen.deeppoet////PointingToDeclaration/app/com.poemgen.deeppoet/index.html
 $dokka.location:com.poemgen.deeppoet/HelpActivity///PointingToDeclaration/app/com.poemgen.deeppoet/-help-activity/index.html
 $dokka.location:com.poemgen.deeppoet/HelpActivity/HelpActivity/#/PointingToDeclaration/app/com.poemgen.deeppoet/-help-activity/-help-activity.html
@@ -48,9 +43,7 @@ $dokka.location:com.poemgen.deeppoet/MainActivity///PointingToDeclaration/app/c
 $dokka.location:com.poemgen.deeppoet/MainActivity/MainActivity/#/PointingToDeclaration/app/com.poemgen.deeppoet/-main-activity/-main-activity.html
 $dokka.location:com.poemgen.deeppoet/MainActivity/disableButtons/#/PointingToDeclaration/app/com.poemgen.deeppoet/-main-activity/disable-buttons.html
 $dokka.location:com.poemgen.deeppoet/MainActivity/enableButtons/#/PointingToDeclaration/app/com.poemgen.deeppoet/-main-activity/enable-buttons.html
-$dokka.location:com.poemgen.deeppoet/MainActivity/firstTime/#/PointingToDeclaration/app/com.poemgen.deeppoet/-main-activity/first-time.html
 $dokka.location:com.poemgen.deeppoet/MainActivity/hideKeyboard/#/PointingToDeclaration/app/com.poemgen.deeppoet/-main-activity/hide-keyboard.html
-$dokka.location:com.poemgen.deeppoet/MainActivity/imageHead/#/PointingToDeclaration/app/com.poemgen.deeppoet/-main-activity/image-head.html
 $dokka.location:com.poemgen.deeppoet/MainActivity/randomPrompts/#/PointingToDeclaration/app/com.poemgen.deeppoet/-main-activity/random-prompts.html
 $dokka.location:com.poemgen.deeppoet/MainActivity/readPrompts/#/PointingToDeclaration/app/com.poemgen.deeppoet/-main-activity/read-prompts.html
 $dokka.location:com.poemgen.deeppoet/MainActivity/ready/#/PointingToDeclaration/app/com.poemgen.deeppoet/-main-activity/ready.html
@@ -73,5 +66,4 @@ com.poemgen.deeppoet
 com.poemgen.deeppoet.ml
 com.poemgen.deeppoet.poemgenerator.record
 com.poemgen.deeppoet.tokenization
-com.poemgen.deeppoet.util
 
