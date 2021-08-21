@@ -23,7 +23,6 @@ because of their 100MB file size limit. The model is 236MB.
 •	We named the app (Deep Poet)
 • We added analysis reports (Codacy and Codecov)
 
-
 ### Issues
 •	We have a select head button that is currently just a placeholder.
 
