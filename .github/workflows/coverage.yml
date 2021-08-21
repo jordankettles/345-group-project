@@ -11,11 +11,21 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      - name: Delete .NET
+        run: sudo rm -rf /usr/share/dotnet
+      - name: Set environment variable
+        run: export ADB_INSTALL_TIMEOUT=20
       - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
       - name: Build with Gradle
-        run: ./gradlew jacocoTestReport
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -partition-size 2048
+          sdcard-path-or-size: 5000M
+          ram-size: 4096M
+          script: ./gradlew jacocoTestReport connectedCheck
       - name: Upload Reports
         uses: actions/upload-artifact@v1
         with:

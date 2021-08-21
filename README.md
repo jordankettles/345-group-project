@@ -23,10 +23,8 @@ because of their 100MB file size limit. The model is 236MB.
 •	We named the app (Deep Poet)
 • We added analysis reports (Codacy and Codecov)
 
-
 ### Issues
-•	We have a select head button that is currently just a placeholder. 
-•	Our tests were run locally and uploaded manually because GitHub actions does not work with our app (we’ve opened up an issue with GitHub, and they said they’ll get back to us).
+•	We have a select head button that is currently just a placeholder.
 
 ### New Team
 Out of the fire that was Andrew’s chaotic neutral upheaval at the start of Semester 2 flies the phoenix of a new team: Jordan Kettles, Masaaki Fukushima, Max Freeman, and Nat Moore. 
