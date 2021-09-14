@@ -37,6 +37,7 @@ class HelpInstrumentedTest {
         launchActivity<HelpActivity>()
         android.os.SystemClock.sleep(1000)
         onView(withId(R.id.showMainHelp)).perform(click())
+        android.os.SystemClock.sleep(3000)
         intended(hasComponent(MainActivity::class.java.getName()))
     }
 }

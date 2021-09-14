@@ -108,7 +108,7 @@ class MainInstrumentedTest {
         android.os.SystemClock.sleep(1000)
         onView(withId(R.id.submit_prompt_button)).perform(click())
         onView(withId(R.id.poemTextView)).check(matches(withText("Hello, I am a poet")))
-        android.os.SystemClock.sleep(500000)
+        android.os.SystemClock.sleep(50000)
         val generated_txt = getText(withId(R.id.poemTextView))
         onView(withId(R.id.share_button)).perform(click())
         val expectedIntent = anyOf(
@@ -158,12 +158,10 @@ class MainInstrumentedTest {
     @Test
     fun testRandomPromptButton(){
         launchActivity<MainActivity>()
-        android.os.SystemClock.sleep(2400)
+        android.os.SystemClock.sleep(3000)
         onView(withId(R.id.random_prompt_button)).perform(click())
         val r_text = getTextfromEditText(withId(R.id.promptField))
-        if(r_text != null){
-            assert(r_text.isNotEmpty())
-        }
+        assert(r_text!!.isNotEmpty())
 
     }
 }
