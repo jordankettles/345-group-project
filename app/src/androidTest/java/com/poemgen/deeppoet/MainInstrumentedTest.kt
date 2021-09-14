@@ -105,12 +105,13 @@ class MainInstrumentedTest {
         launchActivity<MainActivity>()
         onView(withId(R.id.promptField)).perform(typeText("Hello, I am a poet"))
         Intents.init()
+        android.os.SystemClock.sleep(1000)
         onView(withId(R.id.submit_prompt_button)).perform(click())
         onView(withId(R.id.poemTextView)).check(matches(withText("Hello, I am a poet")))
-        android.os.SystemClock.sleep(100000)
+        android.os.SystemClock.sleep(500000)
         val generated_txt = getText(withId(R.id.poemTextView))
         onView(withId(R.id.share_button)).perform(click())
-        val expectedIntent = Matchers.anyOf(
+        val expectedIntent = anyOf(
             hasAction(Intent.ACTION_SEND),
             hasExtra(Intent.EXTRA_TEXT, generated_txt),
             hasExtra(Intent.EXTRA_SUBJECT, "Subject Here"),
@@ -127,6 +128,7 @@ class MainInstrumentedTest {
     @Test
     fun testHamburgerButton() {
         launchActivity<MainActivity>()
+        android.os.SystemClock.sleep(1000)
         onView(withId(R.id.hamburgerButton)).perform(click())
         onView(withId(R.id.showLogButton)).check(matches(isDisplayed()))
         onView(withId(R.id.helpButton)).check(matches(isDisplayed()))
@@ -139,6 +141,7 @@ class MainInstrumentedTest {
     @Test
     fun testHelpButton() {
         launchActivity<MainActivity>()
+        android.os.SystemClock.sleep(1000)
         onView(withId(R.id.hamburgerButton)).perform(click())
         onView(withId(R.id.helpButton)).check(matches(isDisplayed()))
         Intents.init()

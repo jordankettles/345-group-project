@@ -24,6 +24,7 @@ class HelpInstrumentedTest {
     fun testShowMainButton() {
         launchActivity<HelpActivity>()
         Intents.init()
+        android.os.SystemClock.sleep(1000)
         onView(withId(R.id.showMainHelp)).perform(click())
         intended(hasComponent(MainActivity::class.java.getName()))
         Intents.release()
