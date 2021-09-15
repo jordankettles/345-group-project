@@ -4,6 +4,7 @@ import androidx.test.core.app.launchActivity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.intent.Intents
 import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
@@ -37,8 +38,7 @@ class HelpInstrumentedTest {
     fun testShowMainButton() {
         launchActivity<HelpActivity>()
         android.os.SystemClock.sleep(1000)
-        onView(withId(R.id.linearLayout2)).perform(ViewActions.swipeDown())
-        onView(withId(R.id.showMainHelp)).perform(click())
+        onView(withId(R.id.showMainHelp)).perform(scrollTo(), click())
         android.os.SystemClock.sleep(3000)
         intended(hasComponent(MainActivity::class.java.getName()))
     }
