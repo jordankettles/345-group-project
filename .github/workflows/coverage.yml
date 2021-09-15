@@ -21,7 +21,6 @@ jobs:
       - name: Build with Gradle
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          profile: pixel
           api-level: 29
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -partition-size 2048 -memory 2048
           sdcard-path-or-size: 5000M
