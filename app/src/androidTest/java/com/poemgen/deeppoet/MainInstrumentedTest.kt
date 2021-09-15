@@ -103,6 +103,7 @@ class MainInstrumentedTest {
     @Test
     fun testGenerateButton() {
         launchActivity<MainActivity>()
+        android.os.SystemClock.sleep(5000)
         onView(withId(R.id.promptField)).perform(typeText("Hello, I am a poet"))
         Intents.init()
         android.os.SystemClock.sleep(1000)
@@ -128,7 +129,7 @@ class MainInstrumentedTest {
     @Test
     fun testHamburgerButton() {
         launchActivity<MainActivity>()
-        android.os.SystemClock.sleep(1000)
+        android.os.SystemClock.sleep(5000)
         onView(withId(R.id.hamburgerButton)).perform(click())
         onView(withId(R.id.showLogButton)).check(matches(isDisplayed()))
         onView(withId(R.id.helpButton)).check(matches(isDisplayed()))
@@ -141,7 +142,7 @@ class MainInstrumentedTest {
     @Test
     fun testHelpButton() {
         launchActivity<MainActivity>()
-        android.os.SystemClock.sleep(1000)
+        android.os.SystemClock.sleep(5000)
         onView(withId(R.id.hamburgerButton)).perform(click())
         onView(withId(R.id.helpButton)).check(matches(isDisplayed()))
         Intents.init()
@@ -158,7 +159,7 @@ class MainInstrumentedTest {
     @Test
     fun testRandomPromptButton(){
         launchActivity<MainActivity>()
-        android.os.SystemClock.sleep(3000)
+        android.os.SystemClock.sleep(5000)
         onView(withId(R.id.random_prompt_button)).perform(click())
         val r_text = getTextfromEditText(withId(R.id.promptField))
         assert(r_text!!.isNotEmpty())
