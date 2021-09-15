@@ -25,7 +25,7 @@ jobs:
           api-level: 29
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -partition-size 2048
           sdcard-path-or-size: 5000M
-          ram-size: 8000M
+          ram-size: 4096M
           script: ./gradlew jacocoTestReport connectedCheck
       - name: Upload Reports
         uses: actions/upload-artifact@v1
