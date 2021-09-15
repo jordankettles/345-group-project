@@ -45,6 +45,10 @@ android {
         noCompress "tflite"
     }
 
+    testOptions {
+        animationsDisabled = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
