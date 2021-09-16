@@ -24,6 +24,7 @@ import android.util.Log
 import android.view.animation.AccelerateInterpolator
 import com.google.android.material.textfield.TextInputEditText
 import com.poemgen.deeppoet.databinding.ActivityMainBinding
+import com.poemgen.deeppoet.poemgenerator.record.Garden
 import com.poemgen.deeppoet.util.Head
 
 /**
@@ -77,6 +78,8 @@ class MainActivity : AppCompatActivity() {
 
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        Garden.loadGarden(this)
 
         // Head setup head
         initAnimation()
