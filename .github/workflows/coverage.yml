@@ -22,6 +22,8 @@ jobs:
         run: mkdir -p /Users/runner/.android/avd/test.avd/
       - name: Increase Heap
         run: /bin/sh -c echo vm.heapsize=64 > /Users/runner/.android/avd/test.avd/config.ini
+      - name: change perms for config
+        run: chmod +rwx /Users/runner/.android/avd/test.avd/config.ini
       - name: Build with Gradle
         uses: reactivecircus/android-emulator-runner@v2
         with:
