@@ -18,6 +18,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
+      - name: Make Folder
+        run: /bin/sh mkdir -p /Users/runner/.android/avd/test.avd/
       - name: Increase Heap
         run: /bin/sh -c \printf 'vm.heapsize=64' >> /Users/runner/.android/avd/test.avd/config.ini
       - name: Build with Gradle
