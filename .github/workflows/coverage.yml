@@ -18,6 +18,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
+      - name: Increase Heap Size
+        run: 
+          mkdir -p /Users/runner/.android/avd/test.avd/
+          cd /Users/runner/.android/avd/test.avd/
+          echo "vm.heapsize=256" > config.ini
+          cd ~
       - name: Build with Gradle
         uses: reactivecircus/android-emulator-runner@v2
         with:
