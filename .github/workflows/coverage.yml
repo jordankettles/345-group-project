@@ -21,7 +21,7 @@ jobs:
       - name: Make Folder
         run: mkdir -p /Users/runner/.android/avd/test.avd/
       - name: Increase Heap
-        run: /bin/sh -c \printf 'vm.heapsize=64' >> /Users/runner/.android/avd/test.avd/config.ini
+        run: /bin/sh -c \printf 'vm.heapsize=64' > /Users/runner/.android/avd/test.avd/config.ini
       - name: Build with Gradle
         uses: reactivecircus/android-emulator-runner@v2
         with:
