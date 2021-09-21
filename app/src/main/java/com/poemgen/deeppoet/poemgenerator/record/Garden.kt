@@ -3,6 +3,7 @@ package com.poemgen.deeppoet.poemgenerator.record
 import android.content.Context
 import android.util.Log
 import com.google.gson.Gson
+import com.google.gson.JsonParseException
 import com.google.gson.JsonSyntaxException
 import java.io.FileNotFoundException
 import java.util.stream.Collectors
@@ -27,9 +28,8 @@ object Garden {
         try {
             jsonModel = gson.fromJson(jsonInput, Array<Poem>::class.java)
 
-            Log.d("filein", seeds[0].getText())
             Log.d("filein", jsonInput)
-        } catch (e: Exception) {
+        } catch (e: IllegalStateException) {
             Log.d("filein", "Deleting file")
             context.deleteFile("gardenstore")
         }
