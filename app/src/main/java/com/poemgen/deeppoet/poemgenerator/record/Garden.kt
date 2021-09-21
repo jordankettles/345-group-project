@@ -3,6 +3,7 @@ package com.poemgen.deeppoet.poemgenerator.record
 import android.content.Context
 import android.util.Log
 import com.google.gson.Gson
+import com.google.gson.JsonSyntaxException
 import java.io.FileNotFoundException
 import java.util.stream.Collectors
 
@@ -22,11 +23,18 @@ object Garden {
         }
 
         var gson = Gson()
-        var jsonModel = gson.fromJson(jsonInput, Array<Poem>::class.java)
-        seeds = jsonModel.toMutableList()
+        var jsonModel: Array<Poem> = emptyArray()
+        try {
+            jsonModel = gson.fromJson(jsonInput, Array<Poem>::class.java)
 
-        Log.d("jsonin", seeds[0].getText())
-        Log.d("filein", jsonInput)
+            Log.d("filein", seeds[0].getText())
+            Log.d("filein", jsonInput)
+        } catch (e: Exception) {
+            Log.d("filein", "Deleting file")
+            context.deleteFile("gardenstore")
+        }
+
+        seeds = jsonModel.toMutableList()
     }
 
     fun saveGarden(context: Context) {
@@ -34,7 +42,7 @@ object Garden {
         var array: Array<Poem> = seeds.toTypedArray()
 
         var jsonOut = gson.toJson(array)
-        Log.d("jsonout", jsonOut)
+        Log.d("filein", jsonOut)
 
         context.openFileOutput("gardenstore", Context.MODE_PRIVATE).use {
             it.write(jsonOut.toByteArray())

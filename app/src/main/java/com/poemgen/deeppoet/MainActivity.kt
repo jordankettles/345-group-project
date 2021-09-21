@@ -121,6 +121,7 @@ class MainActivity : AppCompatActivity() {
 
         buttonLog = findViewById<Button>(R.id.showLogButton)
         buttonLog.setOnClickListener{
+            Garden.loadGarden(this)
             gpt2.closeGenerator()
             val intent = Intent(this, LogDisplayActivity::class.java)
             startActivity(intent)
