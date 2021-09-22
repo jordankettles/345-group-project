@@ -15,8 +15,9 @@ class HelpActivity : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.showMainHelp)
         button.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+            finish()
         }
     }
 

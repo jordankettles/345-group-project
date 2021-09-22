@@ -122,16 +122,18 @@ class MainActivity : AppCompatActivity() {
         buttonLog = findViewById<Button>(R.id.showLogButton)
         buttonLog.setOnClickListener{
             Garden.loadGarden(this)
-            gpt2.closeGenerator()
+//            gpt2.closeGenerator()
             val intent = Intent(this, LogDisplayActivity::class.java)
             startActivity(intent)
+//            finish()
         }
 
         buttonHelp = findViewById<Button>(R.id.helpButton)
         buttonHelp.setOnClickListener{
-            gpt2.closeGenerator()
+//            gpt2.closeGenerator()
             val intent = Intent(this, HelpActivity::class.java)
             startActivity(intent)
+//            finish()
         }
 
         buttonHeadPicker = findViewById<Button>(R.id.headPickerButton)
@@ -141,7 +143,7 @@ class MainActivity : AppCompatActivity() {
 
         buttonShare = findViewById<Button>(R.id.share_button)
         buttonShare.setOnClickListener {
-            gpt2.closeGenerator()
+//            gpt2.closeGenerator()
             val result = findViewById(R.id.poemTextView) as TextView
             val text: String = result.getText().toString()
             shareTextOnly(text)

@@ -18,8 +18,9 @@ class LogDisplayActivity : AppCompatActivity() {
         button.setOnClickListener{
             Garden.saveGarden(this)
 
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+            finish()
         }
     }
 }
