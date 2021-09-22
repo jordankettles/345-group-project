@@ -4,7 +4,9 @@ import android.app.Application
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.util.JsonReader
+import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.*
@@ -59,6 +61,13 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
     private lateinit var tokenizer: GPT2Tokenizer
     private lateinit var tflite: Interpreter
 
+    private val badWords: List<String>
+        get() {
+            val fileName = "bad-words.txt"
+            val bufferedReader = getApplication<Application>().assets.open(fileName).bufferedReader()
+            return bufferedReader.readLines()
+        }
+
 
     private val _prompt = MutableLiveData<String>("")
     val prompt: LiveData<String> = _prompt
@@ -103,6 +112,15 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
      */
     fun launchAutocomplete() {
         autocompleteJob = viewModelScope.launch {
+            for (badWord in badWords) {
+                if (_prompt.value!!.contains(badWord)) {
+                    Toast.makeText(mainActivity,"Inappropriate Phrase.", Toast.LENGTH_SHORT).show()
+                    _prompt.value = ""
+                    _completion.value = ""
+                    return@launch
+                }
+            }
+            // if the user is entering slurs
             mainActivity.disableButtons()
             initJob.join()
             autocompleteJob?.cancelAndJoin()
@@ -111,6 +129,7 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
 
             // Save to volatile memory.
             Garden.seeds.add(Poem(_prompt.value.toString(), completion.value.toString()))
+            Log.i("Gottohere", "Saved??")
             mainActivity.enableButtons()
         }
     }
@@ -159,8 +178,14 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
 
             tokens.add(nextToken)
             val decodedToken = tokenizer.decode(listOf(nextToken))
-            _completion.postValue(_completion.value + decodedToken)
-
+            var possiblePoem = _completion.value + decodedToken
+            for (badWord in badWords) {
+                if (possiblePoem.contains(badWord)) {
+                    possiblePoem = possiblePoem.substringBefore(badWord)
+                    tflite.resetVariableTensors()
+                    }
+            }
+            _completion.postValue(possiblePoem)
             yield()
         }
     }
