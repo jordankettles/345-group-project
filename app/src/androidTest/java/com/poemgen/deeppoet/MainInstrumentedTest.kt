@@ -155,6 +155,10 @@ class MainInstrumentedTest {
         onView(withId(R.id.showLogButton)).check(matches(isDisplayed()))
         onView(withId(R.id.helpButton)).check(matches(isDisplayed()))
         onView(withId(R.id.headPickerButton)).check(matches(isDisplayed()))
+        onView(withId(R.id.hamburgerButton)).perform(click())
+        onView(withId(R.id.showLogButton)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.helpButton)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.headPickerButton)).check(matches(not(isDisplayed())))
     }
 
     /**
