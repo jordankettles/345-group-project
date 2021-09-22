@@ -16,6 +16,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers.*
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 
 import androidx.test.espresso.ViewAction
 
@@ -103,21 +104,44 @@ class MainInstrumentedTest {
     @Test
     fun testGenerateButton() {
         launchActivity<MainActivity>()
+        android.os.SystemClock.sleep(5000)
         onView(withId(R.id.promptField)).perform(typeText("Hello, I am a poet"))
         Intents.init()
         onView(withId(R.id.submit_prompt_button)).perform(click())
         onView(withId(R.id.poemTextView)).check(matches(withText("Hello, I am a poet")))
-        android.os.SystemClock.sleep(100000)
-        val generated_txt = getText(withId(R.id.poemTextView))
+        android.os.SystemClock.sleep(50000)
+        val generatedTxt = getText(withId(R.id.poemTextView))
         onView(withId(R.id.share_button)).perform(click())
-        val expectedIntent = Matchers.anyOf(
+        val expectedIntent = anyOf(
             hasAction(Intent.ACTION_SEND),
-            hasExtra(Intent.EXTRA_TEXT, generated_txt),
+            hasExtra(Intent.EXTRA_TEXT, generatedTxt),
             hasExtra(Intent.EXTRA_SUBJECT, "Subject Here"),
             hasExtra(Intent.EXTRA_TITLE, "Share Via"),
             hasType("text/plain")
         )
         intended(chooser(expectedIntent))
+        Intents.release()
+    }
+
+    /**
+     * Test that the Poem Log stores poems correctly.
+     */
+    @Test
+    fun testPoemStorage() {
+        launchActivity<MainActivity>()
+        android.os.SystemClock.sleep(5000)
+        onView(withId(R.id.promptField)).perform(typeText("Hello, I am a poet"))
+        Intents.init()
+        onView(withId(R.id.submit_prompt_button)).perform(click())
+        onView(withId(R.id.poemTextView)).check(matches(withText("Hello, I am a poet")))
+        android.os.SystemClock.sleep(50000)
+        val generatedTxt = getText(withId(R.id.poemTextView))
+        onView(withId(R.id.hamburgerButton)).perform(click())
+        onView(withId(R.id.showLogButton)).perform(click())
+        val pTitle = getText(withId(R.id.poem_title))
+        val pText = getText(withId(R.id.poem_text))
+        assert((pTitle + pText) == generatedTxt)
+        intended(hasComponent(LogDisplayActivity::class.java.getName()))
         Intents.release()
     }
 
@@ -131,6 +155,11 @@ class MainInstrumentedTest {
         onView(withId(R.id.showLogButton)).check(matches(isDisplayed()))
         onView(withId(R.id.helpButton)).check(matches(isDisplayed()))
         onView(withId(R.id.headPickerButton)).check(matches(isDisplayed()))
+        onView(withId(R.id.hamburgerButton)).perform(click())
+        android.os.SystemClock.sleep(1000)
+        onView(withId(R.id.showLogButton)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.helpButton)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.headPickerButton)).check(matches(not(isDisplayed())))
     }
 
     /**
@@ -150,7 +179,6 @@ class MainInstrumentedTest {
 
     /**
      *  Test that the random prompt button works.
-     *
      */
     @Test
     fun testRandomPromptButton(){
@@ -163,5 +191,17 @@ class MainInstrumentedTest {
         }
 
     }
+
+    /**
+     * Test that the racism filter works.
+     */
+    @Test
+    fun testBadWords() {
+        launchActivity<MainActivity>()
+        onView(withId(R.id.promptField)).perform(typeText("abo"))
+        onView(withId(R.id.submit_prompt_button)).perform(click())
+        onView(withId(R.id.poemTextView)).check(matches(withText("")))
+    }
+
 }
 
