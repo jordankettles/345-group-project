@@ -1,10 +1,14 @@
 package com.poemgen.deeppoet
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.recyclerview.widget.RecyclerView
+import com.poemgen.deeppoet.poemgenerator.record.Garden
 import com.poemgen.deeppoet.poemgenerator.record.Poem
 
 /**
@@ -22,6 +26,7 @@ class PoemLogAdapter(private val mPoems: MutableList<Poem>) : RecyclerView.Adapt
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
         val titleTextView = itemView.findViewById<TextView>(R.id.poem_title)
         val contentTextView = itemView.findViewById<TextView>(R.id.poem_text)
+        val poemDeleteButton = itemView.findViewById<AppCompatImageButton>(R.id.poem_delete_button)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PoemLogAdapter.ViewHolder {
@@ -41,6 +46,16 @@ class PoemLogAdapter(private val mPoems: MutableList<Poem>) : RecyclerView.Adapt
 
         val textViewContent = holder.contentTextView
         textViewContent.setText(poem.getText())
+
+        val buttonViewDelete = holder.poemDeleteButton
+        buttonViewDelete.setOnClickListener{
+            Log.d("UI", "Delete Clicked")
+            Log.d("UI", Garden.seeds.size.toString())
+            Garden.seeds.removeAt(position)
+            notifyItemChanged(position)
+            notifyItemRangeChanged(position, Garden.seeds.size)
+            Log.d("UI", Garden.seeds.size.toString())
+        }
     }
 
     override fun getItemCount(): Int {
