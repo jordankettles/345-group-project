@@ -179,7 +179,6 @@ class MainInstrumentedTest {
 
     /**
      *  Test that the random prompt button works.
-     *
      */
     @Test
     fun testRandomPromptButton(){
@@ -194,7 +193,7 @@ class MainInstrumentedTest {
     }
 
     /**
-     * Test that the slur filter works.
+     * Test that the racism filter works.
      */
     @Test
     fun testBadWords() {

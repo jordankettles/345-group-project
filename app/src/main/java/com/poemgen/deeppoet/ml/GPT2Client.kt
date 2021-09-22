@@ -129,7 +129,6 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
 
             // Save to volatile memory.
             Garden.seeds.add(Poem(_prompt.value.toString(), completion.value.toString()))
-            Log.i("Gottohere", "Saved??")
             mainActivity.enableButtons()
         }
     }

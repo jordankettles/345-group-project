@@ -18,11 +18,19 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class PoemLogInstrumentedTest {
 
+    /**
+     * Run before each PoemLog-Instrumented Test:
+     *  Initialise Intents.
+     */
     @Before
     fun before() {
         Intents.init()
     }
 
+    /**
+     * Run after each PoemLog-Instrumented Test:
+     *  Release Intents.
+     */
     @After
     fun after() {
         Intents.release()

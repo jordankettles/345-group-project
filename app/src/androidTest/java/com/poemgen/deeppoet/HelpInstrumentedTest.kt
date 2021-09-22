@@ -19,11 +19,19 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class HelpInstrumentedTest {
 
+    /**
+     * Run before each Help-Instrumented Test:
+     *  Initialise Intents.
+     */
     @Before
     fun before() {
         Intents.init()
     }
 
+    /**
+     * Run after each Help-Instrumented Test:
+     *  Release Intents.
+     */
     @After
     fun after() {
         Intents.release()
