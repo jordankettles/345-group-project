@@ -52,7 +52,7 @@ class PoemLogAdapter(private val mPoems: MutableList<Poem>) : RecyclerView.Adapt
             Log.d("UI", "Delete Clicked")
             Log.d("UI", Garden.seeds.size.toString())
             Garden.seeds.removeAt(position)
-            notifyItemChanged(position)
+            notifyItemRemoved(position)
             notifyItemRangeChanged(position, Garden.seeds.size)
             Log.d("UI", Garden.seeds.size.toString())
         }
