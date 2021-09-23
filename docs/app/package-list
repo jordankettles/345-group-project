@@ -24,6 +24,8 @@ $dokka.location:com.poemgen.deeppoet.ml/GPT2StrategyEnum.TOPK/ordinal/#/Pointing
 $dokka.location:com.poemgen.deeppoet.ml/GPT2StrategyEnum///PointingToDeclaration/app/com.poemgen.deeppoet.ml/-g-p-t2-strategy-enum/index.html
 $dokka.location:com.poemgen.deeppoet.poemgenerator.record////PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/index.html
 $dokka.location:com.poemgen.deeppoet.poemgenerator.record/Garden///PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/-garden/index.html
+$dokka.location:com.poemgen.deeppoet.poemgenerator.record/Garden/loadGarden/#android.content.Context/PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/-garden/load-garden.html
+$dokka.location:com.poemgen.deeppoet.poemgenerator.record/Garden/saveGarden/#android.content.Context/PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/-garden/save-garden.html
 $dokka.location:com.poemgen.deeppoet.poemgenerator.record/Garden/seeds/#/PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/-garden/seeds.html
 $dokka.location:com.poemgen.deeppoet.poemgenerator.record/Poem///PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/-poem/index.html
 $dokka.location:com.poemgen.deeppoet.poemgenerator.record/Poem/Poem/#kotlin.String#kotlin.String/PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/-poem/-poem.html
@@ -58,6 +60,7 @@ $dokka.location:com.poemgen.deeppoet/MainActivity/shareTextOnly/#kotlin.String/P
 $dokka.location:com.poemgen.deeppoet/PoemLogAdapter.ViewHolder///PointingToDeclaration/app/com.poemgen.deeppoet/-poem-log-adapter/-view-holder/index.html
 $dokka.location:com.poemgen.deeppoet/PoemLogAdapter.ViewHolder/ViewHolder/#android.view.View/PointingToDeclaration/app/com.poemgen.deeppoet/-poem-log-adapter/-view-holder/-view-holder.html
 $dokka.location:com.poemgen.deeppoet/PoemLogAdapter.ViewHolder/contentTextView/#/PointingToDeclaration/app/com.poemgen.deeppoet/-poem-log-adapter/-view-holder/content-text-view.html
+$dokka.location:com.poemgen.deeppoet/PoemLogAdapter.ViewHolder/poemDeleteButton/#/PointingToDeclaration/app/com.poemgen.deeppoet/-poem-log-adapter/-view-holder/poem-delete-button.html
 $dokka.location:com.poemgen.deeppoet/PoemLogAdapter.ViewHolder/titleTextView/#/PointingToDeclaration/app/com.poemgen.deeppoet/-poem-log-adapter/-view-holder/title-text-view.html
 $dokka.location:com.poemgen.deeppoet/PoemLogAdapter///PointingToDeclaration/app/com.poemgen.deeppoet/-poem-log-adapter/index.html
 $dokka.location:com.poemgen.deeppoet/PoemLogAdapter/PoemLogAdapter/#kotlin.collections.MutableList[com.poemgen.deeppoet.poemgenerator.record.Poem]/PointingToDeclaration/app/com.poemgen.deeppoet/-poem-log-adapter/-poem-log-adapter.html
