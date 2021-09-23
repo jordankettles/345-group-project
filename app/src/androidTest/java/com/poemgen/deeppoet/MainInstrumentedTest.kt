@@ -146,6 +146,23 @@ class MainInstrumentedTest {
     }
 
     /**
+     * Test that the Continue Poem Button works
+     */
+    @Test
+    fun testContinueButton() {
+        launchActivity<MainActivity>()
+        android.os.SystemClock.sleep(WAIT_TIME)
+        onView(withId(R.id.promptField)).perform(typeText("Hello, I am a poet"))
+        onView(withId(R.id.submit_prompt_button)).perform(click())
+        onView(withId(R.id.poemTextView)).check(matches(withText("Hello, I am a poet")))
+        android.os.SystemClock.sleep(WAIT_TIME*10)
+        val generatedTxt = getText(withId(R.id.poemTextView))
+        onView(withId(R.id.continue_button)).perform(click())
+        android.os.SystemClock.sleep(WAIT_TIME*10)
+        onView(withId(R.id.poemTextView)).check(matches(withText(containsString(generatedTxt))))
+    }
+
+    /**
      * Test that the Hamburger button works.
      */
     @Test

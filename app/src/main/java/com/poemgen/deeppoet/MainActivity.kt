@@ -26,6 +26,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.poemgen.deeppoet.databinding.ActivityMainBinding
 import com.poemgen.deeppoet.poemgenerator.record.Garden
 import com.poemgen.deeppoet.util.Head
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Main activity class. Defines functions triggered by UI action.
@@ -52,6 +53,9 @@ class MainActivity : AppCompatActivity() {
     // Share button
     private lateinit var buttonShare: Button
 
+    //Continue Button
+    private lateinit var buttonContinue: Button
+
     // Hamburger menu
     private lateinit var buttonLog: Button
     private lateinit var buttonHeadPicker: Button
@@ -63,7 +67,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var labelHelp: TextView
 
     // Headtype, Idle/Talk, variations
-    private var selectedHeadIndex = 0;
+    private var selectedHeadIndex = 0
     private var animationList = mutableListOf<Head>()
 
     lateinit var imageHead: ImageView
@@ -114,7 +118,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             if(firstTime && !promptField.getText().toString().equals("")) {
-                stowPromptLayout();
+                stowPromptLayout()
                 firstTime = false
             }
         }
@@ -149,6 +153,16 @@ class MainActivity : AppCompatActivity() {
             shareTextOnly(text)
         }
 
+        buttonContinue = findViewById<Button>(R.id.continue_button)
+        buttonContinue.setOnClickListener{
+            if (poemTextView.text != "") {
+                gpt2.setPrompt(poemTextView.text.toString())
+                hideKeyboard()
+            } else {
+                Toast.makeText(this, "Current Poem is blank.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         val buttonRandom = findViewById<Button>(R.id.random_prompt_button)
         buttonRandom.setOnClickListener{
             promptField.setText(randomPrompts.random())
@@ -169,7 +183,11 @@ class MainActivity : AppCompatActivity() {
         _ready.value = true
         switchHeadAnimation(false)
 //        Log.d("buttonShare: ", buttonShare.y.toString())
-        if(buttonShare.visibility == View.GONE && !firstTime) { fadeInShareButton() }
+        if (buttonShare.visibility == View.GONE && buttonContinue.visibility == View.GONE) {
+            if (!firstTime) {
+                fadeInShareContinueButton()
+            }
+        }
     }
 
     private fun switchHeadAnimation(toTalking: Boolean) {
@@ -201,12 +219,12 @@ class MainActivity : AppCompatActivity() {
     private fun initHamburgerMenu() {
         var menuOpen = false
 
-        var xDist = -130F
-        var yDist = -350F
-        var duration = 300.0
+        val xDist = -130F
+        val yDist = -350F
+        val duration = 300.0
 
         buttonHamburgerMenu.setOnClickListener {
-            var menuOpenConst = if(menuOpen) 0 else 1
+            val menuOpenConst = if(menuOpen) 0 else 1
 
             showAllUtilityButtonsLabels()
 
@@ -263,10 +281,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun fadeInShareButton() {
+    private fun fadeInShareContinueButton() {
         buttonShare.visibility = View.VISIBLE
+        buttonContinue.visibility = View.VISIBLE
 
         buttonShare.animate()
+            .setDuration(800L)
+            .translationY(0f)
+            .alpha(1F)
+            .start()
+
+        buttonContinue.animate()
             .setDuration(800L)
             .translationY(0f)
             .alpha(1F)
