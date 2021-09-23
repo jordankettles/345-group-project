@@ -25,6 +25,8 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.*
 
 
+private const val WAIT_TIME = 8000.toLong()
+
 /**
  * Main Activity Instrumented test, which will execute on an Android device.
  *
@@ -102,12 +104,12 @@ class MainInstrumentedTest {
     @Test
     fun testGenerateButton() {
         launchActivity<MainActivity>()
-        android.os.SystemClock.sleep(5000)
+        android.os.SystemClock.sleep(WAIT_TIME)
         onView(withId(R.id.promptField)).perform(typeText("Hello, I am a poet"))
         Intents.init()
         onView(withId(R.id.submit_prompt_button)).perform(click())
         onView(withId(R.id.poemTextView)).check(matches(withText("Hello, I am a poet")))
-        android.os.SystemClock.sleep(50000)
+        android.os.SystemClock.sleep(WAIT_TIME*10)
         val generatedTxt = getText(withId(R.id.poemTextView))
         onView(withId(R.id.share_button)).perform(click())
         val expectedIntent = anyOf(
@@ -127,12 +129,12 @@ class MainInstrumentedTest {
     @Test
     fun testPoemStorage() {
         launchActivity<MainActivity>()
-        android.os.SystemClock.sleep(5000)
+        android.os.SystemClock.sleep(WAIT_TIME)
         onView(withId(R.id.promptField)).perform(typeText("Hello, I am a poet"))
         Intents.init()
         onView(withId(R.id.submit_prompt_button)).perform(click())
         onView(withId(R.id.poemTextView)).check(matches(withText("Hello, I am a poet")))
-        android.os.SystemClock.sleep(50000)
+        android.os.SystemClock.sleep(WAIT_TIME)
         val generatedTxt = getText(withId(R.id.poemTextView))
         onView(withId(R.id.hamburgerButton)).perform(click())
         onView(withId(R.id.showLogButton)).perform(click())
@@ -154,7 +156,7 @@ class MainInstrumentedTest {
         onView(withId(R.id.helpButton)).check(matches(isDisplayed()))
         onView(withId(R.id.headPickerButton)).check(matches(isDisplayed()))
         onView(withId(R.id.hamburgerButton)).perform(click())
-        android.os.SystemClock.sleep(1000)
+        android.os.SystemClock.sleep(WAIT_TIME)
         onView(withId(R.id.showLogButton)).check(matches(not(isDisplayed())))
         onView(withId(R.id.helpButton)).check(matches(not(isDisplayed())))
         onView(withId(R.id.headPickerButton)).check(matches(not(isDisplayed())))
@@ -169,7 +171,7 @@ class MainInstrumentedTest {
         onView(withId(R.id.hamburgerButton)).perform(click())
         onView(withId(R.id.helpButton)).check(matches(isDisplayed()))
         Intents.init()
-        android.os.SystemClock.sleep(2000)
+        android.os.SystemClock.sleep(WAIT_TIME)
         onView(withId(R.id.helpButton)).perform(click())
         intended(hasComponent(HelpActivity::class.java.getName()))
         Intents.release()
@@ -181,7 +183,7 @@ class MainInstrumentedTest {
     @Test
     fun testRandomPromptButton(){
         launchActivity<MainActivity>()
-        android.os.SystemClock.sleep(2400)
+        android.os.SystemClock.sleep(WAIT_TIME)
         onView(withId(R.id.random_prompt_button)).perform(click())
         val r_text = getTextfromEditText(withId(R.id.promptField))
         if(r_text != null){
