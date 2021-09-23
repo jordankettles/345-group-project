@@ -26,6 +26,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.poemgen.deeppoet.databinding.ActivityMainBinding
 import com.poemgen.deeppoet.poemgenerator.record.Garden
 import com.poemgen.deeppoet.util.Head
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Main activity class. Defines functions triggered by UI action.
@@ -153,7 +154,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonContinue = findViewById<Button>(R.id.continue_button)
-        //add set on click listener here.
+        buttonContinue.setOnClickListener{
+            if (poemTextView.text != "") {
+                gpt2.setPrompt(poemTextView.text.toString())
+                hideKeyboard()
+            } else {
+                Toast.makeText(this, "Current Poem is blank.", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         val buttonRandom = findViewById<Button>(R.id.random_prompt_button)
         buttonRandom.setOnClickListener{
