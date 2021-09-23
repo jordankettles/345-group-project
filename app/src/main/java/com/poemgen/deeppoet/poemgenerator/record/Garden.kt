@@ -8,6 +8,8 @@ import com.google.gson.JsonSyntaxException
 import java.io.FileNotFoundException
 import java.util.stream.Collectors
 
+private const val FILE_NAME = "gardenstore"
+
 /**
  * the Garden object stores the poems for the current session in a list.
  */
@@ -18,12 +20,12 @@ object Garden {
     fun loadGarden(context: Context) {
         var jsonInput = ""
         try {
-            jsonInput = context.openFileInput("gardenstore").bufferedReader().lines().collect(Collectors.joining())
+            jsonInput = context.openFileInput(FILE_NAME).bufferedReader().lines().collect(Collectors.joining())
         } catch (e: FileNotFoundException) {
             Log.d("filein", "No file")
         }
 
-        var gson = Gson()
+        val gson = Gson()
         var jsonModel: Array<Poem> = emptyArray()
         try {
             jsonModel = gson.fromJson(jsonInput, Array<Poem>::class.java)
@@ -31,20 +33,20 @@ object Garden {
             Log.d("filein", jsonInput)
         } catch (e: IllegalStateException) {
             Log.d("filein", "Deleting file")
-            context.deleteFile("gardenstore")
+            context.deleteFile(FILE_NAME)
         }
 
         seeds = jsonModel.toMutableList()
     }
 
     fun saveGarden(context: Context) {
-        var gson = Gson()
-        var array: Array<Poem> = seeds.toTypedArray()
+        val gson = Gson()
+        val array: Array<Poem> = seeds.toTypedArray()
 
-        var jsonOut = gson.toJson(array)
+        val jsonOut = gson.toJson(array)
         Log.d("filein", jsonOut)
 
-        context.openFileOutput("gardenstore", Context.MODE_PRIVATE).use {
+        context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE).use {
             it.write(jsonOut.toByteArray())
         }
 
