@@ -16,14 +16,12 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers.*
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 
 import androidx.test.espresso.ViewAction
 
 import androidx.test.espresso.UiController
 import com.google.android.material.textfield.TextInputEditText
 import org.hamcrest.Matcher
-import org.hamcrest.Matchers
 import org.hamcrest.Matchers.*
 
 
