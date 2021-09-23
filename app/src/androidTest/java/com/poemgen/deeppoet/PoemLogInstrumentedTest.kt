@@ -1,14 +1,11 @@
 package com.poemgen.deeppoet
 
+import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.launchActivity
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.intent.Intents
-import androidx.test.espresso.intent.matcher.IntentMatchers
-import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import org.junit.After
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -19,32 +16,13 @@ import org.junit.runner.RunWith
 class PoemLogInstrumentedTest {
 
     /**
-     * Run before each PoemLog-Instrumented Test:
-     *  Initialise Intents.
-     */
-    @Before
-    fun before() {
-        Intents.init()
-    }
-
-    /**
-     * Run after each PoemLog-Instrumented Test:
-     *  Release Intents.
-     */
-    @After
-    fun after() {
-        Intents.release()
-    }
-
-
-    /**
      * Tests button to return to Main Activity from Pog Log Activity.
      */
     @Test
     fun clickShowMainButton() {
-        launchActivity<LogDisplayActivity>()
-        Espresso.onView(ViewMatchers.withId(R.id.showMain)).perform(ViewActions.click())
-        android.os.SystemClock.sleep(3000)
-        Intents.intended(IntentMatchers.hasComponent(MainActivity::class.java.getName()))
+        val scenario = launchActivity<LogDisplayActivity>()
+        onView(withId(R.id.showMain)).perform(click())
+        android.os.SystemClock.sleep(1000)
+        assert(scenario.state == Lifecycle.State.DESTROYED)
     }
 }

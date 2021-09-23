@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.poemgen.deeppoet.poemgenerator.record.Garden
 
 /**
  * Activity showing content of Garden/the poem log.
@@ -15,8 +16,11 @@ class LogDisplayActivity : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.showMain)
         button.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            Garden.saveGarden(this)
+
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+            finish()
         }
     }
 }

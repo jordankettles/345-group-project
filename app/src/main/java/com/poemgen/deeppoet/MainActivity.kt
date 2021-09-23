@@ -24,6 +24,7 @@ import android.util.Log
 import android.view.animation.AccelerateInterpolator
 import com.google.android.material.textfield.TextInputEditText
 import com.poemgen.deeppoet.databinding.ActivityMainBinding
+import com.poemgen.deeppoet.poemgenerator.record.Garden
 import com.poemgen.deeppoet.util.Head
 
 /**
@@ -78,6 +79,8 @@ class MainActivity : AppCompatActivity() {
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        Garden.loadGarden(this)
+
         // Head setup head
         initAnimation()
         imageHead = findViewById(R.id.imageHead) as ImageView
@@ -118,16 +121,19 @@ class MainActivity : AppCompatActivity() {
 
         buttonLog = findViewById<Button>(R.id.showLogButton)
         buttonLog.setOnClickListener{
-            gpt2.closeGenerator()
+            Garden.loadGarden(this)
+//            gpt2.closeGenerator()
             val intent = Intent(this, LogDisplayActivity::class.java)
             startActivity(intent)
+//            finish()
         }
 
         buttonHelp = findViewById<Button>(R.id.helpButton)
         buttonHelp.setOnClickListener{
-            gpt2.closeGenerator()
+//            gpt2.closeGenerator()
             val intent = Intent(this, HelpActivity::class.java)
             startActivity(intent)
+//            finish()
         }
 
         buttonHeadPicker = findViewById<Button>(R.id.headPickerButton)
@@ -137,7 +143,7 @@ class MainActivity : AppCompatActivity() {
 
         buttonShare = findViewById<Button>(R.id.share_button)
         buttonShare.setOnClickListener {
-            gpt2.closeGenerator()
+//            gpt2.closeGenerator()
             val result = findViewById(R.id.poemTextView) as TextView
             val text: String = result.getText().toString()
             shareTextOnly(text)
