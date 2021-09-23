@@ -139,7 +139,7 @@ class MainInstrumentedTest {
         onView(withId(R.id.hamburgerButton)).perform(click())
         onView(withId(R.id.showLogButton)).perform(click())
         val pTitle = "Hello, I am a poet"
-        val pText = getText(withText(generatedTxt!!.substring(18)))
+        val pText = getText(withText(containsString(generatedTxt!!.substring(19))))
         assert((pTitle + pText) == generatedTxt)
         intended(hasComponent(LogDisplayActivity::class.java.getName()))
         Intents.release()
