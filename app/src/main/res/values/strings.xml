@@ -14,4 +14,12 @@
         convey.
         </string>
     <string name="return_button">Return to Generator</string>
+    <string name="share">Share</string>
+    <string name="continue_poem">Continue Poem</string>
+    <string name="hamburger_h">H</string>
+    <string name="hamburger_l">L</string>
+    <string name="show_log">Show Log</string>
+    <string name="hamburger_p">P</string>
+    <string name="pick_head">Pick Head</string>
+    <string name="help">Help</string>
 </resources>

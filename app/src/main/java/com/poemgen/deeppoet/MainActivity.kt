@@ -52,6 +52,9 @@ class MainActivity : AppCompatActivity() {
     // Share button
     private lateinit var buttonShare: Button
 
+    //Continue Button
+    private lateinit var buttonContinue: Button
+
     // Hamburger menu
     private lateinit var buttonLog: Button
     private lateinit var buttonHeadPicker: Button
@@ -63,7 +66,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var labelHelp: TextView
 
     // Headtype, Idle/Talk, variations
-    private var selectedHeadIndex = 0;
+    private var selectedHeadIndex = 0
     private var animationList = mutableListOf<Head>()
 
     lateinit var imageHead: ImageView
@@ -114,7 +117,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             if(firstTime && !promptField.getText().toString().equals("")) {
-                stowPromptLayout();
+                stowPromptLayout()
                 firstTime = false
             }
         }
@@ -149,6 +152,9 @@ class MainActivity : AppCompatActivity() {
             shareTextOnly(text)
         }
 
+        buttonContinue = findViewById<Button>(R.id.continue_button)
+        //add set on click listener here.
+
         val buttonRandom = findViewById<Button>(R.id.random_prompt_button)
         buttonRandom.setOnClickListener{
             promptField.setText(randomPrompts.random())
@@ -169,7 +175,11 @@ class MainActivity : AppCompatActivity() {
         _ready.value = true
         switchHeadAnimation(false)
 //        Log.d("buttonShare: ", buttonShare.y.toString())
-        if(buttonShare.visibility == View.GONE && !firstTime) { fadeInShareButton() }
+        if (buttonShare.visibility == View.GONE && buttonContinue.visibility == View.GONE) {
+            if (!firstTime) {
+                fadeInShareContinueButton()
+            }
+        }
     }
 
     private fun switchHeadAnimation(toTalking: Boolean) {
@@ -201,12 +211,12 @@ class MainActivity : AppCompatActivity() {
     private fun initHamburgerMenu() {
         var menuOpen = false
 
-        var xDist = -130F
-        var yDist = -350F
-        var duration = 300.0
+        val xDist = -130F
+        val yDist = -350F
+        val duration = 300.0
 
         buttonHamburgerMenu.setOnClickListener {
-            var menuOpenConst = if(menuOpen) 0 else 1
+            val menuOpenConst = if(menuOpen) 0 else 1
 
             showAllUtilityButtonsLabels()
 
@@ -263,10 +273,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun fadeInShareButton() {
+    private fun fadeInShareContinueButton() {
         buttonShare.visibility = View.VISIBLE
+        buttonContinue.visibility = View.VISIBLE
 
         buttonShare.animate()
+            .setDuration(800L)
+            .translationY(0f)
+            .alpha(1F)
+            .start()
+
+        buttonContinue.animate()
             .setDuration(800L)
             .translationY(0f)
             .alpha(1F)
