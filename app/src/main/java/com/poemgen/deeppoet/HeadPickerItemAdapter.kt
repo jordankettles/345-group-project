@@ -1,12 +1,16 @@
 package com.poemgen.deeppoet
 
+import android.graphics.Color
+import android.graphics.drawable.AnimationDrawable
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 
 import com.poemgen.deeppoet.placeholder.PlaceholderContent.PlaceholderItem
 import com.poemgen.deeppoet.util.Head
@@ -22,9 +26,9 @@ class HeadPickerItemAdapter(
 
     inner class ViewHolder(listItemView: View) :
         RecyclerView.ViewHolder(listItemView) {
-        val idView: TextView = itemView.findViewById(R.id.item_number)
+        val imageView: ImageView = itemView.findViewById(R.id.head_picker_item_imageview)
         val contentView: TextView = itemView.findViewById(R.id.head_name_textview)
-        val itemContainerView: LinearLayout = itemView.findViewById(R.id.head_picker_item_container)
+        val itemContainerView: ConstraintLayout = itemView.findViewById(R.id.head_picker_item_container)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,13 +40,19 @@ class HeadPickerItemAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = position.toString()
+        holder.imageView.setImageResource(HeadCollection.heads[position].getRandomIdle())
+        (holder.imageView.drawable as AnimationDrawable).start()
         holder.contentView.text = item.getName()
+        holder.itemContainerView.setBackgroundColor(Color.TRANSPARENT)
 
-        val itemContainer = holder.itemContainerView
-        itemContainer.setOnClickListener{
+        if(position == HeadCollection.currentHeadIndex) {
+            holder.itemContainerView.setBackgroundColor(Color.LTGRAY)
+        }
+
+        holder.itemContainerView.setOnClickListener{
             Log.d("UI", position.toString())
             HeadCollection.setSelectedHead(position)
+            notifyDataSetChanged()
         }
     }
 
