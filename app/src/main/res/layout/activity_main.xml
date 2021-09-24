@@ -209,6 +209,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintBottom_toBottomOf="@id/showLogButton"
+                android:enabled="@{mainActivity.ready}"
                 android:text="@string/hamburger_p"
                 android:visibility="gone"
                 android:layout_marginBottom="0dp"
