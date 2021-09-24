@@ -133,6 +133,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonHeadPicker = findViewById<Button>(R.id.headPickerButton)
+        buttonHeadPicker.setOnClickListener{
+            val intent =Intent(this, HeadPickerActivity::class.java)
+            startActivity(intent)
+        }
 
         buttonHamburgerMenu = findViewById(R.id.hamburgerButton)
         initHamburgerMenu()
