@@ -32,9 +32,6 @@ import kotlinx.android.synthetic.main.activity_main.*
  * Main activity class. Defines functions triggered by UI action.
  */
 class MainActivity : AppCompatActivity() {
-    /**
-     * @property gpt2 poem generator. Also feeds data straight to UI through viewModels.
-     */
     private val gpt2: com.poemgen.deeppoet.ml.GPT2Client by viewModels()
 
     /**
@@ -43,11 +40,7 @@ class MainActivity : AppCompatActivity() {
      */
     lateinit var randomPrompts: List<String>
 
-    /**
-     * @property ready Whether generator is ready to accept new prompt.
-     * Disables button when set to false.
-     */
-    private val _ready = MutableLiveData(true)
+    private val _ready = MutableLiveData(true) // true if generator ready to accept prompts
     val ready: LiveData<Boolean> = _ready
 
     // Share button
@@ -173,12 +166,18 @@ class MainActivity : AppCompatActivity() {
 
     var firstTime = true
 
+    /**
+     * Disables user interaction if the AI is generating a poem.
+     */
     fun disableButtons() {
         _ready.value = false
         switchHeadAnimation(true)
 
     }
 
+    /**
+     * Enables user interaction once the AI has finished generating a poem.
+     */
     fun enableButtons() {
         _ready.value = true
         switchHeadAnimation(false)

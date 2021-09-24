@@ -16,8 +16,8 @@ import org.junit.Assert.*
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
+    private fun useAppContext() {
+        /* Context of the app under test. */
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.poemgen.deeppoet", appContext.packageName)
     }

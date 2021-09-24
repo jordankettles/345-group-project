@@ -190,9 +190,6 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    /**
-     * Loads the GPT2 Model.
-     */
     private suspend fun loadModel(): Interpreter = withContext(Dispatchers.IO) {
         val assetFileDescriptor = getApplication<Application>().assets.openFd(MODEL_PATH)
         assetFileDescriptor.use {
@@ -205,9 +202,6 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    /**
-     * Loads the GPT2 token encoder to convert a string into tokens for the input of GPT2.
-     */
     private suspend fun loadEncoder(): Map<String, Int> = withContext(Dispatchers.IO) {
         hashMapOf<String, Int>().apply {
             val vocabStream = getApplication<Application>().assets.open(VOCAB_PATH)

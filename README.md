@@ -23,7 +23,6 @@ because of their 100MB file size limit. The model is 236MB.
 •	We named the app (Deep Poet)
 • We added analysis reports (Codacy and Codecov)
 
-
 ### Issues
 •	We have a select head button that is currently just a placeholder. 
 •	Our tests were run locally and uploaded manually because GitHub actions does not work with our app (we’ve opened up an issue with GitHub, and they said they’ll get back to us).
