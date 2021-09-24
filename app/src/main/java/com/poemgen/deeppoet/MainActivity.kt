@@ -167,6 +167,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        switchHeadAnimation(false)
+    }
+
     var firstTime = true
 
     fun disableButtons() {
