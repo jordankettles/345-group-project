@@ -10,13 +10,18 @@ object HeadCollection {
     fun initializeHeads() {
         heads.add(Head(mutableListOf(R.drawable.anim_owl_idle),
                         mutableListOf(R.drawable.anim_owl_talk)))
-        heads.add(Head(mutableListOf(R.drawable.placeholder_dino_01),
-                        mutableListOf(R.drawable.placeholder_dino_02)))
+        heads.add(Head(mutableListOf(R.drawable.anim_placeholder_dino_01),
+                        mutableListOf(R.drawable.anim_placeholder_dino_02)))
 
+        setSelectedHead(1)
     }
 
     fun setSelectedHead(index: Int) {
-        currentHeadIndex = index
+        if(index < heads.size) {
+            currentHeadIndex = index
+        } else {
+            currentHeadIndex = heads.size - 1
+        }
     }
 
     fun getSelectedHead(): Head {
