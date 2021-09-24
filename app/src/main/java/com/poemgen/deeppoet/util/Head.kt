@@ -6,7 +6,7 @@ package com.poemgen.deeppoet.util
  * @property idleAnims Mutable list of AnimatedDrawable IDs
  * @property talkingAnims Similarly, list of animations for talking heads.
  */
-class Head(private val idleAnims: MutableList<Int>, private val talkingAnims: MutableList<Int>) {
+class Head(private val name: String, private val idleAnims: MutableList<Int>, private val talkingAnims: MutableList<Int>) {
     /**
      * Gets a random drawable ID of an idle animation.
      * @return ID of idle animation drawable.
@@ -21,5 +21,9 @@ class Head(private val idleAnims: MutableList<Int>, private val talkingAnims: Mu
      */
     fun getRandomTalking(): Int {
         return talkingAnims.random()
+    }
+
+    fun getName(): String {
+        return name
     }
 }

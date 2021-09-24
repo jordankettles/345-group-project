@@ -8,9 +8,9 @@ object HeadCollection {
 
 
     fun initializeHeads() {
-        heads.add(Head(mutableListOf(R.drawable.anim_owl_idle),
+        heads.add(Head("Owl", mutableListOf(R.drawable.anim_owl_idle),
                         mutableListOf(R.drawable.anim_owl_talk)))
-        heads.add(Head(mutableListOf(R.drawable.anim_placeholder_dino_01),
+        heads.add(Head("Dino", mutableListOf(R.drawable.anim_placeholder_dino_01),
                         mutableListOf(R.drawable.anim_placeholder_dino_02)))
 
         setSelectedHead(1)
