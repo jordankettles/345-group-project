@@ -1,6 +1,7 @@
 package com.poemgen.deeppoet
 
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.core.app.launchActivity
@@ -139,7 +140,9 @@ class MainInstrumentedTest {
         onView(withId(R.id.hamburgerButton)).perform(click())
         onView(withId(R.id.showLogButton)).perform(click())
         val pTitle = "Hello, I am a poet"
-        val pText = getText(withText(containsString(generatedTxt!!.substring(19))))
+        val pText = getText(withText(containsString(generatedTxt!!.replace(pTitle, ""))))
+        Log.d("a", (pTitle + pText))
+        Log.d("b", generatedTxt)
         assert((pTitle + pText) == generatedTxt)
         intended(hasComponent(LogDisplayActivity::class.java.getName()))
         Intents.release()
