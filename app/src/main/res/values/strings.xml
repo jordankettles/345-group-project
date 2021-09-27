@@ -5,21 +5,19 @@
 
     <string name="dummyPrompt">Dummy Prompt</string>
     <string name="button">Generate</string>
-    <string name="give_the_writer_a_prompt">Give the Writer a Prompt</string>
-    <string name="helpbutton">H</string>
+    <string name="give_the_writer_a_prompt">Give the Poet a Prompt</string>
+    <string name="helpbutton">\?</string>
     <string name="help_text">Enter a prompt for the AI Poet to generate a poem about, or
         use one of the prompts provided using the shuffle button.\n\n
-        The log stores each generated poem during your session.\n\n
+        The log stores each generated poem.\n\n
         The longer the prompt the better, as it gives the AI more context about what you want to
         convey.
         </string>
     <string name="return_button">Return to Generator</string>
     <string name="share">Share</string>
     <string name="continue_poem">Continue Poem</string>
-    <string name="hamburger_h">H</string>
-    <string name="hamburger_l">L</string>
-    <string name="show_log">Show Log</string>
+    <string name="show_log">Saved Poems</string>
     <string name="hamburger_p">P</string>
-    <string name="pick_head">Pick Head</string>
+    <string name="pick_head">Change Poet</string>
     <string name="help">Help</string>
 </resources>
