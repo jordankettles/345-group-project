@@ -109,10 +109,13 @@ class MainActivity : AppCompatActivity() {
 
         val buttonGenerate = findViewById<Button>(R.id.submit_prompt_button)
         buttonGenerate.setOnClickListener{
-            if (!promptField.getText().toString().equals("")) {
-                gpt2.setPrompt(promptField.getText().toString())
-
-                hideKeyboard()
+            if (!promptField.text.toString().equals("")) {
+                if(promptField.text.toString().length < 500) {
+                    gpt2.setPrompt(promptField.text.toString())
+                    hideKeyboard()
+                } else {
+                    Toast.makeText(this, "Prompt length is too large.", Toast.LENGTH_SHORT).show()
+                }
             } else {
                 Toast.makeText(this, "Please enter a prompt.", Toast.LENGTH_SHORT).show()
             }
@@ -156,8 +159,13 @@ class MainActivity : AppCompatActivity() {
         buttonContinue = findViewById<Button>(R.id.continue_button)
         buttonContinue.setOnClickListener{
             if (poemTextView.text != "") {
-                gpt2.setPrompt(poemTextView.text.toString())
-                hideKeyboard()
+                if (poemTextView.text.length < 1000) {
+                    gpt2.setPrompt(poemTextView.text.toString())
+                    hideKeyboard()
+                } else {
+                    Toast.makeText(this, "Poem length limit reached.", Toast.LENGTH_SHORT).show()
+                }
+
             } else {
                 Toast.makeText(this, "Current Poem is blank.", Toast.LENGTH_SHORT).show()
             }
