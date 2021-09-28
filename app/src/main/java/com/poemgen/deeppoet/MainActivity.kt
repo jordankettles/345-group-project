@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         // Head setup head
         initAnimation()
         imageHead = findViewById(R.id.imageHead) as ImageView
-        imageHead.scaleType = ImageView.ScaleType.FIT_START
+        imageHead.scaleType = ImageView.ScaleType.FIT_END
         switchHeadAnimation(toTalking = false)
 
         // GPT2 client related things
