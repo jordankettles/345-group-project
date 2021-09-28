@@ -13,7 +13,7 @@ object HeadCollection {
         heads.add(Head("Dino", mutableListOf(R.drawable.anim_placeholder_dino_01),
                         mutableListOf(R.drawable.anim_placeholder_dino_02)))
 
-        setSelectedHead(1)
+        setSelectedHead(0)
     }
 
     fun setSelectedHead(index: Int) {
