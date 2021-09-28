@@ -6,7 +6,9 @@ object HeadCollection {
     var heads: MutableList<Head> = mutableListOf()
     var currentHeadIndex = 0
 
-
+    /**
+     * Populates list with head drawable resource.
+     */
     fun initializeHeads() {
         heads.add(Head("Owl", mutableListOf(R.drawable.anim_owl_idle),
                         mutableListOf(R.drawable.anim_owl_talk)))
