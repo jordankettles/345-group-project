@@ -29,10 +29,22 @@ class HeadPickerInstrumentedTest {
 
     @Test
     fun testHeadPickerInventory() {
-        launchActivity<HeadPickerActivity>()
+        launchActivity<MainActivity>()
+        android.os.SystemClock.sleep(3000)
 
-//        onView(withId(R.id.rvHeadPickerList)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-//        assert(HeadCollection.currentHeadIndex == 0)
+        onView(withId(R.id.hamburgerButton)).perform(click())
+        android.os.SystemClock.sleep(1000)
+
+        onView(withId(R.id.headPickerButton)).perform(click())
+        android.os.SystemClock.sleep(1000)
+
+        onView(withId(R.id.rvHeadPickerList)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        android.os.SystemClock.sleep(1000)
+        assert(HeadCollection.currentHeadIndex == 0)
+
+        onView(withId(R.id.rvHeadPickerList)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+        android.os.SystemClock.sleep(1000)
+        assert(HeadCollection.currentHeadIndex == 1)
     }
 
 }
