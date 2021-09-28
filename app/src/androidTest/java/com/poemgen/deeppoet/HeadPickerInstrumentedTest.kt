@@ -16,9 +16,15 @@ import org.hamcrest.Matcher
 import org.junit.Test
 import org.junit.runner.RunWith
 
+/**
+ * Tests for Head Picker screen and functions.
+ */
 @RunWith(AndroidJUnit4::class)
 class HeadPickerInstrumentedTest {
 
+    /**
+     * Tests the button that moves from headpicker to main screen.
+     */
     @Test
     fun clickShowMainButton() {
         val scenario = launchActivity<HeadPickerActivity>()
@@ -27,6 +33,11 @@ class HeadPickerInstrumentedTest {
         assert(scenario.state == Lifecycle.State.DESTROYED)
     }
 
+    /**
+     * Tests head picker.
+     * Clicks on the first entry, checks that selected head has been changed.
+     * Subsequently does the same with the second head down.
+     */
     @Test
     fun testHeadPickerInventory() {
         launchActivity<MainActivity>()
