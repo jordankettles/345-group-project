@@ -113,7 +113,7 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
     fun launchAutocomplete() {
         autocompleteJob = viewModelScope.launch {
             for (badWord in badWords) {
-                if (_prompt.value!!.contains(badWord)) {
+                if ((" " + _prompt.value!! + " ").contains(" $badWord ")) {
                     Toast.makeText(mainActivity,"Inappropriate Phrase.", Toast.LENGTH_SHORT).show()
                     _prompt.value = ""
                     _completion.value = ""

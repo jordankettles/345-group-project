@@ -2,8 +2,9 @@ apply plugin: 'de.undercouch.download'
 
 task downloadLiteModel {
     def downloadFiles = [
-            "https://onedrive.live.com/download?cid=0512398D283F2A19&resid=512398D283F2A19%21422&authkey=AOldCuHJ25ySIgU": "model.tflite", //custom trained GPT-2 model. 236MB
-            //"https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-64-fp16.tflite": "model.tflite",     // FP16 quantization version
+            "https://onedrive.live.com/download?cid=0512398D283F2A19&resid=512398D283F2A19%21423&authkey=AHvDuWs50kCCGFM": "model.tflite", //custom trained GPT-2 model version 2. 236MB
+            //"https://onedrive.live.com/download?cid=0512398D283F2A19&resid=512398D283F2A19%21422&authkey=AOldCuHJ25ySIgU": "model.tflite", //custom trained GPT-2 model version 1. 236MB
+            //"https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-64-fp16.tflite": "model.tflite",     // default gpt2 FP16 quantization version
     ]
     downloadFiles.each { key, value ->
         download {
