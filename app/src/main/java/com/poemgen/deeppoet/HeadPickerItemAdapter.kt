@@ -18,12 +18,14 @@ import com.poemgen.deeppoet.util.HeadCollection
 
 /**
  * [RecyclerView.Adapter] that can display a [PlaceholderItem].
- * TODO: Replace the implementation with code for your data type.
  */
 class HeadPickerItemAdapter(
     private val values: MutableList<Head>
 ) : RecyclerView.Adapter<HeadPickerItemAdapter.ViewHolder>() {
 
+    /**
+     * Template for all the views inside each head entry.
+     */
     inner class ViewHolder(listItemView: View) :
         RecyclerView.ViewHolder(listItemView) {
         val imageView: ImageView = itemView.findViewById(R.id.head_picker_item_imageview)
