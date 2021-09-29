@@ -22,6 +22,16 @@ $dokka.location:com.poemgen.deeppoet.ml/GPT2StrategyEnum.TOPK///PointingToDeclar
 $dokka.location:com.poemgen.deeppoet.ml/GPT2StrategyEnum.TOPK/name/#/PointingToDeclaration/app/com.poemgen.deeppoet.ml/-g-p-t2-strategy-enum/-t-o-p-k/name.html
 $dokka.location:com.poemgen.deeppoet.ml/GPT2StrategyEnum.TOPK/ordinal/#/PointingToDeclaration/app/com.poemgen.deeppoet.ml/-g-p-t2-strategy-enum/-t-o-p-k/ordinal.html
 $dokka.location:com.poemgen.deeppoet.ml/GPT2StrategyEnum///PointingToDeclaration/app/com.poemgen.deeppoet.ml/-g-p-t2-strategy-enum/index.html
+$dokka.location:com.poemgen.deeppoet.placeholder////PointingToDeclaration/app/com.poemgen.deeppoet.placeholder/index.html
+$dokka.location:com.poemgen.deeppoet.placeholder/PlaceholderContent.PlaceholderItem///PointingToDeclaration/app/com.poemgen.deeppoet.placeholder/-placeholder-content/-placeholder-item/index.html
+$dokka.location:com.poemgen.deeppoet.placeholder/PlaceholderContent.PlaceholderItem/PlaceholderItem/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.poemgen.deeppoet.placeholder/-placeholder-content/-placeholder-item/-placeholder-item.html
+$dokka.location:com.poemgen.deeppoet.placeholder/PlaceholderContent.PlaceholderItem/content/#/PointingToDeclaration/app/com.poemgen.deeppoet.placeholder/-placeholder-content/-placeholder-item/content.html
+$dokka.location:com.poemgen.deeppoet.placeholder/PlaceholderContent.PlaceholderItem/details/#/PointingToDeclaration/app/com.poemgen.deeppoet.placeholder/-placeholder-content/-placeholder-item/details.html
+$dokka.location:com.poemgen.deeppoet.placeholder/PlaceholderContent.PlaceholderItem/id/#/PointingToDeclaration/app/com.poemgen.deeppoet.placeholder/-placeholder-content/-placeholder-item/id.html
+$dokka.location:com.poemgen.deeppoet.placeholder/PlaceholderContent.PlaceholderItem/toString/#/PointingToDeclaration/app/com.poemgen.deeppoet.placeholder/-placeholder-content/-placeholder-item/to-string.html
+$dokka.location:com.poemgen.deeppoet.placeholder/PlaceholderContent///PointingToDeclaration/app/com.poemgen.deeppoet.placeholder/-placeholder-content/index.html
+$dokka.location:com.poemgen.deeppoet.placeholder/PlaceholderContent/ITEMS/#/PointingToDeclaration/app/com.poemgen.deeppoet.placeholder/-placeholder-content/-i-t-e-m-s.html
+$dokka.location:com.poemgen.deeppoet.placeholder/PlaceholderContent/ITEM_MAP/#/PointingToDeclaration/app/com.poemgen.deeppoet.placeholder/-placeholder-content/-i-t-e-m_-m-a-p.html
 $dokka.location:com.poemgen.deeppoet.poemgenerator.record////PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/index.html
 $dokka.location:com.poemgen.deeppoet.poemgenerator.record/Garden///PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/-garden/index.html
 $dokka.location:com.poemgen.deeppoet.poemgenerator.record/Garden/loadGarden/#android.content.Context/PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/-garden/load-garden.html
@@ -38,10 +48,34 @@ $dokka.location:com.poemgen.deeppoet.tokenization/GPT2Tokenizer/decode/#kotlin.c
 $dokka.location:com.poemgen.deeppoet.tokenization/GPT2Tokenizer/encode/#kotlin.String/PointingToDeclaration/app/com.poemgen.deeppoet.tokenization/-g-p-t2-tokenizer/encode.html
 $dokka.location:com.poemgen.deeppoet.util////PointingToDeclaration/app/com.poemgen.deeppoet.util/index.html
 $dokka.location:com.poemgen.deeppoet.util/Head///PointingToDeclaration/app/com.poemgen.deeppoet.util/-head/index.html
-$dokka.location:com.poemgen.deeppoet.util/Head/Head/#kotlin.collections.MutableList[kotlin.Int]#kotlin.collections.MutableList[kotlin.Int]/PointingToDeclaration/app/com.poemgen.deeppoet.util/-head/-head.html
+$dokka.location:com.poemgen.deeppoet.util/Head/Head/#kotlin.String#kotlin.collections.MutableList[kotlin.Int]#kotlin.collections.MutableList[kotlin.Int]/PointingToDeclaration/app/com.poemgen.deeppoet.util/-head/-head.html
+$dokka.location:com.poemgen.deeppoet.util/Head/getName/#/PointingToDeclaration/app/com.poemgen.deeppoet.util/-head/get-name.html
 $dokka.location:com.poemgen.deeppoet.util/Head/getRandomIdle/#/PointingToDeclaration/app/com.poemgen.deeppoet.util/-head/get-random-idle.html
 $dokka.location:com.poemgen.deeppoet.util/Head/getRandomTalking/#/PointingToDeclaration/app/com.poemgen.deeppoet.util/-head/get-random-talking.html
+$dokka.location:com.poemgen.deeppoet.util/HeadCollection///PointingToDeclaration/app/com.poemgen.deeppoet.util/-head-collection/index.html
+$dokka.location:com.poemgen.deeppoet.util/HeadCollection/currentHeadIndex/#/PointingToDeclaration/app/com.poemgen.deeppoet.util/-head-collection/current-head-index.html
+$dokka.location:com.poemgen.deeppoet.util/HeadCollection/getSelectedHead/#/PointingToDeclaration/app/com.poemgen.deeppoet.util/-head-collection/get-selected-head.html
+$dokka.location:com.poemgen.deeppoet.util/HeadCollection/heads/#/PointingToDeclaration/app/com.poemgen.deeppoet.util/-head-collection/heads.html
+$dokka.location:com.poemgen.deeppoet.util/HeadCollection/initializeHeads/#/PointingToDeclaration/app/com.poemgen.deeppoet.util/-head-collection/initialize-heads.html
+$dokka.location:com.poemgen.deeppoet.util/HeadCollection/setSelectedHead/#kotlin.Int/PointingToDeclaration/app/com.poemgen.deeppoet.util/-head-collection/set-selected-head.html
 $dokka.location:com.poemgen.deeppoet////PointingToDeclaration/app/com.poemgen.deeppoet/index.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerActivity///PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-activity/index.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerActivity/HeadPickerActivity/#/PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-activity/-head-picker-activity.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerItemAdapter.ViewHolder///PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-item-adapter/-view-holder/index.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerItemAdapter.ViewHolder/ViewHolder/#android.view.View/PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-item-adapter/-view-holder/-view-holder.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerItemAdapter.ViewHolder/contentView/#/PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-item-adapter/-view-holder/content-view.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerItemAdapter.ViewHolder/imageView/#/PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-item-adapter/-view-holder/image-view.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerItemAdapter.ViewHolder/itemContainerView/#/PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-item-adapter/-view-holder/item-container-view.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerItemAdapter///PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-item-adapter/index.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerItemAdapter/HeadPickerItemAdapter/#kotlin.collections.MutableList[com.poemgen.deeppoet.util.Head]/PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-item-adapter/-head-picker-item-adapter.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerItemAdapter/getItemCount/#/PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-item-adapter/get-item-count.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerItemAdapter/onBindViewHolder/#com.poemgen.deeppoet.HeadPickerItemAdapter.ViewHolder#kotlin.Int/PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-item-adapter/on-bind-view-holder.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerItemAdapter/onCreateViewHolder/#android.view.ViewGroup#kotlin.Int/PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-item-adapter/on-create-view-holder.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerListFragment///PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-list-fragment/index.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerListFragment/HeadPickerListFragment/#/PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-list-fragment/-head-picker-list-fragment.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerListFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-list-fragment/on-create.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerListFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-list-fragment/on-create-view.html
+$dokka.location:com.poemgen.deeppoet/HeadPickerListFragment/onViewCreated/#android.view.View#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.deeppoet/-head-picker-list-fragment/on-view-created.html
 $dokka.location:com.poemgen.deeppoet/HelpActivity///PointingToDeclaration/app/com.poemgen.deeppoet/-help-activity/index.html
 $dokka.location:com.poemgen.deeppoet/HelpActivity/HelpActivity/#/PointingToDeclaration/app/com.poemgen.deeppoet/-help-activity/-help-activity.html
 $dokka.location:com.poemgen.deeppoet/LogDisplayActivity///PointingToDeclaration/app/com.poemgen.deeppoet/-log-display-activity/index.html
@@ -74,6 +108,7 @@ $dokka.location:com.poemgen.deeppoet/PoemLogListFragment/onCreateView/#android.v
 $dokka.location:com.poemgen.deeppoet/PoemLogListFragment/onViewCreated/#android.view.View#android.os.Bundle?/PointingToDeclaration/app/com.poemgen.deeppoet/-poem-log-list-fragment/on-view-created.html
 com.poemgen.deeppoet
 com.poemgen.deeppoet.ml
+com.poemgen.deeppoet.placeholder
 com.poemgen.deeppoet.poemgenerator.record
 com.poemgen.deeppoet.tokenization
 com.poemgen.deeppoet.util
