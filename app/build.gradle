@@ -41,10 +41,6 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
-    aaptOptions {
-        noCompress "tflite"
-    }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -67,9 +63,8 @@ android {
         viewBinding = true
         dataBinding = true
     }
+    dynamicFeatures = [':gpt2model']
 }
-println('Downloading custom GPT-2 Model, 236MB...')
-apply from: 'download.gradle'
 
 dependencies {
 

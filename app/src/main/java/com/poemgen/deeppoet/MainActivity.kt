@@ -33,6 +33,12 @@ import kotlinx.android.synthetic.main.activity_main.*
  * Main activity class. Defines functions triggered by UI action.
  */
 class MainActivity : AppCompatActivity() {
+
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(base)
+        // Emulates installation of future on demand modules using SplitCompat.
+    }
+
     /**
      * @property gpt2 poem generator. Also feeds data straight to UI through viewModels.
      */

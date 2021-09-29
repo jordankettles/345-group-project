@@ -20,4 +20,5 @@
     <string name="hamburger_p">P</string>
     <string name="pick_head">Change Poet</string>
     <string name="help">Help</string>
+    <string name="title_gpt2model">GPT2 Model</string>
 </resources>
