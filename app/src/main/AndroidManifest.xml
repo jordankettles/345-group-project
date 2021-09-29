@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Deeppoet">
-        <activity android:name="com.poemgen.deeppoet.LogDisplayActivity"></activity>
-        <activity android:name="com.poemgen.deeppoet.HelpActivity" />
-        <activity android:name="com.poemgen.deeppoet.MainActivity">
+        <activity android:name=".HeadPickerActivity"></activity>
+        <activity android:name=".LogDisplayActivity" />
+        <activity android:name=".HelpActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

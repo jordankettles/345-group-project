@@ -26,6 +26,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.poemgen.deeppoet.databinding.ActivityMainBinding
 import com.poemgen.deeppoet.poemgenerator.record.Garden
 import com.poemgen.deeppoet.util.Head
+import com.poemgen.deeppoet.util.HeadCollection
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -66,16 +67,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var labelHeadPicker: TextView
     private lateinit var labelHelp: TextView
 
-    // Headtype, Idle/Talk, variations
-    private var selectedHeadIndex = 0
-    private var animationList = mutableListOf<Head>()
-
     lateinit var imageHead: ImageView
-
-    private fun initAnimation() {
-        animationList.add(Head(mutableListOf(R.drawable.anim_owl_idle),
-                                mutableListOf(R.drawable.anim_owl_talk)))
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         Garden.loadGarden(this)
 
         // Head setup head
-        initAnimation()
+        HeadCollection.initializeHeads()
         imageHead = findViewById(R.id.imageHead) as ImageView
         imageHead.scaleType = ImageView.ScaleType.FIT_START
         switchHeadAnimation(toTalking = false)
@@ -144,6 +136,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonHeadPicker = findViewById<Button>(R.id.headPickerButton)
+        buttonHeadPicker.setOnClickListener{
+            val intent =Intent(this, HeadPickerActivity::class.java)
+            startActivity(intent)
+        }
 
         buttonHamburgerMenu = findViewById(R.id.hamburgerButton)
         initHamburgerMenu()
@@ -179,6 +175,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        switchHeadAnimation(false)
+    }
+
     var firstTime = true
 
     fun disableButtons() {
@@ -200,9 +201,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun switchHeadAnimation(toTalking: Boolean) {
         if (toTalking) {
-            imageHead.setImageResource(animationList[selectedHeadIndex].getRandomTalking())
+            imageHead.setImageResource(HeadCollection.getSelectedHead().getRandomTalking())
         } else {
-            imageHead.setImageResource(animationList[selectedHeadIndex].getRandomIdle())
+            imageHead.setImageResource(HeadCollection.getSelectedHead().getRandomIdle())
         }
 
         (imageHead.drawable as AnimationDrawable).start()
