@@ -17,6 +17,10 @@ object Garden {
 
     var seeds: MutableList<Poem> = mutableListOf()
 
+    /**
+     * Loads the Poems stored locally on the device, if they exist.
+     * @param context The current context of the Application.
+     */
     fun loadGarden(context: Context) {
         var jsonInput = ""
         try {
@@ -39,6 +43,10 @@ object Garden {
         seeds = jsonModel.toMutableList()
     }
 
+    /**
+     * Saves generated poems to the device.
+     * @param context The current context of the Application.
+     */
     fun saveGarden(context: Context) {
         val gson = Gson()
         val array: Array<Poem> = seeds.toTypedArray()
@@ -52,6 +60,11 @@ object Garden {
 
     }
 
+    /**
+     * Deletes all locally stored poems.
+     * Should only be used in test functions to ensure reproducible tests.
+     * @param context The current context of the Application.
+     */
     fun deleteGarden(context: Context) {
         context.deleteFile(FILE_NAME)
     }
