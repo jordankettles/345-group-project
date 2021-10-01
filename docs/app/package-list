@@ -34,6 +34,7 @@ $dokka.location:com.poemgen.deeppoet.placeholder/PlaceholderContent/ITEMS/#/Poin
 $dokka.location:com.poemgen.deeppoet.placeholder/PlaceholderContent/ITEM_MAP/#/PointingToDeclaration/app/com.poemgen.deeppoet.placeholder/-placeholder-content/-i-t-e-m_-m-a-p.html
 $dokka.location:com.poemgen.deeppoet.poemgenerator.record////PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/index.html
 $dokka.location:com.poemgen.deeppoet.poemgenerator.record/Garden///PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/-garden/index.html
+$dokka.location:com.poemgen.deeppoet.poemgenerator.record/Garden/deleteGarden/#android.content.Context/PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/-garden/delete-garden.html
 $dokka.location:com.poemgen.deeppoet.poemgenerator.record/Garden/loadGarden/#android.content.Context/PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/-garden/load-garden.html
 $dokka.location:com.poemgen.deeppoet.poemgenerator.record/Garden/saveGarden/#android.content.Context/PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/-garden/save-garden.html
 $dokka.location:com.poemgen.deeppoet.poemgenerator.record/Garden/seeds/#/PointingToDeclaration/app/com.poemgen.deeppoet.poemgenerator.record/-garden/seeds.html
