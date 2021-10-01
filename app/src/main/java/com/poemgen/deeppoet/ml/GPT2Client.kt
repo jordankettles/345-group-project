@@ -190,9 +190,6 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    /**
-     * Loads the GPT2 Model.
-     */
     private suspend fun loadModel(): Interpreter = withContext(Dispatchers.IO) {
         val assetFileDescriptor = getApplication<Application>().assets.openFd(MODEL_PATH)
         assetFileDescriptor.use {

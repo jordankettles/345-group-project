@@ -17,16 +17,19 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers.*
 import android.widget.TextView
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
 
 import androidx.test.espresso.ViewAction
 
 import androidx.test.espresso.UiController
 import com.google.android.material.textfield.TextInputEditText
+import com.poemgen.deeppoet.poemgenerator.record.Garden
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.*
 
 
 private const val WAIT_TIME = 8000.toLong()
+private const val examplePrompt = "Hello, I am a poet"
 
 /**
  * Main Activity Instrumented test, which will execute on an Android device.
@@ -106,10 +109,10 @@ class MainInstrumentedTest {
     fun testGenerateButton() {
         launchActivity<MainActivity>()
         android.os.SystemClock.sleep(WAIT_TIME)
-        onView(withId(R.id.promptField)).perform(typeText("Hello, I am a poet"))
+        onView(withId(R.id.promptField)).perform(typeText(examplePrompt))
         Intents.init()
         onView(withId(R.id.submit_prompt_button)).perform(click())
-        onView(withId(R.id.poemTextView)).check(matches(withText("Hello, I am a poet")))
+        onView(withId(R.id.poemTextView)).check(matches(withText(examplePrompt)))
         android.os.SystemClock.sleep(WAIT_TIME*10)
         val generatedTxt = getText(withId(R.id.poemTextView))
         onView(withId(R.id.share_button)).perform(click())
@@ -131,15 +134,16 @@ class MainInstrumentedTest {
     fun testPoemStorage() {
         launchActivity<MainActivity>()
         android.os.SystemClock.sleep(WAIT_TIME)
-        onView(withId(R.id.promptField)).perform(typeText("Hello, I am a poet"))
+        Garden.deleteGarden(getApplicationContext())
+        onView(withId(R.id.promptField)).perform(typeText(examplePrompt))
         Intents.init()
         onView(withId(R.id.submit_prompt_button)).perform(click())
-        onView(withId(R.id.poemTextView)).check(matches(withText("Hello, I am a poet")))
+        onView(withId(R.id.poemTextView)).check(matches(withText(examplePrompt)))
         android.os.SystemClock.sleep(WAIT_TIME*10)
         val generatedTxt = getText(withId(R.id.poemTextView))
         onView(withId(R.id.hamburgerButton)).perform(click())
         onView(withId(R.id.showLogButton)).perform(click())
-        val pTitle = "Hello, I am a poet"
+        val pTitle = examplePrompt
         val pText = getText(withText(containsString(generatedTxt!!.replace(pTitle, ""))))
         Log.d("a", (pTitle + pText))
         Log.d("b", generatedTxt)
@@ -155,9 +159,9 @@ class MainInstrumentedTest {
     fun testContinueButton() {
         launchActivity<MainActivity>()
         android.os.SystemClock.sleep(WAIT_TIME)
-        onView(withId(R.id.promptField)).perform(typeText("Hello, I am a poet"))
+        onView(withId(R.id.promptField)).perform(typeText(examplePrompt))
         onView(withId(R.id.submit_prompt_button)).perform(click())
-        onView(withId(R.id.poemTextView)).check(matches(withText("Hello, I am a poet")))
+        onView(withId(R.id.poemTextView)).check(matches(withText(examplePrompt)))
         android.os.SystemClock.sleep(WAIT_TIME*10)
         val generatedTxt = getText(withId(R.id.poemTextView))
         onView(withId(R.id.continue_button)).perform(click())

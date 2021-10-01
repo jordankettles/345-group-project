@@ -51,4 +51,8 @@ object Garden {
         }
 
     }
+
+    fun deleteGarden(context: Context) {
+        context.deleteFile(FILE_NAME)
+    }
 }
