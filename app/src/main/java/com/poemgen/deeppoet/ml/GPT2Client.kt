@@ -23,6 +23,7 @@ import java.io.InputStreamReader
 import java.nio.channels.FileChannel
 import kotlin.math.exp
 import kotlin.random.Random
+import java.lang.StringBuilder
 
 private const val SEQUENCE_LENGTH  = 64
 private const val VOCAB_SIZE       = 50257
@@ -143,6 +144,27 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
         launchAutocomplete()
     }
 
+    fun capitalizeSentence(sentence: String): String {
+        val result = StringBuilder()
+        var capitalize = true //state
+        for (c in sentence.toCharArray()) {
+            if (capitalize) {
+                //capitalize
+                result.append(Character.toUpperCase(c))
+                if (!Character.isWhitespace(c) && c != '.') {
+                    capitalize = false //change state
+                }
+            } else {
+                //don't capitalize
+                result.append(c)
+                if (c == '.') {
+                    capitalize = true //change state
+                }
+            }
+        }
+        return result.toString()
+    }
+
     private suspend fun generate(text: String, nbTokens: Int = 10) = withContext(Dispatchers.Default) {
         val tokens = tokenizer.encode(text)
         repeat (nbTokens) {
@@ -185,6 +207,7 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
                     tflite.resetVariableTensors()
                     }
             }
+            possiblePoem = capitalizeSentence(possiblePoem)
             _completion.postValue(possiblePoem)
             yield()
         }
