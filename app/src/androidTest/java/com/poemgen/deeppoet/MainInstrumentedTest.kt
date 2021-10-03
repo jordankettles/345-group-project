@@ -136,20 +136,17 @@ class MainInstrumentedTest {
         android.os.SystemClock.sleep(WAIT_TIME)
         Garden.deleteGarden(getApplicationContext())
         onView(withId(R.id.promptField)).perform(typeText(examplePrompt))
-        Intents.init()
         onView(withId(R.id.submit_prompt_button)).perform(click())
         onView(withId(R.id.poemTextView)).check(matches(withText(examplePrompt)))
         android.os.SystemClock.sleep(WAIT_TIME*10)
         val generatedTxt = getText(withId(R.id.poemTextView))
         onView(withId(R.id.hamburgerButton)).perform(click())
-        onView(withId(R.id.showLogButton)).perform(click())
+        launchActivity<LogDisplayActivity>()
         val pTitle = examplePrompt
         val pText = getText(withText(containsString(generatedTxt!!.replace(pTitle, ""))))
         Log.d("a", (pTitle + pText))
         Log.d("b", generatedTxt)
         assert((pTitle + pText) == generatedTxt)
-        intended(hasComponent(LogDisplayActivity::class.java.getName()))
-        Intents.release()
     }
 
     /**

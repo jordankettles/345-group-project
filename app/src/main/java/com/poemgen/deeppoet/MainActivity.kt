@@ -88,14 +88,18 @@ class MainActivity : AppCompatActivity() {
         // GPT2 client related things
         randomPrompts = readPrompts()
 
-        val promptField = findViewById<TextInputEditText>(R.id.promptField)
-
         disableButtons()
         gpt2.mainActivity = this
         binding.vm = gpt2
         binding.mainActivity = this
         binding.lifecycleOwner = this
 
+       initButtons()
+
+    }
+
+    private fun initButtons() {
+        val promptField = findViewById<TextInputEditText>(R.id.promptField)
         // Hamburger related buttons
         labelLog = findViewById(R.id.showLogLabel) as TextView
         labelHelp = findViewById(R.id.helpLabel) as TextView
@@ -174,8 +178,8 @@ class MainActivity : AppCompatActivity() {
             promptField.setText(randomPrompts.random())
             hideKeyboard()
         }
-
     }
+
 
     override fun onResume() {
         super.onResume()
