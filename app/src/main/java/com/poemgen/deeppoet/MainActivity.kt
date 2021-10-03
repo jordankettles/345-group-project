@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
 
         // Head setup head
         HeadCollection.initializeHeads()
-        imageHead = findViewById(R.id.imageHead) as ImageView
+        imageHead = findViewById(R.id.imageHead)
         imageHead.scaleType = ImageView.ScaleType.FIT_START
         switchHeadAnimation(toTalking = false)
 
@@ -99,11 +99,53 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initButtons() {
-        val promptField = findViewById<TextInputEditText>(R.id.promptField)
         // Hamburger related buttons
-        labelLog = findViewById(R.id.showLogLabel) as TextView
-        labelHelp = findViewById(R.id.helpLabel) as TextView
-        labelHeadPicker = findViewById(R.id.headPickerLabel) as TextView
+        labelLog = findViewById(R.id.showLogLabel)
+        labelHelp = findViewById(R.id.helpLabel)
+        labelHeadPicker = findViewById(R.id.headPickerLabel)
+
+        initMainButtons()
+
+        initSmallButtons()
+    }
+
+    private fun initSmallButtons() {
+
+        buttonLog = findViewById(R.id.showLogButton)
+        buttonLog.setOnClickListener{
+            Garden.loadGarden(this)
+//            gpt2.closeGenerator()
+            val intent = Intent(this, LogDisplayActivity::class.java)
+            startActivity(intent)
+//            finish()
+        }
+
+        buttonHelp = findViewById(R.id.helpButton)
+        buttonHelp.setOnClickListener{
+//            gpt2.closeGenerator()
+            val intent = Intent(this, HelpActivity::class.java)
+            startActivity(intent)
+//            finish()
+        }
+
+        buttonHeadPicker = findViewById(R.id.headPickerButton)
+        buttonHeadPicker.setOnClickListener{
+            val intent =Intent(this, HeadPickerActivity::class.java)
+            startActivity(intent)
+        }
+
+        buttonHamburgerMenu = findViewById(R.id.hamburgerButton)
+        initHamburgerMenu()
+
+        val buttonRandom = findViewById<Button>(R.id.random_prompt_button)
+        val promptField = findViewById<TextInputEditText>(R.id.promptField)
+        buttonRandom.setOnClickListener{
+            promptField.setText(randomPrompts.random())
+            hideKeyboard()
+        }
+    }
+
+    private fun initMainButtons() {
 
         val buttonGenerate = findViewById<Button>(R.id.submit_prompt_button)
         buttonGenerate.setOnClickListener{
@@ -124,33 +166,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        buttonLog = findViewById<Button>(R.id.showLogButton)
-        buttonLog.setOnClickListener{
-            Garden.loadGarden(this)
-//            gpt2.closeGenerator()
-            val intent = Intent(this, LogDisplayActivity::class.java)
-            startActivity(intent)
-//            finish()
-        }
-
-        buttonHelp = findViewById<Button>(R.id.helpButton)
-        buttonHelp.setOnClickListener{
-//            gpt2.closeGenerator()
-            val intent = Intent(this, HelpActivity::class.java)
-            startActivity(intent)
-//            finish()
-        }
-
-        buttonHeadPicker = findViewById<Button>(R.id.headPickerButton)
-        buttonHeadPicker.setOnClickListener{
-            val intent =Intent(this, HeadPickerActivity::class.java)
-            startActivity(intent)
-        }
-
-        buttonHamburgerMenu = findViewById(R.id.hamburgerButton)
-        initHamburgerMenu()
-
-        buttonShare = findViewById<Button>(R.id.share_button)
+        buttonShare = findViewById(R.id.share_button)
         buttonShare.setOnClickListener {
 //            gpt2.closeGenerator()
             val result = findViewById(R.id.poemTextView) as TextView
@@ -171,12 +187,6 @@ class MainActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Current Poem is blank.", Toast.LENGTH_SHORT).show()
             }
-        }
-
-        val buttonRandom = findViewById<Button>(R.id.random_prompt_button)
-        buttonRandom.setOnClickListener{
-            promptField.setText(randomPrompts.random())
-            hideKeyboard()
         }
     }
 
