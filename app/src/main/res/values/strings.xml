@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Deep Poet</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="dummyPrompt">Dummy Prompt</string>
     <string name="button">Generate</string>
@@ -9,9 +7,14 @@
     <string name="helpbutton">\?</string>
     <string name="help_text">Enter a prompt for the AI Poet to generate a poem about, or
         use one of the prompts provided using the shuffle button.\n\n
-        The log stores each generated poem.\n\n
         The longer the prompt the better, as it gives the AI more context about what you want to
-        convey.
+        convey.\n\n
+        Then, click the generate button and the AI Poet will generate a poem from your prompt.\n\n
+        You can then choose to continue generating the poem, share the poem, or give the AI Poet a
+        new prompt.\n\n
+        Each generated poem is automatically saved to your device, and can be read on the Saved
+        Poems page. \n\n
+        You can also use the Change Poet screen to change the appearance of your AI Poet.
         </string>
     <string name="return_button">Return to Generator</string>
     <string name="share">Share</string>
@@ -20,4 +23,8 @@
     <string name="hamburger_p">P</string>
     <string name="pick_head">Change Poet</string>
     <string name="help">Help</string>
+    <string name="choose_poet">Choose Poet</string>
+    <string name="return_to_main">Return</string>
+    <string name="saved_poems">Saved Poems</string>
+    <string name="return_to_generator">Return to Generator</string>
 </resources>

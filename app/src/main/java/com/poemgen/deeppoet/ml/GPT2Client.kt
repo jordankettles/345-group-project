@@ -1,5 +1,6 @@
 package com.poemgen.deeppoet.ml
 
+import android.annotation.SuppressLint
 import android.app.Application
 import android.text.Spannable
 import android.text.SpannableStringBuilder
@@ -143,6 +144,7 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
         launchAutocomplete()
     }
 
+    @SuppressLint("DefaultLocale")
     private suspend fun generate(text: String, nbTokens: Int = 10) = withContext(Dispatchers.Default) {
         val tokens = tokenizer.encode(text)
         repeat (nbTokens) {
@@ -183,16 +185,17 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
                 if (possiblePoem.contains(badWord)) {
                     possiblePoem = possiblePoem.substringBefore(badWord)
                     tflite.resetVariableTensors()
-                    }
+                }
+                else if (possiblePoem.contains(badWord.capitalize()))  {
+                    possiblePoem = possiblePoem.substringBefore(badWord.capitalize())
+                    tflite.resetVariableTensors()
+                }
             }
             _completion.postValue(possiblePoem)
             yield()
         }
     }
 
-    /**
-     * Loads the GPT2 Model.
-     */
     private suspend fun loadModel(): Interpreter = withContext(Dispatchers.IO) {
         val assetFileDescriptor = getApplication<Application>().assets.openFd(MODEL_PATH)
         assetFileDescriptor.use {

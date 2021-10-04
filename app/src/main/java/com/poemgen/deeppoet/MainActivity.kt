@@ -26,15 +26,17 @@ import com.google.android.material.textfield.TextInputEditText
 import com.poemgen.deeppoet.databinding.ActivityMainBinding
 import com.poemgen.deeppoet.poemgenerator.record.Garden
 import com.poemgen.deeppoet.util.Head
+import com.poemgen.deeppoet.util.HeadCollection
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Main activity class. Defines functions triggered by UI action.
  */
 class MainActivity : AppCompatActivity() {
-    /**
+    /*
      * @property gpt2 poem generator. Also feeds data straight to UI through viewModels.
      */
+
     private val gpt2: com.poemgen.deeppoet.ml.GPT2Client by viewModels()
 
     /**
@@ -43,10 +45,11 @@ class MainActivity : AppCompatActivity() {
      */
     lateinit var randomPrompts: List<String>
 
-    /**
+    /*
      * @property ready Whether generator is ready to accept new prompt.
      * Disables button when set to false.
      */
+
     private val _ready = MutableLiveData(true)
     val ready: LiveData<Boolean> = _ready
 
@@ -66,16 +69,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var labelHeadPicker: TextView
     private lateinit var labelHelp: TextView
 
-    // Headtype, Idle/Talk, variations
-    private var selectedHeadIndex = 0
-    private var animationList = mutableListOf<Head>()
-
     lateinit var imageHead: ImageView
-
-    private fun initAnimation() {
-        animationList.add(Head(mutableListOf(R.drawable.anim_owl_idle),
-                                mutableListOf(R.drawable.anim_owl_talk)))
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,15 +80,13 @@ class MainActivity : AppCompatActivity() {
         Garden.loadGarden(this)
 
         // Head setup head
-        initAnimation()
-        imageHead = findViewById(R.id.imageHead) as ImageView
+        HeadCollection.initializeHeads()
+        imageHead = findViewById(R.id.imageHead)
         imageHead.scaleType = ImageView.ScaleType.FIT_END
         switchHeadAnimation(toTalking = false)
 
         // GPT2 client related things
         randomPrompts = readPrompts()
-
-        val promptField = findViewById<TextInputEditText>(R.id.promptField)
 
         disableButtons()
         gpt2.mainActivity = this
@@ -102,10 +94,58 @@ class MainActivity : AppCompatActivity() {
         binding.mainActivity = this
         binding.lifecycleOwner = this
 
+       initButtons()
+
+    }
+
+    private fun initButtons() {
         // Hamburger related buttons
-        labelLog = findViewById(R.id.showLogLabel) as TextView
-        labelHelp = findViewById(R.id.helpLabel) as TextView
-        labelHeadPicker = findViewById(R.id.headPickerLabel) as TextView
+        labelLog = findViewById(R.id.showLogLabel)
+        labelHelp = findViewById(R.id.helpLabel)
+        labelHeadPicker = findViewById(R.id.headPickerLabel)
+
+        initMainButtons()
+
+        initSmallButtons()
+    }
+
+    private fun initSmallButtons() {
+
+        buttonLog = findViewById(R.id.showLogButton)
+        buttonLog.setOnClickListener{
+            Garden.loadGarden(this)
+//            gpt2.closeGenerator()
+            val intent = Intent(this, LogDisplayActivity::class.java)
+            startActivity(intent)
+//            finish()
+        }
+
+        buttonHelp = findViewById(R.id.helpButton)
+        buttonHelp.setOnClickListener{
+//            gpt2.closeGenerator()
+            val intent = Intent(this, HelpActivity::class.java)
+            startActivity(intent)
+//            finish()
+        }
+
+        buttonHeadPicker = findViewById(R.id.headPickerButton)
+        buttonHeadPicker.setOnClickListener{
+            val intent =Intent(this, HeadPickerActivity::class.java)
+            startActivity(intent)
+        }
+
+        buttonHamburgerMenu = findViewById(R.id.hamburgerButton)
+        initHamburgerMenu()
+
+        val buttonRandom = findViewById<Button>(R.id.random_prompt_button)
+        val promptField = findViewById<TextInputEditText>(R.id.promptField)
+        buttonRandom.setOnClickListener{
+            promptField.setText(randomPrompts.random())
+            hideKeyboard()
+        }
+    }
+
+    private fun initMainButtons() {
 
         val buttonGenerate = findViewById<Button>(R.id.submit_prompt_button)
         buttonGenerate.setOnClickListener{
@@ -126,29 +166,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        buttonLog = findViewById<Button>(R.id.showLogButton)
-        buttonLog.setOnClickListener{
-            Garden.loadGarden(this)
-//            gpt2.closeGenerator()
-            val intent = Intent(this, LogDisplayActivity::class.java)
-            startActivity(intent)
-//            finish()
-        }
-
-        buttonHelp = findViewById<Button>(R.id.helpButton)
-        buttonHelp.setOnClickListener{
-//            gpt2.closeGenerator()
-            val intent = Intent(this, HelpActivity::class.java)
-            startActivity(intent)
-//            finish()
-        }
-
-        buttonHeadPicker = findViewById<Button>(R.id.headPickerButton)
-
-        buttonHamburgerMenu = findViewById(R.id.hamburgerButton)
-        initHamburgerMenu()
-
-        buttonShare = findViewById<Button>(R.id.share_button)
+        buttonShare = findViewById(R.id.share_button)
         buttonShare.setOnClickListener {
 //            gpt2.closeGenerator()
             val result = findViewById(R.id.poemTextView) as TextView
@@ -170,23 +188,30 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Current Poem is blank.", Toast.LENGTH_SHORT).show()
             }
         }
+    }
 
-        val buttonRandom = findViewById<Button>(R.id.random_prompt_button)
-        buttonRandom.setOnClickListener{
-            promptField.setText(randomPrompts.random())
-            hideKeyboard()
-        }
 
+    override fun onResume() {
+        super.onResume()
+        switchHeadAnimation(false)
     }
 
     var firstTime = true
 
+    /**
+     * Disables the UI buttons and animates the poet to begin speaking.
+     * Called when the model begins generating a poem.
+     */
     fun disableButtons() {
         _ready.value = false
         switchHeadAnimation(true)
 
     }
 
+    /**
+     * Enables the UI buttons and animates the poet to stop speaking.
+     * Called when the model has finished generating a poem.
+     */
     fun enableButtons() {
         _ready.value = true
         switchHeadAnimation(false)
@@ -200,9 +225,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun switchHeadAnimation(toTalking: Boolean) {
         if (toTalking) {
-            imageHead.setImageResource(animationList[selectedHeadIndex].getRandomTalking())
+            imageHead.setImageResource(HeadCollection.getSelectedHead().getRandomTalking())
         } else {
-            imageHead.setImageResource(animationList[selectedHeadIndex].getRandomIdle())
+            imageHead.setImageResource(HeadCollection.getSelectedHead().getRandomIdle())
         }
 
         (imageHead.drawable as AnimationDrawable).start()
