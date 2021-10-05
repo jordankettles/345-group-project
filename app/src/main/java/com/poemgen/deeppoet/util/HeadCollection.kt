@@ -16,8 +16,16 @@ object HeadCollection {
         heads = mutableListOf()
         heads.add(Head("Owl", mutableListOf(R.drawable.anim_owl_idle),
                         mutableListOf(R.drawable.anim_owl_talk)))
-        heads.add(Head("Dino", mutableListOf(R.drawable.anim_placeholder_dino_01),
-                        mutableListOf(R.drawable.anim_placeholder_dino_02)))
+        heads.add(Head("Dolphin", mutableListOf(R.drawable.anim_dolph_idle),
+                        mutableListOf(R.drawable.anim_dolph_talk)))
+        heads.add(Head("Octopus", mutableListOf(R.drawable.anim_octo_idle),
+                        mutableListOf(R.drawable.anim_octo_talk)))
+        heads.add(Head("Elephant", mutableListOf(R.drawable.anim_eleph_idle),
+                        mutableListOf(R.drawable.anim_eleph_talk)))
+        heads.add(Head("Dinosaur", mutableListOf(R.drawable.anim_dino_idle),
+                        mutableListOf(R.drawable.anim_dino_talk)))
+        heads.add(Head("Alien", mutableListOf(R.drawable.anim_alien_idle),
+                        mutableListOf(R.drawable.anim_alien_talk)))
 
         setSelectedHead(0)
     }
