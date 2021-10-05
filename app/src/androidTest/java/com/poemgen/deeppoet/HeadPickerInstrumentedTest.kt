@@ -6,6 +6,7 @@ import androidx.test.core.app.launchActivity
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -49,13 +50,29 @@ class HeadPickerInstrumentedTest {
         onView(withId(R.id.headPickerButton)).perform(click())
         android.os.SystemClock.sleep(1000)
 
-        onView(withId(R.id.rvHeadPickerList)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.rvHeadPickerList)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         android.os.SystemClock.sleep(1000)
         assert(HeadCollection.currentHeadIndex == 0)
 
-        onView(withId(R.id.rvHeadPickerList)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+        onView(withId(R.id.rvHeadPickerList)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
         android.os.SystemClock.sleep(1000)
         assert(HeadCollection.currentHeadIndex == 1)
+
+        onView(withId(R.id.rvHeadPickerList)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+        android.os.SystemClock.sleep(1000)
+        assert(HeadCollection.currentHeadIndex == 2)
+
+        onView(withId(R.id.rvHeadPickerList)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(3, scrollTo()), actionOnItemAtPosition<RecyclerView.ViewHolder>(3, click()))
+        android.os.SystemClock.sleep(1000)
+        assert(HeadCollection.currentHeadIndex == 3)
+
+        onView(withId(R.id.rvHeadPickerList)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(4, scrollTo()), actionOnItemAtPosition<RecyclerView.ViewHolder>(4, click()))
+        android.os.SystemClock.sleep(1000)
+        assert(HeadCollection.currentHeadIndex == 4)
+
+        onView(withId(R.id.rvHeadPickerList)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(5, scrollTo()), actionOnItemAtPosition<RecyclerView.ViewHolder>(5, click()))
+        android.os.SystemClock.sleep(1000)
+        assert(HeadCollection.currentHeadIndex == 5)
     }
 
 }
