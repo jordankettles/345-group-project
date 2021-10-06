@@ -19,7 +19,7 @@ class ExampleInstrumentedTest {
      * Test the the app is using the correct context.
      */
     @Test
-    private fun useAppContext() {
+    fun useAppContext() {
         /* Context of the app under test. */
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.poemgen.deeppoet", appContext.packageName)
