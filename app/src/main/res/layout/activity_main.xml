@@ -96,35 +96,35 @@
         <!--    ^^^^  first we need to set the prompt.-->
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/textdisplay_layout"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
             app:layout_constraintBottom_toTopOf="@+id/head_layout"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/prompt_layout"
-            app:layout_constraintWidth_percent="0.8">
+            app:layout_constraintWidth_percent="0.8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
-            <TextView
-                android:id="@+id/poemTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="8sp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#676565"
-                app:completion="@{vm.completion}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:prompt="@{vm.prompt}"
-                tools:text="@tools:sample/lorem/random" />
+                <TextView
+                    android:id="@+id/poemTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8sp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#676565"
+                    app:completion="@{vm.completion}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:prompt="@{vm.prompt}"
+                    tools:text="@tools:sample/lorem/random" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/share_button"
@@ -132,7 +132,7 @@
             android:layout_height="wrap_content"
             android:enabled="@{mainActivity.ready}"
             android:text="@string/share"
-            app:layout_constraintTop_toBottomOf="@id/textdisplay_layout"
+            app:layout_constraintTop_toBottomOf="@id/scrollView"
             app:layout_constraintRight_toLeftOf="@+id/continue_button"
             app:layout_constraintLeft_toLeftOf="parent"
             android:alpha="0"
@@ -155,7 +155,7 @@
             app:layout_constraintLeft_toLeftOf="@+id/share_button"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/share_button"
-            app:layout_constraintTop_toBottomOf="@id/textdisplay_layout"
+            app:layout_constraintTop_toBottomOf="@id/scrollView"
             tools:alpha="1"
             tools:translationY="0dp"
             tools:visibility="visible" />
@@ -172,7 +172,9 @@
                 android:id="@+id/hamburgerButton"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:text="@string/hamburger_h"
+                app:icon="@drawable/ic_round_menu_24"
+                app:iconGravity="textEnd"
+                app:iconPadding="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent" />
 
@@ -183,7 +185,9 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintBottom_toBottomOf="@id/hamburgerButton"
                 android:enabled="@{mainActivity.ready}"
-                android:text="@string/hamburger_l"
+                app:icon="@drawable/ic_round_menu_book_24"
+                app:iconGravity="textEnd"
+                app:iconPadding="0dp"
                 android:visibility="gone"
                 android:layout_marginBottom="0dp"
                 tools:layout_marginBottom="50dp"
@@ -191,7 +195,7 @@
 
             <TextView
                 android:id="@+id/showLogLabel"
-                android:layout_width="65dp"
+                android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:text="@string/show_log"
                 android:textAlignment="center"
@@ -209,7 +213,11 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintBottom_toBottomOf="@id/showLogButton"
-                android:text="@string/hamburger_p"
+                android:enabled="@{mainActivity.ready}"
+                app:icon="@drawable/ic_feather_pen"
+                app:iconSize="25dp"
+                app:iconGravity="textEnd"
+                app:iconPadding="0dp"
                 android:visibility="gone"
                 android:layout_marginBottom="0dp"
                 tools:layout_marginBottom="50dp"
@@ -217,7 +225,7 @@
 
             <TextView
                 android:id="@+id/headPickerLabel"
-                android:layout_width="65dp"
+                android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:text="@string/pick_head"
                 android:textAlignment="center"
@@ -237,6 +245,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/headPickerButton"
                 android:enabled="@{mainActivity.ready}"
                 android:text="@string/helpbutton"
+                android:textSize="18sp"
                 android:visibility="gone"
                 android:layout_marginBottom="0dp"
                 tools:layout_marginBottom="50dp"
