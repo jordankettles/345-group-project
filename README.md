@@ -28,7 +28,6 @@ Android Studio needs to sync to download the GPT-2 model, which cannot be upload
 * We added an option to delete poems from storage
 * We updated the help message to reflect changes to the app
 
-
 ### Issues
 *	Our tests were run locally and uploaded manually because GitHub actions does not work with our app (we’ve opened up an issue with GitHub, and they said they’ll get back to us).
 
