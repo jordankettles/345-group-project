@@ -87,14 +87,12 @@ class MainActivity : AppCompatActivity() {
 
         // GPT2 client related things
         randomPrompts = readPrompts()
-
+        initButtons()
         disableButtons()
         gpt2.mainActivity = this
         binding.vm = gpt2
         binding.mainActivity = this
         binding.lifecycleOwner = this
-
-       initButtons()
 
     }
 
@@ -203,14 +201,20 @@ class MainActivity : AppCompatActivity() {
      * Called when the model begins generating a poem.
      */
     fun disableButtons() {
+        hideShareCont()
         _ready.value = false
         switchHeadAnimation(true)
 
     }
 
+    private fun hideShareCont() {
+        buttonContinue.visibility = View.GONE
+        buttonShare.visibility = View.GONE
+    }
+
     /**
      * Enables the UI buttons and animates the poet to stop speaking.
-     * Called when the model has finished generating a poem.
+     * Called once on first startup and each time when the model has finished generating a poem.
      */
     fun enableButtons() {
         _ready.value = true
