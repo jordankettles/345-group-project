@@ -8,14 +8,15 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical">
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="40dp"
-            android:gravity="center">
+            android:layout_height="500dp"
+            android:layout_margin="50dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView"
@@ -23,16 +24,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/help_text"
                 android:textAlignment="center"
-                android:layout_margin="10dp"
-                android:textSize="16sp" />
+                android:textSize="24sp" />
+        </androidx.core.widget.NestedScrollView>
 
-            <Button
-                android:id="@+id/showMainHelp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/return_button" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/showMainHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/return_button" />
 
     </LinearLayout>
 
