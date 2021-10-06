@@ -9,7 +9,7 @@ Deep Poet will let our users find inspiration when stuck in a creative block, im
 
 
 ## Final Release
-The final version of our app uses Hugging Face’s GPT-2 model under Apache 2.0 License. The model has been fine-tuned on a dataset of poems scraped from the Poetry Foundation website. You can find the notebook on how we fine-tuned the model’s output here. (add link here)
+The final version of our app uses Hugging Face’s GPT-2 model under Apache 2.0 License. The model has been fine-tuned on a dataset of poems scraped from the Poetry Foundation website. You can find the notebook on how we fine-tuned the model’s output [here.](https://github.com/jordankettles/345-group-project/tree/main/gpt2-notebook)
 
 ### Building the App
 To build the app, Sync the Project with Gradle Files then Build the Project in Android Studio.
