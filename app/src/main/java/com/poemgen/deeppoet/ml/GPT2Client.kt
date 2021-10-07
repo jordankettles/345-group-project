@@ -144,6 +144,10 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
         launchAutocomplete()
     }
 
+    /**
+     * Capitalizes all letters in the generated poem after a full stop.
+     * @param sentence The generated poem being formatted.
+     */
     fun capitalizeSentence(sentence: String): String {
         val result = StringBuilder()
         var capitalize = true //state
