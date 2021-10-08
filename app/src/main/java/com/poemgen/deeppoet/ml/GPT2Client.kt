@@ -217,7 +217,8 @@ class GPT2Client(application: Application) : AndroidViewModel(application) {
                     tflite.resetVariableTensors()
                 }
             }
-            possiblePoem = capitalizeSentence(possiblePoem)
+            val capPrompt = capitalizeSentence(_prompt.value!!)
+            possiblePoem =  (capitalizeSentence(capPrompt + possiblePoem).replace(capPrompt, ""))
             _completion.postValue(possiblePoem)
             yield()
         }
